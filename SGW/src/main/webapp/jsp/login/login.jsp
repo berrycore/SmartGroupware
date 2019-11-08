@@ -9,47 +9,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/template.css">
-<title>title</title>
+<link rel="stylesheet" type="text/css" href="../../css/template.css">
 <style type="text/css">
-div.left {
-	height: 30px;
-	width: 30%;
-	float: left;
-	border: 1px solid #000;
-	box-sizing: border-box;
-	background: #ff0;
+.center{
+	position: absolute;
+	height: 300px;
+	width: 400px;
+	margin: -150px 0px 0px -200px;
+	top: 50%;
+	left: 50%;
+	padding: 5px;
 }
 
-div.right {
-	height: 30px;
-	width: 70%;
-	float: right;
-	border: 1px solid #000;
-	box-sizing: border-box;
-	background: #0ff;
-}
 </style>
+<title>Login</title>
 </head>
 <body>
-
-	<div style="border: 1px solid black">
-		<div class="left">
-			아이디 
+	<div class="center">
+	
+		<!-- login -->
+		<div class="card border-primary mb-3" style="max-width: 20rem;">
+			<div class="card-header">Smart Group Ware</div>
+			<div class="card-body">
+				<h4 class="card-title">Login</h4>
+				<div style="padding: 2px">
+					<input type="text" value="" class="form-control is-invalid"	id="user_id" placeholder="ID">
+				</div>
+				<div style="padding: 2px">
+					<input type="text" value="" class="form-control is-invalid" id="user_password" placeholder="PASSWORD">
+			
+				</div>
+				<div style="padding: 2px" align="right">
+					<button type="button" class="btn btn-primary btn-lg btn-block">submit</button>
+<!-- 					<button type="button" class="btn btn-secondary">submit</button> -->
+				</div>
+		
+			</div>
 		</div>
-		<div class="right">
-			<input type="text" />
-		</div>
-		<div class="left">
-			패스워드
-		</div>
-		<div class="right">
-			<input type="text" />
-		</div>
-		<div>
-			<input type="submit" value="login" />
-		</div>
+	
 	</div>
-
 </body>
 </html>

@@ -15,9 +15,9 @@
 MailListView.jsp
 
 <div>
-	<h1>Smart Email</h1>
-	<table>
-		<tr bgcolor="yellow">
+	<h1 class="display-4">Smart Email</h1>
+	<table class="table-light">
+		<tr class="table-primary">
 			<td>메일ID</td>
 			<td>발신자</td>
 			<td>수신자</td>
@@ -59,5 +59,37 @@ MailListView.jsp
 		</tr>
 	</table>
 </div>
+
+<!-- navi -->
+<div>
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
+	<!-- search -->	
+	<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+	</form>
 </body>
 </html>

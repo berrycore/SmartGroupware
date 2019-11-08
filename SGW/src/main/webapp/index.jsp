@@ -10,28 +10,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/template.css">
-<style type="text/css">
-div.left {
-	height: 600px;
-	width: 20%;
-	float: left;
-	border: 1px solid #000;
-	box-sizing: border-box;
-	background: #ff0;
-}
 
-div.right {
-	height: 600px;
-	width: 80%;
-	float: right;
-	border: 1px solid #000;
-	box-sizing: border-box;
-	background: #0ff;
-}
-</style>
 <title>Smart Group Ware</title>
 </head>
+
 <body>
+
+<button id="button_sample" class="btn btn-primary">버튼샘플</button>
 
 	<!-- header -->
 	<div id="header">
@@ -46,10 +31,10 @@ div.right {
 
 	<!-- menu & main -->
 	<div>
-        <div class="left">
+        <div >
         	<%@ include file="menu.jsp" %>
         </div>
-        <div class="right">
+        <div>
         	<%@ include file="main.jsp" %>
         </div>
     </div>

@@ -15,6 +15,12 @@
 <div>
 	<h1>공지사항</h1>
 	<table>
+		<tr class="table-dark">
+			<td>글번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
 		<tr>
 			<td>21</td>
 			<td>창립기념일 공지</td>
@@ -53,13 +59,51 @@
 		</tr>
 	</table>
 	
-	<p> 1 2 3 4 ... 8 </p>
+	<!-- navi -->
+		<div>
+		  <ul class="pagination">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#">&laquo;</a>
+		    </li>
+		    <li class="page-item active">
+		      <a class="page-link" href="#">1</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">2</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">3</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">4</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">5</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">&raquo;</a>
+		    </li>
+		  </ul>
+		</div>
+	
+	
+	<!-- search -->	
+	<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+	</form>
 	
 </div>
 <br/><br/>
 <div>
 	<h2>팀 게시판</h2>
 	<table>
+		<tr class="table-info">
+			<td>글번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
 		<tr>
 			<td>70</td>
 			<td>이번달 누구 생일인지 알려주세요</td>
@@ -92,7 +136,40 @@
 		</tr>
 	</table>
 	
-	<p> 1 2 3 4 ... 8 </p>
+	<!-- navi -->
+		<div>
+		  <ul class="pagination">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#">&laquo;</a>
+		    </li>
+		    <li class="page-item active">
+		      <a class="page-link" href="#">1</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">2</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">3</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">4</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">5</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">&raquo;</a>
+		    </li>
+		  </ul>
+		</div>
+	
+	
+	<!-- search -->	
+	<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+	</form>
+	
 </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../css/template.css">
-<title>title</title>
+<title>DocumentListView.jsp</title>
 </head>
 <body>
 	<table>
@@ -20,15 +20,37 @@
 			</td>
 		</tr>
 		<tr>
-			<td>새 문서작성</td>
-			<td>불러오기</td>
+			<td>
+				<button type="button" class="btn btn-primary">새 문서작성</button>
+			</td>
+			<td>
+				<button type="button" class="btn btn-primary">불러오기</button>
+			</td>
 		</tr>
 	</table>
 	<br />
 	<div>
-		<table>
-			<tr>
-				<td colspan="4"><h4>완료문서</h4></td>
+	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		  <a class="navbar-brand" href="#">완료문서</a>
+		  <div class="collapse navbar-collapse" id="navbarColor01">
+			
+		    <form class="form-inline my-2 my-lg-0">
+		    	<select class="form-control" id="exampleSelect1">
+	        		<option>문서번호</option>
+	        		<option>제목</option>
+	        		<option>작성자</option>
+	      		</select>
+	      		&nbsp;
+		      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+		      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		  </div>
+		</nav>
+	
+		<table class="table-light">
+			<tr class="table-dark">
+				<td colspan="4" ><h4>검색결과</h4></td>
 			</tr>
 			<tr>
 				<td>문서번호</td>
@@ -69,7 +91,34 @@
 				<td>...</td>
 			</tr>
 		</table>
-		< 1  2  3  4  5 ... 80 >
+		
+		<!-- navi -->
+		<div>
+		  <ul class="pagination">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#">&laquo;</a>
+		    </li>
+		    <li class="page-item active">
+		      <a class="page-link" href="#">1</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">2</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">3</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">4</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">5</a>
+		    </li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">&raquo;</a>
+		    </li>
+		  </ul>
+		</div>
+		
 	</div>
 </body>
 </html>
