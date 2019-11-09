@@ -9,25 +9,21 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="dataSource" 
-class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
 		p:url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
 		p:username="hr"
 		p:password="hr">
 	</bean>
-	<bean id="sqlSessionFactory"
-	class="org.mybatis.spring.SqlSessionFactoryBean"
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
 		p:configLocation="classpath:mybatis-config.xml">
 	</bean>
-	<bean id="sqlSession"
-		class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 
-	<bean class=
-"org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
 
 	<context:component-scan 
 		base-package="dao,logic,controller,model"></context:component-scan>
