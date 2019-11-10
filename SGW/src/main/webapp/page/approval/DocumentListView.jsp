@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../css/template.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
 <title>DocumentListView.jsp</title>
 </head>
 <body>

@@ -8,14 +8,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/template.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <title>title</title>
 </head>
 <body>
 
 <p>주 메인 화면 입니다.</p>
 <p>
-	<jsp:include page="/jsp/mail/MailListView.jsp" />
+	<jsp:include page="/page/mail/MailListView.jsp" />
 </p>
 
 </body>

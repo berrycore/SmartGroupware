@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/template.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 <title>Smart Group Ware</title>
 </head>
 
 <body>
 
-<button id="button_sample" class="btn btn-primary">버튼샘플</button>
+<button id="button_sample" class="btn-success">버튼샘플</button>
 
 	<!-- header -->
 	<div id="header">
