@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
 <style type="text/css">
-.center{
+.center {
 	position: absolute;
 	height: 300px;
 	width: 400px;
@@ -20,33 +20,34 @@
 	left: 50%;
 	padding: 5px;
 }
-
 </style>
 <title>Login</title>
 </head>
 <body>
+
+
 	<div class="center">
-	
-		<!-- login -->
+
 		<div class="card border-primary mb-3" style="max-width: 20rem;">
 			<div class="card-header">Smart Group Ware</div>
 			<div class="card-body">
 				<h4 class="card-title">Login</h4>
 				<div style="padding: 2px">
-					<input type="text" value="" class="form-control is-invalid"	id="user_id" placeholder="ID">
+					<input type="text" value="" class="form-control is-invalid"
+						id="user_id" placeholder="ID">
 				</div>
 				<div style="padding: 2px">
-					<input type="text" value="" class="form-control is-invalid" id="user_password" placeholder="PASSWORD">
-			
+					<input type="text" value="" class="form-control is-invalid"
+						id="user_password" placeholder="PASSWORD">
+
 				</div>
 				<div style="padding: 2px" align="right">
 					<button type="button" class="btn btn-primary btn-lg btn-block">submit</button>
-<!-- 					<button type="button" class="btn btn-secondary">submit</button> -->
+					<!-- 					<button type="button" class="btn btn-secondary">submit</button> -->
 				</div>
-		
+
 			</div>
 		</div>
-	
 	</div>
 </body>
 </html>

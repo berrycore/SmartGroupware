@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<title>title</title>
+<title>menu</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
