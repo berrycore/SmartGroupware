@@ -9,73 +9,75 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <title>AccountStatusView.jsp</title>
 </head>
 <body>
-	<fieldset>
-		<legend>계정설정</legend>
-	</fieldset>
-	
 
-	<table>
+	
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th colspan="2">
+					<h2>회원 정보</h2>	
+				</th>
+			</tr>
+		</thead>
 		<tr>
 			<td>이름</td>
-			<td>
-				<input class="form-control" id="user_name" type="text" value="베란다" disabled="disabled">
-			</td>
+			<td><input class="form-control" id="user_name" type="text"
+				value="베란다" disabled="disabled"></td>
 		</tr>
 		<tr>
 			<td>ID</td>
-			<td>
-				<input class="form-control" id="user_id" type="text" value="S10001" disabled="disabled">
-			</td>
+			<td><input class="form-control" id="user_id" type="text"
+				value="S10001" disabled="disabled"></td>
 		</tr>
 		<tr>
 			<td>패스워드 변경</td>
-			<td>
-  				<input type="text" value="correct value" class="form-control is-valid" id="password">
-  				<div class="valid-feedback" >Success! You've done it.</div>
-			</td>
+			<td><input type="text" value="correct value"
+				class="form-control is-valid" id="password">
+				<div class="valid-feedback">Success! You've done it.</div></td>
 		</tr>
 		<tr>
 			<td>패스워드 변경 확인</td>
-			<td>
-				<input type="text" value="incorrect value" class="form-control is-invalid" id="password_re">
-				<div class="invalid-feedback">Sorry, that username's taken. Try another?</div>
-			</td>
+			<td><input type="text" value="incorrect value"
+				class="form-control is-invalid" id="password_re">
+				<div class="invalid-feedback">Sorry, that username's taken.
+					Try another?</div></td>
 		</tr>
 		<tr>
 			<td>전화번호</td>
-			<td>
-  				<input type="text" class="form-control" placeholder="Tel" id="user_phone">
-			</td>
+			<td><input type="text" class="form-control" placeholder="Tel"
+				id="user_phone"></td>
 		</tr>
 		<tr>
 			<td>부서명</td>
-			<td>
-				<input class="form-control" id="team_name" type="text" value="기관영업1팀" readonly="readonly">
-			</td>
+			<td><input class="form-control" id="team_name" type="text"
+				value="기관영업1팀" readonly="readonly"></td>
 		</tr>
 		<tr>
 			<td>직급</td>
-			<td>
-				<input class="form-control" id="position_name" type="text" value="대리" readonly="readonly">
-			</td>
+			<td><input class="form-control" id="position_name" type="text"
+				value="대리" readonly="readonly"></td>
 		</tr>
 		<tr>
 			<td>업무소개</td>
-			<td>
-				<textarea class="form-control" id="exampleTextarea" rows="3"></textarea> 
+			<td><textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<button type="button" class="btn btn-primary">저장하기</button>
+				<button type="button" class="btn btn-dark">저장하기</button>
 			</td>
 		</tr>
 	</table>
-
+</div>
 </body>
 </html>
