@@ -32,10 +32,7 @@
 
 				<div class="collapse navbar-collapse" id="navb">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><a class="nav-link"
-							href="javascript:void(0)">새문서 작성</a></li>
-						
-						
+						<li class="nav-item"><a class="nav-link" href="javascript:void(0)">새문서 작성</a></li>
 						
 						<!-- Dropdown -->
 					    <li class="nav-item dropdown">
