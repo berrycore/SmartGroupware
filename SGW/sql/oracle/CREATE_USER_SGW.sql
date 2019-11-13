@@ -1,0 +1,2 @@
+CREATE USER c##sgw IDENTIFIED BY sgwservice1#;
+GRANT CONNECT, RESOURCE TO c##sgw;
