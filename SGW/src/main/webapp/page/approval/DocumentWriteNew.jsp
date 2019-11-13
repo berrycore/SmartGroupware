@@ -27,7 +27,7 @@
 				<td >
 					<form class="form-inline" action="#">
 						  <button type="button" class="btn btn-danger btn-sm m-1">결재올림</button>
-						  <button type="button" class="btn btn-secondary btn-sm m-1">결재선</button>
+<!-- 						  <button type="button" class="btn btn-secondary btn-sm m-1">결재선</button> -->
 						  <button type="button" class="btn btn-secondary btn-sm m-1">임시저장</button>
 						  <button type="button" class="btn btn-warning btn-sm m-1">문서삭제</button>
 					</form>
@@ -39,39 +39,40 @@
 			<tr>
 				<td>
 					<!-- approval line-->
+					<!-- approval line-->
 					<table class="table-bordered table-sm">
 						<tr>
 							<td>
-								<small>기안자</small>								
+								<small>대리</small>								
 							</td>
-							<td><small>결재선2</small></td>
-							<td><small>결재선3</small></td>
-							<td><small>결재선4</small></td>
-							<td><small>Final직급</small></td>
+							<td><small>-</small></td>
+							<td><small>-</small></td>
+							<td><small>-</small></td>
+							<td><small>-</small></td>
 						</tr>
 						<tr>
 							<td style="height:50px;width:60px">
 								<small>베란다</small>
 							</td>
 							<td style="height:50px;width:60px">
-								<small>이름2</small>
+								<small> <a href=""><span class="badge badge-info">설정하기</span></a> </small>
 							</td>
 							<td style="height:50px;width:60px">
-								<small>이름3</small>
+								<small> <a href=""><span class="badge badge-info">설정하기</span></a> </small>
 							</td>
 							<td style="height:50px;width:60px">
-								<small>이름4</small>
+								<small> <a href=""><span class="badge badge-info">설정하기</span></a> </small>
 							</td>
 							<td style="height:50px;width:60px">
-								<small>Final이름</small>
+								<small> <a href=""><span class="badge badge-warning">설정하기</span></a> </small>
 							</td>
 						</tr>
 						<tr>
-							<td><small>2019/11/03</small></td>
 							<td><small>-</small></td>
 							<td><small>-</small></td>
 							<td><small>-</small></td>
-							<td><small>2019/11/11</small></td>
+							<td><small>-</small></td>
+							<td><small>-</small></td>
 						</tr>
 					</table>
 					

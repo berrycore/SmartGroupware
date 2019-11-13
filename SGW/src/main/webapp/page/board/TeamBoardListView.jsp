@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>title</title>
+<title>팀 게시판</title>
 </head>
 <body>
 	<div>
@@ -47,7 +47,7 @@
 			</nav>
 
 
-
+<button class="btn btn-primary" style="margin-bottom: 5px">새글작성</button>
 			<table class="table table-sm table-bordered table-hover">
 				<thead>
 					<tr>
@@ -60,7 +60,9 @@
 				<tbody>
 					<tr>
 						<td>10</td>
-						<td>팀회식 합시다</td>
+						<td>
+							<a href="#"> 팀회식 합시다 </a> <span class="badge badge-secondary" style="margin-left: 10px"> 3 </span>
+						</td>
 						<td>베란다</td>
 						<td>2019-11-10</td>
 					</tr>
@@ -106,12 +108,13 @@
 								<li class="page-item"><a class="page-link" href="#">3</a></li>
 								<li class="page-item"><a class="page-link" href="#">Next</a></li>
 							</ul>
-							<button class="btn btn-primary">새글작성</button>
+							
 						</td>
 					</tr>
 				</tfoot>
 
 			</table>
+			
 		</div>
 	</div>
 </body>

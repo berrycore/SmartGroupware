@@ -70,19 +70,32 @@
 
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
-					<div class="navbar-header">
+					<div class="navbar-header navbar-left">
 						<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
 							<i class="glyphicon glyphicon-align-left"></i> 
 							<span>Toggle Sidebar</span>
 						</button>
-					</div>
+						<a href="#"> <button type="button" class="btn btn-warning">Logout</button> </a>
+						
+						
+							<div class="dropdown">
+								
+									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								    	Language
+								  	</button>
+								  	<div class="dropdown-menu">
+								    	<a class="dropdown-item" href="#">Korean</a>
+								    	<a class="dropdown-item" href="#">English</a>
+								  	</div>
+							</div>
+							
+					</div>	
 					
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Logout</a></li>
+							
 						</ul>
 					</div>
-
 				</div>
 			</nav>
 

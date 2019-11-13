@@ -94,7 +94,20 @@
 						<tbody>
 							<tr>
 								<td>
-									<textarea class="form-control" rows="10" id="document_content"></textarea>
+									<textarea class="form-control bg-light" rows="10" id="document_content" readonly="readonly">
+2019년 3분기 실적결과를 다음과 같이 보고 드립니다
+ 
+- 다 음 -
+
+더미 데이터 입니다.
+더미 데이터 입니다.
+더미 데이터 입니다.
+
+끝.
+
+※ 세부 내용은 별첨 문서 참조
+
+									</textarea>
 								</td>
 							</tr>
 						</tbody>
