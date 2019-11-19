@@ -1,0 +1,60 @@
+package model;
+
+public class Board {
+
+	private Integer board_id;
+	private String board_title;
+	private String board_content;
+	private String board_writer_name;
+	private String board_attached_file_name;
+	private String board_date_regist;
+
+	public Integer getBoard_id() {
+		return board_id;
+	}
+
+	public void setBoard_id(Integer board_id) {
+		this.board_id = board_id;
+	}
+
+	public String getBoard_title() {
+		return board_title;
+	}
+
+	public void setBoard_title(String board_title) {
+		this.board_title = board_title;
+	}
+
+	public String getBoard_content() {
+		return board_content;
+	}
+
+	public void setBoard_content(String board_content) {
+		this.board_content = board_content;
+	}
+
+	public String getBoard_writer_name() {
+		return board_writer_name;
+	}
+
+	public void setBoard_writer_name(String board_writer_name) {
+		this.board_writer_name = board_writer_name;
+	}
+
+	public String getBoard_attached_file_name() {
+		return board_attached_file_name;
+	}
+
+	public void setBoard_attached_file_name(String board_attached_file_name) {
+		this.board_attached_file_name = board_attached_file_name;
+	}
+
+	public String getBoard_date_regist() {
+		return board_date_regist;
+	}
+
+	public void setBoard_date_regist(String board_date_regist) {
+		this.board_date_regist = board_date_regist;
+	}
+
+}
