@@ -14,6 +14,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<script>
+	function popup_team_check() {
+		var url = "teamCheck.html";
+		var name = "TeamCheck";
+		var option = "width = 600, height = 200, top = 100, left = 200, location = no";
+		window.open(url, name, option);
+	}
+	
+	function popup_position_check(){
+		var url = "positionCheck.html";
+		var name = "PositionCheck";
+		var option = "width = 600, height = 200, top = 100, left = 200, location = no";
+		window.open(url, name, option);
+	}
+</script>
+
 <title>사용자 추가</title>
 </head>
 <body>
@@ -45,12 +61,12 @@
 		<tr>
 			<td>부서명</td>
 			<td><input class="form-control" id="team_name" type="text" value="기관영업1팀" readonly="readonly"></td>
-			<td><button class="btn-primary btn-sm">부서조회</button></td>
+			<td><button class="btn-primary btn-sm" onclick="popup_team_check()">부서조회</button></td>
 		</tr>
 		<tr>
 			<td>직급</td>
 			<td><input class="form-control" id="position_name" type="text" value="대리" readonly="readonly"></td>
-			<td><button class="btn-primary btn-sm">직급조회</button></td>
+			<td><button class="btn-primary btn-sm" onclick="popup_position_check()">직급조회</button></td>
 		</tr>
 		<tr>
 			<td>업무소개</td>

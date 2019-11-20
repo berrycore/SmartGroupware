@@ -16,12 +16,38 @@ public class ManageController {
 	@Autowired
 	private UserAccountCatalog userAccountCatalog;
 	
-	@RequestMapping(value="/SGW/manage/userList.html")
+	@RequestMapping(value="/manage/userList.html")
 	public ModelAndView userList() {
-		System.out.println("ManagerController::userList() called");
 		ModelAndView mav = new ModelAndView("home/manage/UserList");
 		List<User> userList = userAccountCatalog.getUserList();
 		mav.addObject("userList", userList);
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/userAdd.html")
+	public ModelAndView userAdd() {
+		ModelAndView mav = new ModelAndView("home/manage/UserAdd");
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/teamCheck.html")
+	public ModelAndView teamCheck() {
+		System.out.println("teamCheck");
+		ModelAndView mav = new ModelAndView("home/manage/TeamCheck");
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/positionCheck.html")
+	public ModelAndView positionCheck() {
+		System.out.println("positionCheck");
+		ModelAndView mav = new ModelAndView("home/manage/PositionCheck");
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/managePermission.html")
+	public ModelAndView managePermission() {
+		System.out.println("managePermission");
+		ModelAndView mav = new ModelAndView("home/manage/ManagePermission");
 		return mav;
 	}
 }
