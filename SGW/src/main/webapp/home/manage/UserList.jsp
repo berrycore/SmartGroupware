@@ -9,28 +9,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>title</title>
+<title>user list</title>
 </head>
 <body>
-
-<p>주 메인 화면 입니다.</p>
-<p>
-	<jsp:include page="dashboard.jsp" />
-<p/>
-<p>
-    <jsp:include page="/home/mail/MailViewList.jsp" /> 
-    <jsp:include page="/home/account/AccountStatusView.jsp" />
-	<jsp:include page="/home/approval/DocumentListView.jsp" />
-	<jsp:include page="/home/board/NoticeListView.jsp" />
-	<jsp:include page="/home/board/TeamBoardListView.jsp" />
-</p>
-
+<h1>SM_USERS</h1>
+userList
+<table class="table">
+	<tr>
+		<td>user_id</td>
+		<td>user_password</td>
+		<td>user_name</td>
+		<td>user_email</td>
+		<td>user_phone</td>
+		<td>user_description</td>
+		<td>user_date_last_login</td>
+		<td>user_date_last_pw_changed</td>
+		<td>user_date_employement</td>
+		<td>user_date_retirement</td>
+		<td>team_id</td>
+		<td>position_id</td>
+	</tr>
+</table>
 </body>
 </html>

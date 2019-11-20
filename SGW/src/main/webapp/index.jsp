@@ -57,6 +57,8 @@
 						<li><a href="#">Team 게시판</a></li>
 					</ul></li>
 				<li><a href="#">내 정보</a></li>
+				<li><a href="/SGW/manage/UserList.html">사용자 리스트</a></li>
+				<li><a href="/SGW/manage/UserAdd.html">사용자 등록</a></li>
 			</ul>
 
 			<!--                 <ul class="list-unstyled CTAs"> -->

@@ -2,7 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.myMapper">
-
+	<select id="getUserAccount" parameterType="String" resultType="model.User">
+		select * from SM_USERS where user_id = #{user_id}
+	</select>
+	<select id="">
+		select * from SM_USERS;
+	</select>
 </mapper>
 
 

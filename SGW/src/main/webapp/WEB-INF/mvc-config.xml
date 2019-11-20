@@ -12,8 +12,8 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
 		p:url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-		p:username="hr"
-		p:password="hr">
+		p:username="c##sgw"
+		p:password="sgwservice1#">
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
