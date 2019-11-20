@@ -2,11 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.myMapper">
+
+	<!-- SM_USERS -->
 	<select id="getUserAccount" parameterType="String" resultType="model.User">
 		select * from SM_USERS where user_id = #{user_id}
 	</select>
 	<select id="">
-		select * from SM_USERS;
+		select * from SM_USERS
+	</select>
+	
+	<!-- SM_TEAMS -->
+	<select id="getTeamList" resultType="model.Team">
+		select * from SM_TEAMS
+	</select>
+	<select id="getTeamCount" resultType="Integer">
+		select count(*) from SM_TEAMS
+	</select>
+	<insert id="insertTeam" parameterType="model.Team">
+		insert into SM_TEAMS values(#{team_id}, #{team_name}, #{team_parent_id})
+	</insert>
+	
+	<!-- SM_POSITION -->
+	<insert id="insertPosition">
+		insert into SM_POSITION  values(#{position_id} ,#{position_name})
+	</insert>
+	<select id="getPositionCount" resultType="Integer">
+		select count(*) from SM_POSITION
+	</select>
+	<select id="getPositionList" resultType="model.Position" >
+		select * from SM_POSITION order by position_id
 	</select>
 </mapper>
 

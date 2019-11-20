@@ -1,0 +1,1 @@
+INSERT INTO SM_COMPANY values ('DM','DemoCompany','localhost');

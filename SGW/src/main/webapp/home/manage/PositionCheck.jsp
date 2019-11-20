@@ -21,22 +21,28 @@
 <title>직급조회</title>
 </head>
 <body>
+
+	<script>
+		function positionOK() {
+			var positions = document.getElementById("positions");
+			opener.document.frm.position_name.value = positions.options[positions.selectedIndex].value;
+			self.close();
+		}
+	</script>
+
 	<h2>직급조회</h2>
 	<div>
-		<form class="form-inline my-2 my-lg-0">
+		
+		<form class="form-inline my-2 my-lg-0" name="frm">
 			
-			<select class="form-control" id="position">
-				<option>인턴</option>
-				<option>사원</option>
-				<option>대리</option>
-				<option>과장</option>
-				<option>차장</option>
-				<option>부장</option>
-				<option>부사장</option>
-				<option>대표이사</option>
+			<select class="form-control" id="positions" >
+				<c:forEach var="position" items="${positionList}">
+					<option>${position.position_name }</option>
+				</c:forEach>
+				
 			</select>
 			&nbsp;
-			<button class="btn btn-warning my-2 my-sm-0" type="button">Confirm</button>
+			<button class="btn btn-warning my-2 my-sm-0" type="button" onClick="positionOK()">Confirm</button>
 		</form>
 	</div>
 

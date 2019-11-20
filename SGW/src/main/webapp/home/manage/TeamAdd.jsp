@@ -21,24 +21,24 @@
 
 <div class="container">
 	
-	<form action="#" >
+	<form action="teamAdd.html" method="POST">
 		
 		<h2>팀 추가하기</h2>
 		
 		<div class="form-group">
 			<label for="team_id">팀ID</label>
-			<input type="text" class="form-control" id="team_id" placeholder="자동생성됨" readonly="readonly">
+			<input type="text" class="form-control" name="team_id" placeholder="자동생성됨" readonly="readonly">
 		</div>
 		<div class="form-group">
 			<label for="team_name">팀이름</label>
-			<input type="text" class="form-control" id="team_name" >
+			<input type="text" class="form-control" name="team_name" >
 		</div>
 		<div class="form-group">
 			<label for="parent_team_id">상위부서 ID</label>
-			<input type="text" class="form-control" id="parent_team_id" >
+			<input type="text" class="form-control" name="team_parent_id" >
 		</div>
 		<div class="form-group">
-			<button class="btn btn-primary ma-6">저장</button>
+			<input type="submit" class="btn btn-primary" value="등록" >
 		</div>
 	</form>
 </div>

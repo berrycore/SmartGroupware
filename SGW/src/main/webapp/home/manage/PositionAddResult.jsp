@@ -14,29 +14,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>title</title>
+<title>PositonAddResult</title>
 </head>
 <body>
 
-
-<div class="container">
 	
-	<form action="positionAdd.html" method="POST">
-		
-		<h2>직급 추가하기</h2>
-		
-		<div class="form-group">
-			<label for="position_id">직급 ID</label>
-			<input type="text" class="form-control" name="position_id" placeholder="자동생성됨" readonly="readonly">
-		</div>
-		<div class="form-group">
-			<label for="position_name">직급 이름</label>
-			<input type="text" class="form-control" name="position_name" >
-		</div>
-		<div class="form-group">
-			<input type="submit" class="btn btn-primary" value="등록">
-		</div>
-	</form>
-</div>
+		<script type="text/javascript">
+			alert("등록 되었습니다.");
+			location.href = "managePermission.html";
+		</script>
+	
 </body>
 </html>

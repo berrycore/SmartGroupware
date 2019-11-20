@@ -16,8 +16,11 @@ public interface ManageCatalog {
 	void selectUserId(String user_id);
 	void selectTeamId(String team_name);
 	void selectPosition(String position_name);
+	List<Position> getPositionList();
 	
 	void insertTeam(Team team);
+	List<Team> getTeamList();
+	
 	void insertPosition(Position position);
 	
 	List<SgwAccess> getSgwAccessList();

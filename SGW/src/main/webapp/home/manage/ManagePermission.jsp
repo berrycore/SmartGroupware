@@ -66,17 +66,16 @@
 			</div>
 			
 			<div id="menu1" class="container tab-pane fade">
-				<jsp:include page="UserAdd.jsp"></jsp:include>
+				<jsp:include page="UserAdd.jsp" flush="false" />				
 			</div>
-			
 			<div id="menu2" class="container tab-pane fade">
-				<jsp:include page="TeamAdd.jsp"></jsp:include>
+				<jsp:include page="TeamAdd.jsp" flush="false"/>
 			</div>
 			<div id="menu3" class="container tab-pane fade">
-				<jsp:include page="PositionAdd.jsp"></jsp:include>	
+				<jsp:include page="PositionAdd.jsp" flush="false"/>
 			</div>
 			<div id="menu4" class="container tab-pane fade">
-				<jsp:include page="MenuAccessManage.jsp"></jsp:include>	
+				<jsp:include page="MenuAccessManage.jsp" flush="false"/>	
 			</div>
 		</div>
 	</div>
