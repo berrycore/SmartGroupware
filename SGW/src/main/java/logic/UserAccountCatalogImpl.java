@@ -17,6 +17,10 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 	public User getUserAccount(String user_id) {
 		return userDao.getUserAccount(user_id);
 	}
+	
+	public Integer getUserAccountCount(String user_id) {
+		return userDao.getUserAccountCount(user_id);
+	}
 
 	public void updateUserAccount(User user) {
 		userDao.updateUserAccount(user);
@@ -25,5 +29,6 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 	public List<User> getUserList() {
 		return userDao.getUserList();
 	}
+
 
 }

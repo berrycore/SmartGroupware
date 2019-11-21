@@ -17,6 +17,10 @@ public class UserDaoImpl implements UserDao {
 	public User getUserAccount(String user_id) {
 		return session.selectOne("mapper.myMapper.getUserAccount", user_id);
 	}
+	
+	public Integer getUserAccountCount(String user_id) {
+		return session.selectOne("mapper.myMapper.getUserAccountCount", user_id);
+	}
 
 	public void updateUserAccount(User user) {
 		// TODO : mapper setting

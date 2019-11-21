@@ -20,7 +20,8 @@
 	<script>
 		function teamOK() {
 			var teams = document.getElementById("teams");
-			opener.document.frm.team_name.value = teams.options[teams.selectedIndex].value;
+			opener.document.frm_team.team_name.value = teams.options[teams.selectedIndex].text;
+			opener.document.frm_team.team_id.value = teams.options[teams.selectedIndex].value;
 			self.close();
 		}
 	</script>
@@ -30,7 +31,7 @@
 	<form class="form-inline my-2 my-lg-0" name="frm">
 		<select class="form-control" id="teams">
 			<c:forEach var="team" items="${teamList}">
-				<option>${team.team_name }</option>
+				<option value="${team.team_id}" >${team.team_name }</option>
 			</c:forEach>
 		</select>
 		

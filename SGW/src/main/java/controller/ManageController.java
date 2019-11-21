@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import logic.CompanyCatalog;
 import logic.ManageCatalog;
 import logic.UserAccountCatalog;
+import model.Company;
 import model.Position;
 import model.Team;
 import model.User;
+import validator.UserAddValidator;
 
 @Controller
 public class ManageController {
@@ -23,6 +27,12 @@ public class ManageController {
 	@Autowired
 	private ManageCatalog manageCatalog;
 	
+	@Autowired
+	private CompanyCatalog companyCatalog;
+	
+	@Autowired
+	private UserAddValidator userAddValidator;
+	
 	@RequestMapping(value="/manage/userList.html")
 	public ModelAndView userList() {
 		ModelAndView mav = new ModelAndView("home/manage/UserList");
@@ -32,8 +42,32 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value="/manage/userDuplicationCheck.html")
-	public ModelAndView userDuplicationCheck() {
+	public ModelAndView userDuplicationCheck(String user_id, BindingResult br) {
+		System.out.println("userDuplicationCheck :: " + user_id);
 		ModelAndView mav = new ModelAndView("home/manage/UserDuplicationCheck");
+		
+		userAddValidator.validate(user_id, br);
+		
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			return mav;
+		}
+		
+		
+		Company company = companyCatalog.getCompany("DM");
+		mav.addObject("company_id", company.getCompany_id());
+		
+		Integer cnt = userAccountCatalog.getUserAccountCount(company.getCompany_id() + user_id);
+		
+		if(user_id != null) {
+			if( cnt > 0) {
+				mav.addObject("isDuplicated", "yes");
+			}else {
+				mav.addObject("isDuplicated", "no");
+				mav.addObject("user_id" , user_id);
+			}	
+		}
+		
 		return mav;
 	}
 	

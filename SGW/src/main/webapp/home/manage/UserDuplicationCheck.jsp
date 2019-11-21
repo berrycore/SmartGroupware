@@ -18,16 +18,42 @@
 <body>
 
 	<script >
-		//TODO user_id_OK function
+		function idOK() {
+			opener.document.frm_user_id.user_id.value = "${company_id}"+document.frm.user_id.value;
+			self.close();
+		}
 	</script>
 
 <h2>사용자 ID 중복체크</h2>
 <div style="margin: 10px">
-	<form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="text" placeholder="ID">
-		<button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+	<form class="form-inline my-2 my-lg-0" action="userDuplicationCheck.html" name="frm">
+		<div class="input-group " >
+			<div class="input-group-prepend">
+				<span class="input-group-text">${company_id}</span>
+			</div>
+			<input class="form-control mr-sm-2" type="text" placeholder="ID" name="user_id" value="${user_id}" >
+		</div>
+		<button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
 		&nbsp;
-		<button class="btn btn-success my-2 my-sm-0" type="button">Confirm</button>
+		<button class="btn btn-success my-2 my-sm-0" type="button" onclick="idOK()">Confirm</button>
+		
+		<div style="margin: 5px">
+			<c:choose>
+				<c:when test="${isDuplicated eq 'yes' }">
+			   		<div class="alert alert-danger">
+	    				<strong>이미 사용중입니다</strong>
+	  				</div>
+				</c:when>
+				<c:when test="${isDuplicated eq 'no' }">
+					<div class="alert alert-success">
+	 					<strong>사용 가능합니다</strong>
+					</div>
+				</c:when>
+			</c:choose>
+		</div>
+		
+		
+		<!-- <font color="red"><form:errors path="user_id"/></font>  -->
 		
 		<div style="margin-top: 10px" class="toast" data-autohide="false">
 	 		<div class="toast-header">

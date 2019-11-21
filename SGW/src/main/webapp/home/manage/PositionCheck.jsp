@@ -25,7 +25,8 @@
 	<script>
 		function positionOK() {
 			var positions = document.getElementById("positions");
-			opener.document.frm.position_name.value = positions.options[positions.selectedIndex].value;
+			opener.document.frm_position.position_name.value = positions.options[positions.selectedIndex].text;
+			opener.document.frm_position.position_id.value = positions.options[positions.selectedIndex].value;
 			self.close();
 		}
 	</script>
@@ -37,7 +38,7 @@
 			
 			<select class="form-control" id="positions" >
 				<c:forEach var="position" items="${positionList}">
-					<option>${position.position_name }</option>
+					<option value="${position.position_id }">${position.position_name }</option>
 				</c:forEach>
 				
 			</select>

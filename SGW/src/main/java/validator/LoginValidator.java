@@ -1,4 +1,5 @@
-package util;
+package validator;
+
 
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;

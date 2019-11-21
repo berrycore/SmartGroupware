@@ -42,52 +42,66 @@
 <body>
 
 <div >
-	<form action="#" name="frm">
-		<table class="table" style="margin-top: 5px;">
-			<thead>
-				<tr>
-					<th colspan="2">
-						<h2>사용자 추가</h2>	
-					</th>
-				</tr>
-			</thead>
+	
+	<table class="table" style="margin-top: 5px;">
+		<thead>
 			<tr>
-				<td>이름</td>
-				<td><input class="form-control" id="user_name" type="text" value="베란다" ></td>
+				<th colspan="2">
+					<h2>사용자 추가</h2>	
+				</th>
 			</tr>
-			<tr>
-				<td>ID</td>
-				<td><input class="form-control" id="user_id" type="text" value="DM191103" disabled="disabled"></td>
-				<td><button class="btn-info" onclick="popup_user_id_check()">중복조회</button> </td>
-			</tr>
+		</thead>
+		<tr>
+			<td>이름</td>
+			<td><input class="form-control" id="user_name" type="text" value="베란다" ></td>
+		</tr>
+		<tr>
+			<td>ID</td>
+			<td>
+				<form action="#" name="frm_user_id">
+					<input class="form-control" name="user_id" type="text" value="DM191103" disabled="disabled">
+				</form>
+			</td>
+			<td><button class="btn-info" onclick="popup_user_id_check()">중복조회</button> </td>
+		</tr>
+		
+		<tr>
 			
-			<tr>
-				<td>전화번호</td>
-				<td><input type="text" class="form-control" placeholder="Tel"
-					id="user_phone"></td>
-			</tr>
-			<tr>
-				<td>부서명</td>
-				<td><input class="form-control" name="team_name" id="team_name" type="text" value="기관영업1팀" readonly="readonly"></td>
-				<td><button class="btn-primary btn-sm" onclick="popup_team_check()">부서조회</button></td>
-			</tr>
-			<tr>
-				<td>직급</td>
-				<td><input class="form-control" name="position_name" id="position_name" type="text" value="대리" readonly="readonly"></td>
-				<td><button class="btn-primary btn-sm" onclick="popup_position_check()">직급조회</button></td>
-			</tr>
-			<tr>
-				<td>업무소개</td>
-				<td><textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="button" class="btn btn-dark">저장하기</button>
-				</td>
-			</tr>
-		</table>
-	</form>
+			<td>전화번호</td>
+			<td><input type="text" class="form-control" placeholder="Tel" id="user_phone"></td>
+		</tr>
+		<tr>
+			<td>부서명</td>
+			<td>
+				<form action="#" name="frm_team">
+					<input class="form-control" name="team_name" id="team_name" type="text" readonly="readonly">
+					<input type="hidden" name="team_id" value="">
+				</form>
+			</td>
+			<td><button class="btn-primary btn-sm" onclick="popup_team_check()">부서조회</button></td>
+		</tr>
+		<tr>
+			<td>직급</td>
+			<td>
+				<form action="#" name="frm_position">
+					<input class="form-control" name="position_name" id="position_name" type="text" readonly="readonly">
+					<input type="hidden" name="position_id" value="" >
+				</form>
+			</td>
+			<td><button class="btn-primary btn-sm" onclick="popup_position_check()">직급조회</button></td>
+		</tr>
+		<tr>
+			<td>업무소개</td>
+			<td><textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button type="button" class="btn btn-dark">저장하기</button>
+			</td>
+		</tr>
+	</table>
+	
 </div>
 
 </body>

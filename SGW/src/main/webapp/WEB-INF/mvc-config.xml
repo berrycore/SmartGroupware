@@ -26,7 +26,7 @@
 	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
 
 	<context:component-scan 
-		base-package="dao,logic,controller,model"></context:component-scan>
+		base-package="dao,logic,controller,model,validator"></context:component-scan>
 
     <mvc:annotation-driven />
 
