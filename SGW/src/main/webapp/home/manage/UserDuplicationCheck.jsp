@@ -19,8 +19,12 @@
 
 	<script >
 		function idOK() {
-			opener.document.frm_user_id.user_id.value = "${company_id}"+document.frm.user_id.value;
-			self.close();
+			if( "${isDuplicated}" == 'no'){
+				opener.document.frm_user.user_id.value = "${company_id}"+document.frm.user_id.value;				
+				self.close();
+			}else{
+				alert("중복체크가 되지 않았습니다");
+			}
 		}
 	</script>
 
@@ -35,9 +39,10 @@
 							<span class="input-group-text">${company_id}</span>
 						</div>
 						<form:input path="user_id" class="form-control mr-sm-2" placeholder="ID" />
-						<font color="red"><form:errors path="user_id" /></font>
+						
 						<!-- <input class="form-control mr-sm-2" type="text" placeholder="ID" name="user_id" value="${user_id}" >  -->
-					</div>	
+					</div>
+					<font color="red"><form:errors path="user_id" /></font>	
 				</td>
 			</tr>
 			<tr>

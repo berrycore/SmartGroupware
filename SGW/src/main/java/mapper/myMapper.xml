@@ -15,6 +15,28 @@
 	<select id="getUserAccountCount" parameterType="String" resultType="Integer">
 		select count(*) from SM_USERS where user_id = #{user_id} 
 	</select>
+	<insert id="insertUser" parameterType="model.User">
+		insert into SM_USERS (
+			user_id,
+			user_password,
+			user_name,
+			user_email,
+			user_phone,
+			user_description,
+			team_id,
+			position_id
+		) 
+		values(
+			#{user_id},
+			#{user_password},
+			#{user_name},
+			#{user_email},
+			#{user_phone},
+			#{user_description},
+			#{team_id},
+			#{position_id}
+		)
+	</insert>
 	
 	
 	<!-- SM_TEAMS -->

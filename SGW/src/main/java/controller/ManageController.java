@@ -16,7 +16,8 @@ import model.Company;
 import model.Position;
 import model.Team;
 import model.User;
-import validator.UserAddValidator;
+import validator.UserEntryValidator;
+import validator.UserIdValidator;
 
 @Controller
 public class ManageController {
@@ -31,7 +32,10 @@ public class ManageController {
 	private CompanyCatalog companyCatalog;
 	
 	@Autowired
-	private UserAddValidator userAddValidator;
+	private UserIdValidator userIdValidator;
+	
+	@Autowired
+	private UserEntryValidator userEntryValidator;
 	
 	@RequestMapping(value="/manage/userList.html")
 	public ModelAndView userList() {
@@ -48,7 +52,7 @@ public class ManageController {
 		Company company = companyCatalog.getCompany("DM");
 		mav.addObject("company_id", company.getCompany_id());
 		
-		userAddValidator.validate(user, br);
+		userIdValidator.validate(user, br);
 		
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());
@@ -70,13 +74,46 @@ public class ManageController {
 	}
 	
 	
-	@RequestMapping(value="/manage/userAdd.html")
-	public ModelAndView userAdd() {
-		ModelAndView mav = new ModelAndView("home/manage/UserAdd");
+	@RequestMapping(value="/manage/userAdd.html", method=RequestMethod.GET )
+	public ModelAndView userAdd(User user) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("userAdd : GET : " + user);
+		mav.setViewName("home/manage/UserAdd");
 		return mav;
 	}
 	
-	@RequestMapping(value="/manage/teamCheck.html")
+	@RequestMapping(value="/manage/userAdd.html", method=RequestMethod.POST)
+	public ModelAndView userAdd(User user, BindingResult br) {
+		System.out.println("userAdd : POST : " + user);
+		ModelAndView mav = new ModelAndView();
+		userEntryValidator.validate(user, br);
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			mav.setViewName("home/manage/UserAdd");
+			return mav;
+		}
+		
+		mav.setViewName("home/manage/UserAddResult");
+		
+		Integer result = userAccountCatalog.insertUser(user);
+		if( result == 1) {
+			mav.addObject("result", "등록되었습니다");
+		}else {
+			mav.addObject("result", "오류가 발생했습니다");
+		}
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/manage/userAddResult.html")
+	public ModelAndView userAddRegist(User user) {
+		ModelAndView mav = new ModelAndView("home/manage/UserAddResult");
+		System.out.println("userAdd : "+ user);
+		mav.addObject("user", user);
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/teamCheck.html", method=RequestMethod.GET)
 	public ModelAndView teamCheck() {
 		System.out.println("teamCheck");
 		
@@ -119,8 +156,8 @@ public class ManageController {
 		return new ModelAndView("home/manage/PositionAddResult");
 	}
 	
-	@RequestMapping(value="/manage/managePermission.html")
-	public ModelAndView managePermission() {
+	@RequestMapping(value="/manage/managePermission.html", method=RequestMethod.GET)
+	public ModelAndView managePermission(User user) {
 		System.out.println("managePermission");
 		ModelAndView mav = new ModelAndView("home/manage/ManagePermission");
 		return mav;

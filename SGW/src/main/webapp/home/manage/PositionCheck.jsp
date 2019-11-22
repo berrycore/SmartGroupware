@@ -25,8 +25,8 @@
 	<script>
 		function positionOK() {
 			var positions = document.getElementById("positions");
-			opener.document.frm_position.position_name.value = positions.options[positions.selectedIndex].text;
-			opener.document.frm_position.position_id.value = positions.options[positions.selectedIndex].value;
+			opener.document.frm_user.position_name.value = positions.options[positions.selectedIndex].text;
+			opener.document.frm_user.position_id.value = positions.options[positions.selectedIndex].value;
 			self.close();
 		}
 	</script>

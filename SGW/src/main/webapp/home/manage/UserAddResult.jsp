@@ -13,31 +13,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>팀 조회</title>
+
+<title>RESULT</title>
 </head>
 <body>
 
-	<script>
-		function teamOK() {
-			var teams = document.getElementById("teams");
-			opener.document.frm_user.team_name.value = teams.options[teams.selectedIndex].text;
-			opener.document.frm_user.team_id.value = teams.options[teams.selectedIndex].value;
-			self.close();
-		}
-	</script>
 
-<h2>팀 조회</h2>
-<div>
-	<form class="form-inline my-2 my-lg-0" name="frm">
-		<select class="form-control" id="teams">
-			<c:forEach var="team" items="${teamList}">
-				<option value="${team.team_id}" >${team.team_name }</option>
-			</c:forEach>
-		</select>
-		
-		&nbsp;
-		<button class="btn btn-info my-2 my-sm-0" type="button" onClick="teamOK()">Confirm</button>
-	</form>
-</div>
+<script>
+	alert("${result}");
+	location.href="userAdd.html";
+</script>
+
+
 </body>
 </html>
