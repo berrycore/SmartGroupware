@@ -15,14 +15,16 @@ public class UserAddValidator implements Validator{
 	}
 
 	public void validate(Object target, Errors errors) {
-		String user_id = (String)target;
+		User user = (User)target;
 
-		if( !StringUtils.hasLength(user_id)) {
-			errors.rejectValue("user_id", "error.required.user");
+		if( !StringUtils.hasLength(user.getUser_id())) {
+			errors.rejectValue("user_id", "error.required");
 		}
-		
-		if ( user_id.length() != 6) {
-			errors.rejectValue("user_id", "typeMismatch.user.userId");
+
+		if( user.getUser_id() != null ) {
+			if ( user.getUser_id().length() != 6) {
+				errors.rejectValue("user_id", "typeMismatch");
+			}			
 		}
 		
 		System.out.println("validate :: " + errors.toString());

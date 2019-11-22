@@ -41,6 +41,15 @@
 		p:maxInMemorySize="51200000"
 		p:maxUploadSize="51200000">
 	</bean>
+	
+	<!-- message properties -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>
 

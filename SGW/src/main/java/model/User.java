@@ -111,4 +111,16 @@ public class User {
 		this.position_id = position_id;
 	}
 
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
+				+ ", user_email=" + user_email + ", user_phone=" + user_phone + ", user_description=" + user_description
+				+ ", user_date_last_login=" + user_date_last_login + ", user_date_last_pw_changed="
+				+ user_date_last_pw_changed + ", user_date_employement=" + user_date_employement
+				+ ", user_date_retirement=" + user_date_retirement + ", team_id=" + team_id + ", position_id="
+				+ position_id + "]";
+	}
+	
+	
+
 }

@@ -42,29 +42,27 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value="/manage/userDuplicationCheck.html")
-	public ModelAndView userDuplicationCheck(String user_id, BindingResult br) {
-		System.out.println("userDuplicationCheck :: " + user_id);
+	public ModelAndView userDuplicationCheck(User user, BindingResult br) {
+		System.out.println("userDuplicationCheck :: " + user);
 		ModelAndView mav = new ModelAndView("home/manage/UserDuplicationCheck");
+		Company company = companyCatalog.getCompany("DM");
+		mav.addObject("company_id", company.getCompany_id());
 		
-		userAddValidator.validate(user_id, br);
+		userAddValidator.validate(user, br);
 		
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());
 			return mav;
 		}
 		
+		Integer cnt = userAccountCatalog.getUserAccountCount(company.getCompany_id() + user.getUser_id());
 		
-		Company company = companyCatalog.getCompany("DM");
-		mav.addObject("company_id", company.getCompany_id());
-		
-		Integer cnt = userAccountCatalog.getUserAccountCount(company.getCompany_id() + user_id);
-		
-		if(user_id != null) {
+		if(user.getUser_id() != null) {
 			if( cnt > 0) {
 				mav.addObject("isDuplicated", "yes");
 			}else {
 				mav.addObject("isDuplicated", "no");
-				mav.addObject("user_id" , user_id);
+				mav.addObject("user_id" , user.getUser_id());
 			}	
 		}
 		
