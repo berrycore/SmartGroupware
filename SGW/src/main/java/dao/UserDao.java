@@ -11,5 +11,4 @@ public interface UserDao {
 	void updateUserAccount(User user);
 	List<User> getUserList();
 	Integer insertUser(User user);
-	
 }

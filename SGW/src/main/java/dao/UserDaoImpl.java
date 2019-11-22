@@ -34,5 +34,4 @@ public class UserDaoImpl implements UserDao {
 	public Integer insertUser(User user) {
 		return session.insert("mapper.myMapper.insertUser", user);
 	}
-
 }
