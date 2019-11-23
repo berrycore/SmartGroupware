@@ -18,5 +18,8 @@
 </head>
 <body>
 로그인 성공 페이지 입니다
+<script>
+location.href="../";
+</script>
 </body>
 </html>

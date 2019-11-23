@@ -120,6 +120,7 @@
 			<tr>
 				<td colspan="2">
 					<button type="submit" class="btn btn-dark">등록</button>
+					<a href="../index.jsp"><button type="button" class="btn btn-warning">처음으로</button></a>
 				</td>
 			</tr>
 		</table>

@@ -50,6 +50,15 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- intercept : login session required -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/login/**"/>
+			<bean class="interceptor.LoginAuthenticationInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
 

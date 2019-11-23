@@ -1,5 +1,7 @@
 package controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -23,7 +25,7 @@ public class LoginController {
 	
 		
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.POST)
-	public ModelAndView loginUserTry(User user, BindingResult br) {
+	public ModelAndView loginUserTry(HttpServletRequest request, User user, BindingResult br) {
 		System.out.println("loginUser : POST : " + user);
 		ModelAndView mav = new ModelAndView("home/login/loginUser");
 		
@@ -43,6 +45,7 @@ public class LoginController {
 			return mav;
 		}else {
 			mav.setViewName("home/login/loginUserSuccess");
+			request.getSession().setAttribute("loginUser", result);
 			return mav;	
 		}
 	}
