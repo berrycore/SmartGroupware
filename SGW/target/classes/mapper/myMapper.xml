@@ -15,6 +15,40 @@
 	<select id="getUserAccountCount" parameterType="String" resultType="Integer">
 		select count(*) from SM_USERS where user_id = #{user_id} 
 	</select>
+	<resultMap type="model.Team" id="Team">
+		<result column="TEAM_ID" property="team_id" />
+		<result column="TEAM_NAME" property="team_name" />
+	</resultMap>
+	<resultMap type="model.Position" id="Position">
+		<result column="POSITION_ID" property="position_id" />
+		<result column="POSITION_NAME" property="position_name" />
+	</resultMap>
+	<resultMap type="model.User" id="UserJoin">
+		<result column="user_id" property="user_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_email" property="user_email" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_description" property="user_description" />
+		<result column="user_date_last_login" property="user_date_last_login" />
+		<result column="user_date_last_pw_changed" property="user_date_last_pw_changed" />
+		<collection property="team" resultMap="Team" />
+		<collection property="position" resultMap="Position" />
+	</resultMap>
+	<select id="getUserList" resultMap="UserJoin">
+		SELECT 
+			U.USER_ID, 
+			U.USER_NAME,
+			U.USER_EMAIL,
+			U.USER_PHONE,
+			U.USER_DESCRIPTION,
+			U.USER_DATE_LAST_LOGIN,
+			U.USER_DATE_LAST_PW_CHANGED,
+			T.TEAM_NAME, 
+			P.POSITION_NAME
+		FROM SM_USERS U, SM_TEAMS T, SM_POSITION P 
+		WHERE U.TEAM_ID = T.TEAM_ID AND U.POSITION_ID = P.POSITION_ID
+	</select>
+	
 	<insert id="insertUser" parameterType="model.User">
 		insert into SM_USERS (
 			user_id,
@@ -61,9 +95,3 @@
 		select * from SM_POSITION order by position_id
 	</select>
 </mapper>
-
-
-
-
-
-

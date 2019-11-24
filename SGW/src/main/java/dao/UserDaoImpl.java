@@ -28,7 +28,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public List<User> getUserList() {
-		return session.selectList("mapper.myMapper.getUserList");
+		List<User> userList = session.selectList("mapper.myMapper.getUserList");
+		return userList;
 	}
 
 	public Integer insertUser(User user) {

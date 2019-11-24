@@ -9,31 +9,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
 <title>user list</title>
 </head>
 <body>
-<h1>SM_USERS</h1>
-userList
-<table class="table">
-	<tr>
-		<td>user_id</td>
-		<td>user_password</td>
-		<td>user_name</td>
-		<td>user_email</td>
-		<td>user_phone</td>
-		<td>user_description</td>
-		<td>user_date_last_login</td>
-		<td>user_date_last_pw_changed</td>
-		<td>user_date_employement</td>
-		<td>user_date_retirement</td>
-		<td>team_id</td>
-		<td>position_id</td>
-	</tr>
-</table>
+
+<div class="container">
+<h5>SM_USERS</h5>
+	<table class="table  table-sm table-bordered table-hover table-responsive-md">
+		<thead>
+			<tr>
+				<th>user_id</th>
+				<th>user_name</th>
+				<th>team_name</th>
+				<th>position_name</th>
+				<th>user_email</th>
+				<th>user_phone</th>
+				<th>user_description</th>
+				<th>user_date_last_login</th>
+				<th>user_date_last_pw_changed</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${userList }" var="user">
+			<tr>
+				<td>
+					${user.user_id}
+				</td>
+				<td>
+					${user.user_name}
+				</td>
+				<td>
+					${user.team.team_name}
+				</td>
+				<td>
+					${user.position.position_name}
+				</td>
+				<td>
+					${user.user_email}
+				</td>
+				<td>
+					${user.user_phone}
+				</td>
+				<td>
+					${user.user_description}
+				</td>
+				<td>
+					${user.user_date_last_login}
+				</td>
+				<td>
+					${user.user_date_last_pw_changed}
+				</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>

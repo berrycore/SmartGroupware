@@ -14,6 +14,9 @@ public class User {
 	private String user_date_retirement;
 	private String team_id;
 	private String position_id;
+	
+	private Team team;
+	private Position position;
 
 	public String getUser_id() {
 		return user_id;
@@ -111,6 +114,22 @@ public class User {
 		this.position_id = position_id;
 	}
 
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
@@ -118,9 +137,7 @@ public class User {
 				+ ", user_date_last_login=" + user_date_last_login + ", user_date_last_pw_changed="
 				+ user_date_last_pw_changed + ", user_date_employement=" + user_date_employement
 				+ ", user_date_retirement=" + user_date_retirement + ", team_id=" + team_id + ", position_id="
-				+ position_id + "]";
+				+ position_id + ", team=" + team + ", position=" + position + "]";
 	}
 	
-	
-
 }

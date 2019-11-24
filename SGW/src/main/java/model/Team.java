@@ -30,4 +30,9 @@ public class Team {
 		this.team_parent_id = team_parent_id;
 	}
 
+	@Override
+	public String toString() {
+		return "Team [team_id=" + team_id + ", team_name=" + team_name + ", team_parent_id=" + team_parent_id + "]";
+	}
+
 }

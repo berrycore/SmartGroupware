@@ -41,6 +41,9 @@ public class ManageController {
 	public ModelAndView userList() {
 		ModelAndView mav = new ModelAndView("home/manage/UserList");
 		List<User> userList = userAccountCatalog.getUserList();
+		for(User u : userList) {
+			u.toString();
+		}
 		mav.addObject("userList", userList);
 		return mav;
 	}

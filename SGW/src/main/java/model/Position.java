@@ -21,4 +21,8 @@ public class Position {
 		this.position_name = position_name;
 	}
 
+	@Override
+	public String toString() {
+		return "Position [position_id=" + position_id + ", position_name=" + position_name + "]";
+	}
 }
