@@ -32,7 +32,12 @@ public class UserDaoImpl implements UserDao {
 		return userList;
 	}
 
+	public User getUserByUserId(String user_id) {
+		return session.selectOne( "mapper.myMapper.getUserByUserId", user_id);
+	}
+
 	public Integer insertUser(User user) {
 		return session.insert("mapper.myMapper.insertUser", user);
 	}
+
 }

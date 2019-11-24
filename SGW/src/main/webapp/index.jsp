@@ -27,8 +27,9 @@
 			</div>
 
 			<ul class="list-unstyled components">
-				<h4 style="padding-left: 5px">김현관</h4>
-				<span class="badge badge-light">Manager</span>
+				<h4 style="padding-left: 5px">${sessionScope.loginUser.user_name }</h4>
+				<span class="badge badge-warning">${sessionScope.loginUser.team.team_name }</span>
+				<span class="badge badge-warning">${sessionScope.loginUser.position.position_name }</span>
 
 				<li class="active"><a href="#homeSubmenu"
 					data-toggle="collapse" aria-expanded="false"> 메일 <span
@@ -58,7 +59,7 @@
 						<li><a href="#">전사공지</a></li>
 						<li><a href="#">Team 게시판</a></li>
 					</ul></li>
-				<li><a href="#">내 정보</a></li>
+				<li><a href="account/myStatus.html">내 정보</a></li>
 				<li><a href="manage/userList.html">사용자 리스트</a></li>
 				<li><a href="manage/userAdd.html">사용자 등록</a></li>
 				<li><a href="manage/managePermission.html">권한관리</a></li>

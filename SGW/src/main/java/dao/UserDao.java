@@ -10,5 +10,6 @@ public interface UserDao {
 	Integer getUserAccountCount(String user_id);
 	void updateUserAccount(User user);
 	List<User> getUserList();
+	User getUserByUserId(String user_id);
 	Integer insertUser(User user);
 }

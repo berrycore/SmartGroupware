@@ -34,6 +34,10 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 	public List<User> getUserList() {
 		return userDao.getUserList();
 	}
+	
+	public User getUserByUserId(String user_id) {
+		return userDao.getUserByUserId(user_id);
+	}
 
 	public Integer insertUser(User user) {
 		//TODO : user_password	
@@ -49,6 +53,7 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 		
 		return userDao.insertUser(user);
 	}
+
 
 
 }

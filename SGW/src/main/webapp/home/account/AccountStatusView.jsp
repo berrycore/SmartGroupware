@@ -10,8 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-<script type="text/javascript" src="../../js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
 <title>AccountStatusView.jsp</title>
 </head>
@@ -29,13 +28,13 @@
 		</thead>
 		<tr>
 			<td>이름</td>
-			<td><input class="form-control" id="user_name" type="text"
-				value="베란다" disabled="disabled"></td>
+			<td>
+				<input class="form-control" id="user_name" type="text" value="${sessionScope.loginUser.user_name }" disabled="disabled">
+			</td>
 		</tr>
 		<tr>
 			<td>ID</td>
-			<td><input class="form-control" id="user_id" type="text"
-				value="S10001" disabled="disabled"></td>
+			<td><input class="form-control" id="user_id" type="text" value="${sessionScope.loginUser.user_id }" disabled="disabled"></td>
 		</tr>
 		<tr>
 			<td>패스워드 변경</td>
@@ -52,22 +51,26 @@
 		</tr>
 		<tr>
 			<td>전화번호</td>
-			<td><input type="text" class="form-control" placeholder="Tel"
-				id="user_phone"></td>
+			<td>
+				<input type="text" class="form-control" id="user_phone" value="${sessionScope.loginUser.user_phone }">
+			</td>
 		</tr>
 		<tr>
 			<td>부서명</td>
-			<td><input class="form-control" id="team_name" type="text"
-				value="기관영업1팀" readonly="readonly"></td>
+			<td>
+				<input class="form-control" id="team_name" type="text" value="${sessionScope.loginUser.team.team_name }" readonly="readonly">
+			</td>
 		</tr>
 		<tr>
 			<td>직급</td>
-			<td><input class="form-control" id="position_name" type="text"
-				value="대리" readonly="readonly"></td>
+			<td>
+				<input class="form-control" id="position_name" type="text" value="${sessionScope.loginUser.position.position_name }" readonly="readonly">
+			</td>
 		</tr>
 		<tr>
 			<td>업무소개</td>
-			<td><textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+			<td>
+				<textarea class="form-control" id="exampleTextarea" rows="3" >${sessionScope.loginUser.user_description }</textarea>
 			</td>
 		</tr>
 		<tr>

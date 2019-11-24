@@ -15,6 +15,8 @@
 	<select id="getUserAccountCount" parameterType="String" resultType="Integer">
 		select count(*) from SM_USERS where user_id = #{user_id} 
 	</select>
+	
+	<!-- getUserList  -->
 	<resultMap type="model.Team" id="Team">
 		<result column="TEAM_ID" property="team_id" />
 		<result column="TEAM_NAME" property="team_name" />
@@ -47,6 +49,22 @@
 			P.POSITION_NAME
 		FROM SM_USERS U, SM_TEAMS T, SM_POSITION P 
 		WHERE U.TEAM_ID = T.TEAM_ID AND U.POSITION_ID = P.POSITION_ID
+	</select>
+	
+	<!-- getUserByUserId -->
+	<select id="getUserByUserId" resultMap="UserJoin" parameterType="String">
+		SELECT 
+			U.USER_ID, 
+			U.USER_NAME,
+			U.USER_EMAIL,
+			U.USER_PHONE,
+			U.USER_DESCRIPTION,
+			U.USER_DATE_LAST_LOGIN,
+			U.USER_DATE_LAST_PW_CHANGED,
+			T.TEAM_NAME, 
+			P.POSITION_NAME
+		FROM SM_USERS U, SM_TEAMS T, SM_POSITION P 
+		WHERE U.TEAM_ID = T.TEAM_ID AND U.POSITION_ID = P.POSITION_ID AND U.USER_ID = #{user_id}
 	</select>
 	
 	<insert id="insertUser" parameterType="model.User">

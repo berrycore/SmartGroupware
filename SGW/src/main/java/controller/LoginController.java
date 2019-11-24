@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import logic.LoginCatalog;
+import logic.UserAccountCatalog;
 import model.User;
 import util.Encrypter;
 import validator.LoginValidator;
@@ -19,6 +20,9 @@ public class LoginController {
 
 	@Autowired
 	private LoginCatalog loginCatalog;
+	
+	@Autowired
+	private UserAccountCatalog userAccountCatalog;
 	
 	@Autowired
 	private LoginValidator loginValidator;
@@ -37,15 +41,18 @@ public class LoginController {
 		
 		User result = loginCatalog.getUser( "DM" + user.getUser_id());
 		
-		if( ! result.getUser_id().equals( "DM" + user.getUser_id())) {
+		
+		if( result == null || ! result.getUser_id().equals( "DM" + user.getUser_id())) {
 			br.rejectValue("user_id", "error.failed.user");
 			return mav;
 		}else if( ! result.getUser_password().equals( Encrypter.sha256(user.getUser_password())) ){
 			br.rejectValue("user_password", "error.failed.user");
 			return mav;
 		}else {
+			User you = userAccountCatalog.getUserByUserId(result.getUser_id());
 			mav.setViewName("home/login/loginUserSuccess");
-			request.getSession().setAttribute("loginUser", result);
+			
+			request.getSession().setAttribute("loginUser", you);
 			return mav;	
 		}
 	}
