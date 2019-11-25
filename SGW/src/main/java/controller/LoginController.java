@@ -49,10 +49,17 @@ public class LoginController {
 			br.rejectValue("user_password", "error.failed.user");
 			return mav;
 		}else {
-			User you = userAccountCatalog.getUserByUserId(result.getUser_id());
-			mav.setViewName("home/login/loginUserSuccess");
+			if( result.getUser_date_last_pw_changed() == null || result.getUser_date_last_pw_changed().equals("")) {
+				mav.addObject("firstLogin", "yes");
+				mav.setViewName("home/account/changePassword");
+			}else {
+				mav.setViewName("home/login/loginUserSuccess");	
+			}
 			
+			userAccountCatalog.updateUserLastLoginTime(result.getUser_id());
+			User you = userAccountCatalog.getUserByUserId(result.getUser_id());
 			request.getSession().setAttribute("loginUser", you);
+			mav.addObject("you", you);
 			return mav;	
 		}
 	}

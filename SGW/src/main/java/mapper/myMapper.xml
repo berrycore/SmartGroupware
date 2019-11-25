@@ -104,6 +104,12 @@
 		where
 			user_id = #{user_id}
 	</update>
+  <update id="updateUserLastLoginTime" parameterType="model.User">
+    update SM_USERS set
+      user_date_last_login = #{user_date_last_login}
+    where
+      user_id = #{user_id}
+  </update>
 	
 	
 	<!-- SM_TEAMS -->

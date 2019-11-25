@@ -28,9 +28,9 @@ public class AccountController {
 	
 	@RequestMapping(value="/account/changePassword.html", method=RequestMethod.GET )
 	public ModelAndView changePassword(HttpServletRequest request) {
-		System.out.println("changePassword");
+		System.out.println("changePassword : GET");
 		ModelAndView mav = new ModelAndView("home/account/changePassword");
-		
+				
 		if( request.getSession().getAttribute("loginUser") != null ) {
 			String user_id = ((User)request.getSession().getAttribute("loginUser")).getUser_id();
 			User you = userAccountCatalog.getUserByUserId(user_id);
@@ -42,8 +42,8 @@ public class AccountController {
 	
 	@RequestMapping(value="/account/changePassword.html", method=RequestMethod.POST )
 	public ModelAndView changePassword(HttpServletRequest request, User user, BindingResult br, String password_re) {
-		System.out.println("changePassword : " + user.toString());
-		System.out.println("changePassword : " + password_re);
+		System.out.println("changePassword : POST : " + user.toString());
+		System.out.println("changePassword : POST : " + password_re);
 		ModelAndView mav = new ModelAndView();
 		
 		passwordValidator.validate(user.getUser_password(), br);

@@ -58,6 +58,7 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 		return userDao.insertUser(user);
 	}
 
-
-
+	public void updateUserLastLoginTime(String user_id) {
+		userDao.updateUserLastLoginTime(user_id);
+	}
 }

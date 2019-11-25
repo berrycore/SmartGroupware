@@ -54,4 +54,10 @@ public class UserDaoImpl implements UserDao {
 		return session.insert("mapper.myMapper.insertUser", user);
 	}
 
+	public void updateUserLastLoginTime(String user_id) {
+		User user = new User();
+		user.setUser_id(user_id);
+		user.setUser_date_last_login(Utils.generateCurrentTime());
+		session.update("mapper.myMapper.updateUserLastLoginTime", user);
+	}
 }

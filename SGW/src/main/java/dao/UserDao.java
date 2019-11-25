@@ -13,4 +13,5 @@ public interface UserDao {
 	List<User> getUserList();
 	User getUserByUserId(String user_id);
 	Integer insertUser(User user);
+	void updateUserLastLoginTime(String user_id);
 }

@@ -18,12 +18,13 @@
 
 	
 <div class="container">
-	<form:form action="changePassword.html" method="POST" modelAttribute="user">
+	<form:form action="../account/changePassword.html" method="POST" modelAttribute="user">
 		<table class="table table-sm">
 			<thead>
 				<tr>
 					<th colspan="2">
 						<h2>패스워드 변경</h2>	
+            <div>${message }</div>
 					</th>
 				</tr>
 			</thead>

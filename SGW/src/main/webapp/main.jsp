@@ -58,14 +58,19 @@
 		<a href="manage/userList.html" class="w3-bar-item w3-button">사용자 리스트</a>
 		<a href="manage/userAdd.html" class="w3-bar-item w3-button">사용자 등록</a>
 		<a href="manage/managePermission.html" class="w3-bar-item w3-button">권한관리</a>  		
-  		
 </div>
 
 <div class="w3-main" style="margin-left:200px">
 	<div class="w3-teal">
-  		<button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    	
   		<div class="w3-container">
-   			 <h1>Smart Group Ware</h1>
+        <div class="w3-display-container" style="height:60px">
+          <div class="w3-display-left">
+            <h1>Smart Group Ware</h1>
+          </div>
+        </div>
+        
 			 <span class="w3-tag w3-round">${sessionScope.loginUser.user_name }</span>
 			 <span class="w3-tag w3-round w3-green">${sessionScope.loginUser.team.team_name }</span>
 			 <span class="w3-tag w3-round w3-green">${sessionScope.loginUser.position.position_name }</span>
@@ -83,7 +88,7 @@
 
 
 
-		<a href="#"> <button type="button" class="btn btn-warning">Logout</button> </a>
+		
 		
 		
 			<div class="dropdown">
