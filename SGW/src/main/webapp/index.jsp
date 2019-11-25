@@ -59,7 +59,7 @@
 						<li><a href="#">전사공지</a></li>
 						<li><a href="#">Team 게시판</a></li>
 					</ul></li>
-				<li><a href="account/myStatus.html">내 정보</a></li>
+				<li><a href="account/showMyStatus.html">내 정보</a></li>
 				<li><a href="manage/userList.html">사용자 리스트</a></li>
 				<li><a href="manage/userAdd.html">사용자 등록</a></li>
 				<li><a href="manage/managePermission.html">권한관리</a></li>

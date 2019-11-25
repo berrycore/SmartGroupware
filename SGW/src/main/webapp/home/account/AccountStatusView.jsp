@@ -18,67 +18,69 @@
 
 	
 <div class="container">
-	<table class="table">
-		<thead>
+	<form:form action="showMyStatus.html" method="POST" modelAttribute="user">
+<%-- 	<form action="showMyStatus.html" method="POST"> --%>
+		<table class="table table-sm">
+			<thead>
+				<tr>
+					<th colspan="2">
+						<h2>회원 정보</h2>	
+					</th>
+				</tr>
+			</thead>
 			<tr>
-				<th colspan="2">
-					<h2>회원 정보</h2>	
-				</th>
+				<td>이름</td>
+				<td>
+					<input class="form-control" name="user_name" type="text" value="${you.user_name }" readonly="readonly">
+				</td>
 			</tr>
-		</thead>
-		<tr>
-			<td>이름</td>
-			<td>
-				<input class="form-control" id="user_name" type="text" value="${sessionScope.loginUser.user_name }" disabled="disabled">
-			</td>
-		</tr>
-		<tr>
-			<td>ID</td>
-			<td><input class="form-control" id="user_id" type="text" value="${sessionScope.loginUser.user_id }" disabled="disabled"></td>
-		</tr>
-		<tr>
-			<td>패스워드 변경</td>
-			<td><input type="text" value="correct value"
-				class="form-control is-valid" id="password">
-				<div class="valid-feedback">Success! You've done it.</div></td>
-		</tr>
-		<tr>
-			<td>패스워드 변경 확인</td>
-			<td><input type="text" value="incorrect value"
-				class="form-control is-invalid" id="password_re">
-				<div class="invalid-feedback">Sorry, that username's taken.
-					Try another?</div></td>
-		</tr>
-		<tr>
-			<td>전화번호</td>
-			<td>
-				<input type="text" class="form-control" id="user_phone" value="${sessionScope.loginUser.user_phone }">
-			</td>
-		</tr>
-		<tr>
-			<td>부서명</td>
-			<td>
-				<input class="form-control" id="team_name" type="text" value="${sessionScope.loginUser.team.team_name }" readonly="readonly">
-			</td>
-		</tr>
-		<tr>
-			<td>직급</td>
-			<td>
-				<input class="form-control" id="position_name" type="text" value="${sessionScope.loginUser.position.position_name }" readonly="readonly">
-			</td>
-		</tr>
-		<tr>
-			<td>업무소개</td>
-			<td>
-				<textarea class="form-control" id="exampleTextarea" rows="3" >${sessionScope.loginUser.user_description }</textarea>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<button type="button" class="btn btn-dark">저장하기</button>
-			</td>
-		</tr>
-	</table>
+			<tr>
+				<td>ID</td>
+				<td><input class="form-control" name="user_id" type="text" value="${you.user_id }" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>패스워드 변경</td>
+				<td>
+					<input type="password" class="form-control" name="user_password">
+					<font color="red"><form:errors path="user_password" /></font> 
+				</td>
+			</tr>
+			<tr>
+				<td>패스워드 변경 확인</td>
+				<td><input type="password" class="form-control" name="password_re">
+				</td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td>
+					<input type="text" class="form-control" name="user_phone" value="${you.user_phone }">
+				</td>
+			</tr>
+			<tr>
+				<td>부서명</td>
+				<td>
+					<input class="form-control" id="team_name" type="text" value="${you.team.team_name }" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>직급</td>
+				<td>
+					<input class="form-control" id="position_name" type="text" value="${you.position.position_name }" readonly="readonly">
+				</td>
+			</tr>
+			<tr>
+				<td>업무소개</td>
+				<td>
+					<textarea class="form-control" name="user_description" id="exampleTextarea" rows="3" >${you.user_description }</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="submit" class="btn btn-dark">저장하기</button>
+				</td>
+			</tr>
+		</table>
+	</form:form>
 </div>
 </body>
 </html>
