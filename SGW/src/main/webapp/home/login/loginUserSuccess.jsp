@@ -17,9 +17,9 @@
 <title>Login Success</title>
 </head>
 <body>
-로그인 성공 페이지 입니다
+로그인 성공
 <script>
-location.href="../";
+location.href="../main.jsp";
 </script>
 </body>
 </html>

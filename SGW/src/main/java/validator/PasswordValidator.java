@@ -11,8 +11,7 @@ import org.springframework.validation.Validator;
 public class PasswordValidator implements Validator {
 
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
-		return false;
+		return String.class.isAssignableFrom(clazz);
 	}
 
 	public void validate(Object target, Errors errors) {

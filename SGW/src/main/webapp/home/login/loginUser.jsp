@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 				<div class="card card-signin my-5">
-					<form:form modelAttribute="user" name="frm_login" class="form-signin" action="loginUser.html" method="POST">
+					<form:form modelAttribute="user" name="frm_login" class="form-signin" action="login/loginUser.html" method="POST">
 						<div class="card-body">
 							<h5 class="card-title text-center">Smart Group Ware</h5>
 							

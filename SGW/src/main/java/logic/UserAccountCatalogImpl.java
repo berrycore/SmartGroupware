@@ -27,8 +27,12 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 		return userDao.getUserAccountCount(user_id);
 	}
 
-	public void updateUserAccount(User user) {
-		userDao.updateUserAccount(user);
+	public void updateUserInfo(User user) {
+		userDao.updateUserInfo(user);
+	}
+	
+	public void updateUserPassword(User user) {
+		userDao.updateUserPassword(user);
 	}
 
 	public List<User> getUserList() {

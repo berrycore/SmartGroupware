@@ -10,7 +10,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
 <title>AccountStatusView.jsp</title>
 </head>
@@ -18,13 +17,12 @@
 
 	
 <div class="container">
-	<form:form action="showMyStatus.html" method="POST" modelAttribute="user">
-<%-- 	<form action="showMyStatus.html" method="POST"> --%>
+	<form:form action="changeMyInfo.html" method="POST" modelAttribute="user">
 		<table class="table table-sm">
 			<thead>
 				<tr>
 					<th colspan="2">
-						<h2>회원 정보</h2>	
+						<h2>내 정보</h2>	
 					</th>
 				</tr>
 			</thead>
@@ -39,21 +37,10 @@
 				<td><input class="form-control" name="user_id" type="text" value="${you.user_id }" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>패스워드 변경</td>
-				<td>
-					<input type="password" class="form-control" name="user_password">
-					<font color="red"><form:errors path="user_password" /></font> 
-				</td>
-			</tr>
-			<tr>
-				<td>패스워드 변경 확인</td>
-				<td><input type="password" class="form-control" name="password_re">
-				</td>
-			</tr>
-			<tr>
 				<td>전화번호</td>
 				<td>
 					<input type="text" class="form-control" name="user_phone" value="${you.user_phone }">
+					<font color="red"><form:errors path="user_phone" /></font> 
 				</td>
 			</tr>
 			<tr>
@@ -76,7 +63,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<button type="submit" class="btn btn-dark">저장하기</button>
+					<button type="submit" class="btn btn-primary">저장하기</button>
 				</td>
 			</tr>
 		</table>

@@ -59,6 +59,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.GET)
 	public ModelAndView loginUserShow(){
+		System.out.println("loginUser : GET ");
 		ModelAndView mav = new ModelAndView("home/login/loginUser");
 		return mav;
 	}

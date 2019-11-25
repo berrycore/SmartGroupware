@@ -90,6 +90,21 @@
 		)
 	</insert>
 	
+	<update id="updateUserInfo" parameterType="model.User">
+		update SM_USERS set
+			user_phone = #{user_phone},
+			user_description = #{user_description}
+		where
+			user_id = #{user_id}
+	</update>
+	<update id="updateUserPassword" parameterType="model.User">
+		update SM_USERS set
+			user_password = #{user_password},
+			user_date_last_pw_changed = #{user_date_last_pw_changed}
+		where
+			user_id = #{user_id}
+	</update>
+	
 	
 	<!-- SM_TEAMS -->
 	<select id="getTeamList" resultType="model.Team">

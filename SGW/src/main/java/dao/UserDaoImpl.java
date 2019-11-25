@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.User;
+import util.Encrypter;
+import util.Utils;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -22,9 +24,21 @@ public class UserDaoImpl implements UserDao {
 		return session.selectOne("mapper.myMapper.getUserAccountCount", user_id);
 	}
 
-	public void updateUserAccount(User user) {
-		// TODO : mapper setting
-		session.update("mapper.myMapper.updateUserAccount", user);
+	public void updateUserInfo(User user) {
+		session.update("mapper.myMapper.updateUserInfo", user);
+	}
+	
+	public void updateUserPassword(User user) {
+		
+		// user_password encryption
+		String encrypted = Encrypter.sha256(user.getUser_password());
+		user.setUser_password(encrypted);
+		
+		// user_passwowrd last changed
+		String currentTime = Utils.generateCurrentTime();
+		user.setUser_date_last_pw_changed(currentTime);
+		
+		session.update("mapper.myMapper.updateUserPassword", user);
 	}
 
 	public List<User> getUserList() {
