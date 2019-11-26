@@ -8,4 +8,5 @@ public interface ReplyDao {
 
 	List<Reply> getReplyList(String parent_board_id);
 	void insertReply(Reply reply);
+	Integer getReplyCount(String parent_board_id);
 }

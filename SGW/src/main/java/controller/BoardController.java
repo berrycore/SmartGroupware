@@ -44,7 +44,8 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home/board/TeamBoardListView");
 		
-		List<Board> boardList = boardCatalog.getBoardList();
+		List<Board> boardList = boardCatalog.getBoardListAndReplyCount();
+		System.out.println(boardList);
 		mav.addObject("boardList", boardList);
 		return mav;
 	}

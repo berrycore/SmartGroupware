@@ -6,7 +6,7 @@ import model.Board;
 
 public interface BoardDao {
 
-	List<Board> getBoardList();
+	List<Board> getBoardListAndReplyCount();
 	Board selectBoard(String board_id);
 	Integer writeBoard(Board board);
 	void updateBoard(Board board);

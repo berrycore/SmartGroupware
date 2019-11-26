@@ -19,8 +19,8 @@ public class BoardCatalogImpl implements BoardCatalog {
 	@Autowired
 	private ReplyDao replyDao;
 	
-	public List<Board> getBoardList() {
-		return boardDao.getBoardList();
+	public List<Board> getBoardListAndReplyCount() {
+		return boardDao.getBoardListAndReplyCount();
 	}
 
 	public Board selectBoard(String board_id) {
@@ -57,5 +57,9 @@ public class BoardCatalogImpl implements BoardCatalog {
 	
 	public void insertReply(Reply reply) {
 		replyDao.insertReply(reply);
+	}
+
+	public Integer getReplyCount(String parent_board_id) {
+		return replyDao.getReplyCount(parent_board_id);
 	}
 }

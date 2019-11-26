@@ -130,11 +130,13 @@
 	</insert>
 	
 	<!-- getBoardList -->
+  <!-- deprecated -->
 	<resultMap type="model.User" id="UserInfo">
 		<result column="user_id" property="user_id"/>
 		<result column="user_name" property="user_name" />
 		<result column="user_email" property="user_email" />
 	</resultMap>
+  <!-- deprecated -->
 	<resultMap type="model.Board" id="BoardJoinUser" >
 		<result column="board_id" property="board_id" />
 		<result column="board_title" property="board_title" />
@@ -143,6 +145,7 @@
 		<result column="user_id" property="user_id" />
 		<collection property="user" resultMap="UserInfo"></collection>
 	</resultMap>
+  <!-- deprecated -->
 	<select id="getBoardList" resultMap="BoardJoinUser">
 		SELECT
 			B.BOARD_ID,
@@ -157,6 +160,19 @@
 			B.USER_ID = U.USER_ID
 		ORDER BY B.BOARD_ID DESC
 	</select>
+  
+  <select id="getBoardListAndReplyCount" resultType="model.Board">
+    SELECT
+      BOARD_ID,
+      BOARD_TITLE,
+      BOARD_WRITER_NAME,
+      BOARD_DATE_REGIST,
+      (SELECT COUNT(*) FROM SM_REPLY WHERE SM_BOARD.BOARD_ID = SM_REPLY.PARENT_BOARD_ID) AS REPLY_COUNT 
+    FROM
+      SM_BOARD
+    ORDER BY BOARD_ID DESC
+  </select>
+
 	
 	<select id="selectBoard" parameterType="Integer" resultType="model.Board">
 		select * from SM_BOARD where board_id = #{board_id}
@@ -165,7 +181,7 @@
 	
 	<!-- SM_REPLY -->
 	<select id="getReplyList" parameterType="String" resultType="model.Reply">
-		select * from SM_REPLY where parent_board_id = #{parent_board_id}
+		select * from SM_REPLY where parent_board_id = #{parent_board_id} order by reply_date_regist
 	</select>
 	<insert id="insertReply" parameterType="model.Reply">
 		insert into SM_REPLY (
@@ -180,6 +196,9 @@
 			#{parent_board_id}
 		)
 	</insert>
+  <select id="getReplyCount" parameterType="String">
+    select count(*) from SM_REPLY where parent_board_id = #{parent_board_id}
+  </select>
 	
 	
 	<!-- SM_TEAMS -->

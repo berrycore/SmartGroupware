@@ -1,7 +1,7 @@
--- »ý¼ºÀÚ Oracle SQL Developer Data Modeler 19.2.0.182.1216
---   À§Ä¡:        2019-11-26 17:08:14 KST
---   »çÀÌÆ®:      Oracle Database 11g
---   À¯Çü:      Oracle Database 11g
+-- Oracle SQL Developer Data Modeler 19.2.0.182.1216
+-- 2019-11-26 17:08:14 KST
+-- Oracle Database 11g
+-- Oracle Database 11g
 
 
 
@@ -209,7 +209,7 @@ END;
 
 
 
--- Oracle SQL Developer Data Modeler ¿ä¾à º¸°í¼­: 
+-- Oracle SQL Developer Data Modeler ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: 
 -- 
 -- CREATE TABLE                            12
 -- CREATE INDEX                             0

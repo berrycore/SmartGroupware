@@ -24,4 +24,8 @@ public class ReplyDaoImpl implements ReplyDao {
 		session.insert("mapper.myMapper.insertReply", reply);
 	}
 
+	public Integer getReplyCount(String parent_board_id) {
+		return session.selectOne("mapper.myMapper.getReplyCount", parent_board_id);
+	}
+
 }

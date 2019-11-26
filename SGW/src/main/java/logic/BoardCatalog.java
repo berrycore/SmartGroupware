@@ -8,7 +8,7 @@ import model.Reply;
 public interface BoardCatalog {
 	
 	// board
-	List<Board> getBoardList();
+	List<Board> getBoardListAndReplyCount();
 		
 	Board selectBoard(String board_id);
 	Integer writeBoard(Board board);
@@ -22,5 +22,5 @@ public interface BoardCatalog {
 	// reply add
 	List<Reply> getReplyList(String parent_board_id);
 	void insertReply(Reply reply);
-	
+	Integer getReplyCount(String parent_board_id);
 }

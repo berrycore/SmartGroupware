@@ -9,6 +9,7 @@ public class Board {
 	private String board_attached_file_name;
 	private String board_date_regist;
 	private String user_id;
+	private String reply_count;
 	
 	private User user;
 
@@ -76,10 +77,19 @@ public class Board {
 		this.user = user;
 	}
 
+	public String getReply_count() {
+		return reply_count;
+	}
+	
+	public void setReply_count(String reply_count) {
+		this.reply_count = reply_count;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [board_id=" + board_id + ", board_title=" + board_title + ", board_content=" + board_content
 				+ ", board_writer_name=" + board_writer_name + ", board_attached_file_name=" + board_attached_file_name
-				+ ", board_date_regist=" + board_date_regist + ", user_id=" + user_id + ", user=" + user + "]";
-	}	
+				+ ", board_date_regist=" + board_date_regist + ", user_id=" + user_id + ", reply_count=" + reply_count
+				+ ", user=" + user + "]";
+	}
 }

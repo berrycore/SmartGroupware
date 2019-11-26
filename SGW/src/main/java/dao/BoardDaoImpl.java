@@ -15,8 +15,8 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private SqlSession session;
 
-	public List<Board> getBoardList() {
-		return session.selectList("mapper.myMapper.getBoardList");
+	public List<Board> getBoardListAndReplyCount() {
+		return session.selectList("mapper.myMapper.getBoardListAndReplyCount");
 	}
 
 	public Board selectBoard(String board_id) {
@@ -26,6 +26,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	public Integer writeBoard(Board board) {
 		board.setBoard_date_regist(Utils.generateCurrentTime());
+		System.out.println(board.toString());
 		return session.insert("mapper.myMapper.writeBoard", board);
 	}
 

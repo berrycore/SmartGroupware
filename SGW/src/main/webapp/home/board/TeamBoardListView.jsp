@@ -37,7 +37,10 @@
 						<tr>
 							<td> ${board.board_id } </td>
 							<td> <a href="TeamBoardView.html?board_id=${board.board_id}"> ${board.board_title } </a> 
-							     <span class="w3-badge w3-teal" style="margin-left: 10px"> 3 </span>
+							     <c:if test="${ board.reply_count != 0 }">
+                    <span class="w3-badge w3-teal" style="margin-left: 10px"> ${board.reply_count } </span>
+                   </c:if> 
+                   
 						  </td>
 						  <td>${board.board_writer_name }</td>
 						  <td>${board.board_date_regist }</td>
