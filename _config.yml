@@ -1,6 +1,6 @@
 theme: jekyll-theme-midnight
 locale : "en-US"
-title : SmartGroupware
+title : "SmartGroupware"
 title_separator : "-"
 name : "Sanghoon Jeong"
 description : "Spring based webmail group ware"
