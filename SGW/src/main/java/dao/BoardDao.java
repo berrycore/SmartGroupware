@@ -9,7 +9,7 @@ public interface BoardDao {
 
 	List<Board> getBoardList();
 	Notice selectBoard(String board_id);
-	void writeBoard(Board board);
+	Integer writeBoard(Board board);
 	void updateBoard(Board board);
 	void deleteBoard(String baord_id);
 }

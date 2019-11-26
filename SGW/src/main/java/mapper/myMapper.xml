@@ -112,6 +112,23 @@
   </update>
 	
 	
+	<!-- SM_BOARD -->
+	<insert id="writeBoard" parameterType="model.Board">
+		insert into SM_BOARD (
+			board_title,
+			board_content,
+			board_writer_name,
+			board_date_regist,
+			user_id
+		) values (
+			#{board_title},
+			#{board_content},
+			#{board_writer_name},
+			#{board_date_regist},
+			#{user_id}
+		)
+	</insert>
+	
 	<!-- SM_TEAMS -->
 	<select id="getTeamList" resultType="model.Team">
 		select * from SM_TEAMS

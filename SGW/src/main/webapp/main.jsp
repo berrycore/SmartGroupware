@@ -43,8 +43,8 @@
 	  			게시판<i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Board" class="w3-hide w3-white w3-card">
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">전사공지</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">Team게시판</a>
+			    <a href="board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left">전사공지</a>
+			    <a href="board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left">Team게시판</a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">

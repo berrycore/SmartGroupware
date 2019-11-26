@@ -6,8 +6,11 @@ public class Board {
 	private String board_title;
 	private String board_content;
 	private String board_writer_name;
+	private String user_id;
 	private String board_attached_file_name;
 	private String board_date_regist;
+	
+	private User user;
 
 	public Integer getBoard_id() {
 		return board_id;
@@ -41,6 +44,14 @@ public class Board {
 		this.board_writer_name = board_writer_name;
 	}
 
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
 	public String getBoard_attached_file_name() {
 		return board_attached_file_name;
 	}
@@ -55,6 +66,21 @@ public class Board {
 
 	public void setBoard_date_regist(String board_date_regist) {
 		this.board_date_regist = board_date_regist;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Board [board_id=" + board_id + ", board_title=" + board_title + ", board_content=" + board_content
+				+ ", board_writer_name=" + board_writer_name + ", user_id=" + user_id + ", board_attached_file_name="
+				+ board_attached_file_name + ", board_date_regist=" + board_date_regist + ", user=" + user + "]";
 	}
 
 }

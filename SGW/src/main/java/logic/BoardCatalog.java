@@ -10,10 +10,10 @@ public interface BoardCatalog {
 	List<Board> getBoardList();
 	List<Reply> getReplyList(String board_id);
 	
-	Notice selectNotice(String board_id);
-	void writeNotice(Board board);
-	void updateNotice(Board board);
-	void deleteNotice(String board_id);
+	Notice selectBoard(String board_id);
+	Integer writeBoard(Board board);
+	void updateBoard(Board board);
+	void deleteBoard(String board_id);
 	
 	void uploadAttachedFile();
 	void downloadAttachedFile();

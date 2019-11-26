@@ -10,45 +10,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" href="../css/w3.css">
 
 <title>NoticeListView.jsp</title>
 </head>
 <body>
 	<div>
-		<div class="container">
+		<div class="w3-container">
 			<h2>Notice</h2>
+			
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light"
-				style="margin: 24px 0;">
-				<a class="navbar-brand" href="javascript:void(0)">게시판</a>
-				<div class="collapse navbar-collapse" id="navb">
-					<button class="navbar-toggler navbar-toggler-right" type="button"
-						data-toggle="collapse" data-target="#navb">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+<!-- 			<nav class="navbar navbar-expand-lg navbar-light bg-light" -->
+<!-- 				style="margin: 24px 0;"> -->
+<!-- 				<a class="navbar-brand" href="javascript:void(0)">게시판</a> -->
+<!-- 				<div class="collapse navbar-collapse" id="navb"> -->
+<!-- 					<button class="navbar-toggler navbar-toggler-right" type="button" -->
+<!-- 						data-toggle="collapse" data-target="#navb"> -->
+<!-- 						<span class="navbar-toggler-icon"></span> -->
+<!-- 					</button> -->
 
-					<div class="collapse navbar-collapse" id="navb">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item"><a class="nav-link"
-								href="javascript:void(0)">전사공지</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="javascript:void(0)">Team 게시판</a></li>
-						</ul>
-						<form class="form-inline my-2 my-lg-0">
-							<input class="form-control mr-sm-2" type="text"
-								placeholder="Search">
-							<button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
-						</form>
-					</div>
-				</div>
-			</nav>
+<!-- 					<div class="collapse navbar-collapse" id="navb"> -->
+<!-- 						<ul class="navbar-nav mr-auto"> -->
+<!-- 							<li class="nav-item"><a class="nav-link" -->
+<!-- 								href="javascript:void(0)">전사공지</a></li> -->
+<!-- 							<li class="nav-item"><a class="nav-link" -->
+<!-- 								href="javascript:void(0)">Team 게시판</a></li> -->
+<!-- 						</ul> -->
+<%-- 						<form class="form-inline my-2 my-lg-0"> --%>
+<!-- 							<input class="form-control mr-sm-2" type="text" -->
+<!-- 								placeholder="Search"> -->
+<!-- 							<button class="btn btn-success my-2 my-sm-0" type="button">Search</button> -->
+<%-- 						</form> --%>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</nav> -->
 
 
 
-			<table class="table table-sm table-bordered table-hover">
+			<table class="w3-table-all w3-small">
 				<thead>
-					<tr>
+					<tr class="w3-green">
 						<th>글번호</th>
 						<th>제목</th>
 						<th>작성자</th>
@@ -97,13 +98,17 @@
 					<tr>
 						<td colspan="4">
 							<!-- pagination -->
-							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item active"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a></li>
-							</ul>
+							<div class="w3-bar">
+								<div class="w3-bar w3-border w3-round">
+  								<a href="#" class="w3-button">&#10094; Previous</a>
+  								<a href="#" class="w3-button">1</a>
+								  <a href="#" class="w3-button">2</a>
+								  <a href="#" class="w3-button">3</a>
+								  <a href="#" class="w3-button">4</a>
+								  <a href="#" class="w3-button">5</a>
+  								<a href="#" class="w3-button w3-right">Next &#10095;</a>
+								</div>
+							</div>
 						</td>
 					</tr>
 				</tfoot>

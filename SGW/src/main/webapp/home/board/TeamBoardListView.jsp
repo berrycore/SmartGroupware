@@ -1,52 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3.css">
 
 <title>팀 게시판</title>
 </head>
 <body>
 	<div>
-		<div class="container">
+		<div class="w3-container">
 			<h2>팀 게시판</h2>
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light"
-				style="margin: 24px 0;">
-				<a class="navbar-brand" href="javascript:void(0)">게시판</a>
-				<div class="collapse navbar-collapse" id="navb">
-					<button class="navbar-toggler navbar-toggler-right" type="button"
-						data-toggle="collapse" data-target="#navb">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navb">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item"><a class="nav-link"
-								href="javascript:void(0)">전사공지</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="javascript:void(0)">Team 게시판</a></li>
-						</ul>
-						<form class="form-inline my-2 my-lg-0">
-							<input class="form-control mr-sm-2" type="text"
-								placeholder="Search">
-							<button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
-						</form>
-					</div>
-				</div>
-			</nav>
-
-
-<button class="btn btn-primary" style="margin-bottom: 5px">새글작성</button>
-			<table class="table table-sm table-bordered table-hover">
+			<a href="../board/BoardWrite.html">
+				<button class="w3-button w3-black w3-padding-small" style="margin-bottom: 5px">새글작성</button>
+			</a>
+			<table class="w3-table-all w3-small">
 				<thead>
-					<tr>
+					<tr class="w3-blue">
 						<th>글번호</th>
 						<th>제목</th>
 						<th>작성자</th>
@@ -57,7 +35,8 @@
 					<tr>
 						<td>10</td>
 						<td>
-							<a href="#"> 팀회식 합시다 </a> <span class="badge badge-secondary" style="margin-left: 10px"> 3 </span>
+							<a href="#"> 팀회식 합시다 </a> 
+							<span class="w3-badge w3-teal" style="margin-left: 10px"> 3 </span>
 						</td>
 						<td>베란다</td>
 						<td>2019-11-10</td>
@@ -95,22 +74,24 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="4">	
+						<td colspan="4">
 							<!-- pagination -->
-							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item active"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a></li>
-							</ul>
-							
+							<div class="w3-bar w3-border w3-round">
+								<a href="#" class="w3-button">&#10094; Previous</a>
+							  <a href="#" class="w3-button">1</a>
+							  <a href="#" class="w3-button">2</a>
+							  <a href="#" class="w3-button">3</a>
+							  <a href="#" class="w3-button">4</a>
+							  <a href="#" class="w3-button">5</a>
+							  <a href="#" class="w3-button w3-right">Next &#10095;</a>
+							</div>
+
 						</td>
 					</tr>
 				</tfoot>
 
 			</table>
-			
+
 		</div>
 	</div>
 </body>
