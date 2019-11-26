@@ -6,9 +6,9 @@ public class Board {
 	private String board_title;
 	private String board_content;
 	private String board_writer_name;
-	private String user_id;
 	private String board_attached_file_name;
 	private String board_date_regist;
+	private String user_id;
 	
 	private User user;
 
@@ -79,8 +79,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [board_id=" + board_id + ", board_title=" + board_title + ", board_content=" + board_content
-				+ ", board_writer_name=" + board_writer_name + ", user_id=" + user_id + ", board_attached_file_name="
-				+ board_attached_file_name + ", board_date_regist=" + board_date_regist + ", user=" + user + "]";
-	}
-
+				+ ", board_writer_name=" + board_writer_name + ", board_attached_file_name=" + board_attached_file_name
+				+ ", board_date_regist=" + board_date_regist + ", user_id=" + user_id + ", user=" + user + "]";
+	}	
 }

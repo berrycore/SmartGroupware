@@ -129,6 +129,39 @@
 		)
 	</insert>
 	
+	<!-- getBoardList -->
+	<resultMap type="model.User" id="UserInfo">
+		<result column="user_id" property="user_id"/>
+		<result column="user_name" property="user_name" />
+		<result column="user_email" property="user_email" />
+	</resultMap>
+	<resultMap type="model.Board" id="BoardJoinUser" >
+		<result column="board_id" property="board_id" />
+		<result column="board_title" property="board_title" />
+		<result column="board_writer_name" property="board_writer_name" />
+		<result column="board_date_regist" property="board_date_regist" />
+		<result column="user_id" property="user_id" />
+		<collection property="user" resultMap="UserInfo"></collection>
+	</resultMap>
+	<select id="getBoardList" resultMap="BoardJoinUser">
+		SELECT
+			B.BOARD_ID,
+			B.BOARD_TITLE,
+			B.BOARD_WRITER_NAME,
+			B.BOARD_DATE_REGIST,
+			U.USER_ID
+		FROM
+			SM_BOARD B,
+			SM_USERS U
+		WHERE 
+			B.USER_ID = U.USER_ID
+		ORDER BY B.BOARD_ID DESC
+	</select>
+	
+	<select id="selectBoard" parameterType="Integer" resultType="model.Board">
+		select * from SM_BOARD where board_id = #{board_id}
+	</select>
+	
 	<!-- SM_TEAMS -->
 	<select id="getTeamList" resultType="model.Team">
 		select * from SM_TEAMS

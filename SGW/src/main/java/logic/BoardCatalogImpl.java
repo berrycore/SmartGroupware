@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import dao.BoardDao;
 import model.Board;
-import model.Notice;
 import model.Reply;
 
 @Service
@@ -17,8 +16,7 @@ public class BoardCatalogImpl implements BoardCatalog {
 	private BoardDao boardDao;
 	
 	public List<Board> getBoardList() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.getBoardList();
 	}
 
 	public List<Reply> getReplyList(String board_id) {
@@ -26,9 +24,8 @@ public class BoardCatalogImpl implements BoardCatalog {
 		return null;
 	}
 
-	public Notice selectBoard(String board_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Board selectBoard(String board_id) {
+		return boardDao.selectBoard(board_id);
 	}
 
 	public Integer writeBoard(Board board) {

@@ -11,52 +11,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- summer note editor -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+섬머노트 부트스트랩 버전 충돌난다 -_-
 <title>글 보기</title>
 </head>
 <body>
-
+<script>
+// summer note
+$(document).ready(function(){
+	$('#summernote').summernote({
+		placeholder: '',
+    tabsize: 2,
+    height: 300
+	});
+});
+</script>
 	<div class="container">
 		<form action="">
 			
 			 <div class="input-group mb-3">
 			    <div class="input-group-prepend">
 			       <span class="input-group-text">제목</span>
+			       <input type="text" class="form-control bg-light" value="${board.board_title}" readonly="readonly">
 			    </div>
-			    <input type="text" class="form-control bg-light" value="팀회식 합시다" disabled="disabled">
 			 </div>
 			 
 			 <div class="input-group mb-3">
 			    <div class="input-group-prepend">
 			       <span class="input-group-text">작성자</span>
-			       <input type="text" class="form-control bg-light" value="베란다" disabled="disabled">
+			       <input type="text" class="form-control bg-light" value="${board.board_writer_name}" readonly="readonly">
 			    </div>
 			    <div class="input-group-prepend">
 			       <span class="input-group-text">작성시간</span>
-			       <input type="text" class="form-control bg-light" value="2019-11-10" disabled="disabled">
+			       <input type="text" class="form-control bg-light" value="${board.board_date_regist}" readonly="readonly">
 			    </div>
 			    <div class="input-group-prepend">
 			       <span class="input-group-text">첨부파일</span>
-			       <input type="text" class="form-control bg-light" value="" disabled="disabled">
+			       <input type="text" class="form-control bg-light" value="" readonly="readonly">
 			    </div>
 			    
 			 </div>
 			
 			<div>
 				<div class="form-group">
-					<textarea class="form-control" rows="10" id="board_content">
-
-    - 다 음 -
-
-1) 장소 : 북한산 둘레길(우이동)
-2) 시간 : 2019년 12월 7일(토) 14:00 까지
-
-※ 유의사항 : 참석이 어려우신 분은 댓글 달아주세요 
-
-
-					</textarea>
+					<textarea id="summernote" name="board_content" >${board.board_content }</textarea>
+<%-- 					<textarea class="form-control" rows="10" id="board_content">${board.board_content }</textarea> --%>
 				</div>
-
-				
 			</div>
 
 			<p>댓글 : </p>

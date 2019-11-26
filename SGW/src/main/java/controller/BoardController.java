@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class BoardController {
 		System.out.println("showTeamBoardList");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home/board/TeamBoardListView");
+		
+		List<Board> boardList = boardCatalog.getBoardList();
+		mav.addObject("boardList", boardList);
 		return mav;
 	}
 	
@@ -50,8 +55,6 @@ public class BoardController {
 			mav.setViewName("home/board/BoardWrite");
 			return mav;
 		}else {
-			
-			// TODO : db
 			User you = (User)request.getSession().getAttribute("loginUser");
 			System.out.println(you);
 			board.setUser_id(you.getUser_id());
@@ -62,7 +65,21 @@ public class BoardController {
 			mav.setViewName("home/board/BoardWriteSuccess");
 			return mav;	
 		}
-		
-		
 	}
+	
+	@RequestMapping(value="/board/TeamBoardView.html")
+	public ModelAndView boardView(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String board_id = request.getParameter("board_id");
+		System.out.println(board_id);
+		
+		Board board = boardCatalog.selectBoard(board_id);
+		System.out.println("board : " + board.toString());
+		
+		mav.setViewName("home/board/TeamBoardView");
+		mav.addObject("board", board);
+		return mav;
+	}
+	
+	
 }

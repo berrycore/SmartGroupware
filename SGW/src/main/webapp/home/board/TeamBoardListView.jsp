@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
 <title>팀 게시판</title>
 </head>
@@ -32,45 +33,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>10</td>
-						<td>
-							<a href="#"> 팀회식 합시다 </a> 
-							<span class="w3-badge w3-teal" style="margin-left: 10px"> 3 </span>
-						</td>
-						<td>베란다</td>
-						<td>2019-11-10</td>
+					<c:forEach items="${boardList }" var="board">
+						<tr>
+							<td> ${board.board_id } </td>
+							<td> <a href="TeamBoardView.html?board_id=${board.board_id}"> ${board.board_title } </a> 
+							     <span class="w3-badge w3-teal" style="margin-left: 10px"> 3 </span>
+						  </td>
+						  <td>${board.board_writer_name }</td>
+						  <td>${board.board_date_regist }</td>
 					</tr>
-					<tr>
-						<td>9</td>
-						<td>지각하는 팀장은 각성하라</td>
-						<td>김현관</td>
-						<td>2019-11-09</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>매주 금요일 본부회의</td>
-						<td>베란다</td>
-						<td>2018-11-08</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>회사생활 백서</td>
-						<td>베란다</td>
-						<td>2018-11-06</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>Excel 팁입니다</td>
-						<td>베란다</td>
-						<td>2018-10-29</td>
-					</tr>
-					<tr>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-					</tr>
+					</c:forEach>
 				</tbody>
 				<tfoot>
 					<tr>

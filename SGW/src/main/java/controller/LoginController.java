@@ -70,4 +70,13 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView("home/login/loginUser");
 		return mav;
 	}
+	
+	@RequestMapping(value="/login/logoutUser.html")
+	public ModelAndView logoutUser(HttpServletRequest request) {
+		
+		request.getSession().invalidate();
+		ModelAndView mav = new ModelAndView("home/login/logoutUserSuccess");
+		mav.addObject("msg", "로그아웃 되었습니다");
+		return mav;
+	}
 }

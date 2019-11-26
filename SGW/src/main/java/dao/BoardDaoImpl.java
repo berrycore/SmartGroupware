@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.Board;
-import model.Notice;
 import util.Utils;
 
 @Repository
@@ -17,13 +16,12 @@ public class BoardDaoImpl implements BoardDao {
 	private SqlSession session;
 
 	public List<Board> getBoardList() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("mapper.myMapper.getBoardList");
 	}
 
-	public Notice selectBoard(String board_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Board selectBoard(String board_id) {
+		Integer id = Integer.parseInt(board_id);
+		return session.selectOne("mapper.myMapper.selectBoard", id);
 	}
 
 	public Integer writeBoard(Board board) {
