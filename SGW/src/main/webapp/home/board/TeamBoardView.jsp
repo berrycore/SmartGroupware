@@ -19,7 +19,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-섬머노트 부트스트랩 버전 충돌난다 -_-
+
 <title>글 보기</title>
 </head>
 <body>
@@ -34,8 +34,8 @@ $(document).ready(function(){
 });
 </script>
 	<div class="container">
-		<form action="">
-			
+		
+			<form:form action="appendReply.html" method="post" modelAttribute="reply">
 			 <div class="input-group mb-3">
 			    <div class="input-group-prepend">
 			       <span class="input-group-text">제목</span>
@@ -69,52 +69,34 @@ $(document).ready(function(){
 			<p>댓글 : </p>
 			
 			<!-- 댓글 위치 -->
-			<div class="card" style="margin-top: 5px">
-			    <h5 class="card-header">
-			    	<span class="badge badge-dark" style="margin-left: 10px">최팀장</span>
-			    	<span class="badge badge-info" style="margin-left: 10px">2019-11-10 20:01:40</span>
-			    </h5>
-			    <div class="card-body">
-			      
-			      <p class="card-text">개인사정으로 불참합니다 죄송합니다</p>
-			  </div>
-			</div>
-			
-			<!-- 댓글 위치 -->
-			<div class="card" style="margin-top: 5px">
-			    <h5 class="card-header">
-			    	<span class="badge badge-dark" style="margin-left: 10px">김현관</span>
-			    	<span class="badge badge-info" style="margin-left: 10px">2019-11-10 21:20:25</span>
-			    </h5>
-			    <div class="card-body">
-			      <p class="card-text">저는 그날 당직이라 불참 합니다</p>
-			  </div>
-			</div>
-			
-			<!-- 댓글 위치 -->
-			<div class="card" style="margin-top: 5px">
-			    <h5 class="card-header">
-			    	<span class="badge badge-dark" style="margin-left: 10px">박수범</span>
-			    	<span class="badge badge-info" style="margin-left: 10px">2019-11-12 09:10:42</span>
-			    </h5>
-			    <div class="card-body">
-			      <p class="card-text">헉 저도 참석이 어렵습니다 ㅠㅠ</p>
-			  </div>
-			</div>
+			<c:forEach items="${replyList }" var="reply">
+				<div class="card" style="margin-top: 5px">
+				    <h5 class="card-header">
+				    	<span class="badge badge-dark" style="margin-left: 5px">${reply.reply_writer_name }</span>
+				    	<span class="badge badge-info" style="margin-left: 5px">${reply.reply_date_regist }</span>
+				    </h5>
+				    <div class="card-body">
+				      <p class="card-text">${reply.reply_content }</p>
+				  </div>
+				</div>
+			</c:forEach>
 			
 			<!-- 댓글 남기기 -->
-			<div class="card" style="margin-top:10px">
-				<h6 class="card-header">댓글 남기기</h6>
-				<div class="card-body">
-					<textarea class="form-control" rows="3" id="board_content" placeholder="댓글을 입력해주세요">
-					</textarea>
-					<button type="submit" class="btn btn-primary" style="margin-top: 2px">댓글남기기</button>
+			
+				<input type="hidden" name="board_id" value="${board.board_id }" />
+				<div class="card" style="margin-top:10px">
+					<h6 class="card-header">댓글 남기기</h6>
+					<div class="card-body">
+						<textarea class="form-control" rows="3" name="reply_content" placeholder="댓글을 입력해주세요"></textarea>
+						<font color="red"><form:errors path="reply_content"/></font>
+						<button type="submit" class="btn btn-primary" style="margin-top: 2px">댓글남기기</button>
+					</div>
 				</div>
-			</div>
+			</form:form>
 
 			<button type="button" class="btn btn-success" style="margin: 5px">닫기</button>
 			<button type="button" class="btn btn-warning" style="margin: 5px">삭제</button>
-		</form>
+			<a href="board/TeamBoardList.html"> <button type="button" class="btn btn-primary" style="margin: 5px">목록으로</button> </a>
 	</div>
 
 </body>

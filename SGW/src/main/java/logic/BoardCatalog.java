@@ -6,9 +6,10 @@ import model.Board;
 import model.Reply;
 
 public interface BoardCatalog {
-	List<Board> getBoardList();
-	List<Reply> getReplyList(String board_id);
 	
+	// board
+	List<Board> getBoardList();
+		
 	Board selectBoard(String board_id);
 	Integer writeBoard(Board board);
 	void updateBoard(Board board);
@@ -17,7 +18,9 @@ public interface BoardCatalog {
 	void uploadAttachedFile();
 	void downloadAttachedFile();
 	
+	
 	// reply add
+	List<Reply> getReplyList(String parent_board_id);
 	void insertReply(Reply reply);
 	
 }

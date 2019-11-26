@@ -1,5 +1,5 @@
 -- 생성자 Oracle SQL Developer Data Modeler 19.2.0.182.1216
---   위치:        2019-11-26 17:08:14 KST
+--   위치:        2019-11-26 12:57:46 KST
 --   사이트:      Oracle Database 11g
 --   유형:      Oracle Database 11g
 
@@ -27,8 +27,8 @@ ALTER TABLE sm_adm ADD CONSTRAINT sm_adm_pk PRIMARY KEY ( admin_id );
 CREATE TABLE sm_board (
     board_id                   INTEGER NOT NULL,
     board_title                VARCHAR2(60) NOT NULL,
-    board_content              LONG NOT NULL,
-    board_writer_name          VARCHAR2(50) NOT NULL,
+    board_content              VARCHAR2(4000) NOT NULL,
+    board_writer_name          LONG NOT NULL,
     board_attached_file_name   VARCHAR2(250),
     board_date_regist          VARCHAR2(50) NOT NULL,
     user_id                    VARCHAR2(50) NOT NULL
@@ -196,17 +196,6 @@ BEGIN
 END;
 /
 
-CREATE SEQUENCE sm_reply_reply_id_seq START WITH 1 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER sm_reply_reply_id_trg BEFORE
-    INSERT ON sm_reply
-    FOR EACH ROW
-    WHEN ( new.reply_id IS NULL )
-BEGIN
-    :new.reply_id := sm_reply_reply_id_seq.nextval;
-END;
-/
-
 
 
 -- Oracle SQL Developer Data Modeler 요약 보고서: 
@@ -220,7 +209,7 @@ END;
 -- CREATE PACKAGE BODY                      0
 -- CREATE PROCEDURE                         0
 -- CREATE FUNCTION                          0
--- CREATE TRIGGER                           3
+-- CREATE TRIGGER                           2
 -- ALTER TRIGGER                            0
 -- CREATE COLLECTION TYPE                   0
 -- CREATE STRUCTURED TYPE                   0
@@ -233,7 +222,7 @@ END;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          3
+-- CREATE SEQUENCE                          2
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0

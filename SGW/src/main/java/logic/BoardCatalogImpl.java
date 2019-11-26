@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.BoardDao;
+import dao.ReplyDao;
 import model.Board;
 import model.Reply;
 
@@ -15,13 +16,11 @@ public class BoardCatalogImpl implements BoardCatalog {
 	@Autowired
 	private BoardDao boardDao;
 	
+	@Autowired
+	private ReplyDao replyDao;
+	
 	public List<Board> getBoardList() {
 		return boardDao.getBoardList();
-	}
-
-	public List<Reply> getReplyList(String board_id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public Board selectBoard(String board_id) {
@@ -51,12 +50,12 @@ public class BoardCatalogImpl implements BoardCatalog {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public void insertReply(Reply reply) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
-
+	public List<Reply> getReplyList(String board_id) {
+		return replyDao.getReplyList(board_id);
+	}
+	
+	public void insertReply(Reply reply) {
+		replyDao.insertReply(reply);
+	}
 }

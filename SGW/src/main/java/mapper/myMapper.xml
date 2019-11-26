@@ -162,6 +162,26 @@
 		select * from SM_BOARD where board_id = #{board_id}
 	</select>
 	
+	
+	<!-- SM_REPLY -->
+	<select id="getReplyList" parameterType="String" resultType="model.Reply">
+		select * from SM_REPLY where parent_board_id = #{parent_board_id}
+	</select>
+	<insert id="insertReply" parameterType="model.Reply">
+		insert into SM_REPLY (
+			reply_writer_name,
+			reply_content,
+			reply_date_regist,
+			parent_board_id
+		) values (
+			#{reply_writer_name},
+			#{reply_content},
+			#{reply_date_regist},
+			#{parent_board_id}
+		)
+	</insert>
+	
+	
 	<!-- SM_TEAMS -->
 	<select id="getTeamList" resultType="model.Team">
 		select * from SM_TEAMS

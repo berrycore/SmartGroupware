@@ -48,4 +48,12 @@ public class Reply {
 		this.parent_board_id = parent_board_id;
 	}
 
+	@Override
+	public String toString() {
+		return "Reply [reply_id=" + reply_id + ", reply_writer_name=" + reply_writer_name + ", reply_content="
+				+ reply_content + ", reply_date_regist=" + reply_date_regist + ", parent_board_id=" + parent_board_id
+				+ "]";
+	}
+
+	
 }
