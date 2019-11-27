@@ -238,4 +238,10 @@
 	<select id="getPositionList" resultType="model.Position" >
 		select * from SM_POSITION order by position_id
 	</select>
+  
+  <!-- SM_ADM -->
+  <select id="getAdminAccountCnt" resultType="Integer" parameterType="String">
+    select count(*) from SM_ADM where admin_id = #{admin_id}
+  </select>
+  
 </mapper>

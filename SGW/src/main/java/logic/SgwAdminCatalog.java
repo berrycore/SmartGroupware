@@ -1,11 +1,14 @@
 package logic;
 
+import java.util.List;
+
 import model.SgwAdmin;
 
 public interface SgwAdminCatalog {
 
 	String getPassword(String admin_id);
-	Integer getAdminIdCnt(String admin_id);
+	Integer getAdminAccountCnt(String admin_id);
 	void insertSgwAdmin(SgwAdmin admin);
-	SgwAdmin getUser(String admin_id);
+	SgwAdmin getAdminAccount(String admin_id);
+	List<SgwAdmin> getAdminAccountList();
 }

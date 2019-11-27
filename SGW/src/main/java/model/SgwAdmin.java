@@ -66,4 +66,13 @@ public class SgwAdmin {
 		this.admin_access_ip = admin_access_ip;
 	}
 
+	@Override
+	public String toString() {
+		return "SgwAdmin [admin_id=" + admin_id + ", admin_password=" + admin_password + ", admin_name=" + admin_name
+				+ ", admin_date_last_login=" + admin_date_last_login + ", admin_date_created=" + admin_date_created
+				+ ", admin_date_last_pw_changed=" + admin_date_last_pw_changed + ", admin_access_ip=" + admin_access_ip
+				+ "]";
+	}
+
+	
 }

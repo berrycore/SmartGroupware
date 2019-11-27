@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,11 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import logic.CompanyCatalog;
 import logic.ManageCatalog;
+import logic.SgwAdminCatalog;
 import logic.UserAccountCatalog;
 import model.Company;
 import model.Position;
+import model.SgwAdmin;
 import model.Team;
 import model.User;
+import validator.AdminIdValidator;
 import validator.UserEntryValidator;
 import validator.UserIdValidator;
 
@@ -32,10 +37,17 @@ public class ManageController {
 	private CompanyCatalog companyCatalog;
 	
 	@Autowired
+	private SgwAdminCatalog sgwAdminCatalog;
+	
+	@Autowired
 	private UserIdValidator userIdValidator;
 	
 	@Autowired
+	private AdminIdValidator adminIdValidator;
+	
+	@Autowired
 	private UserEntryValidator userEntryValidator;
+	
 	
 	@RequestMapping(value="/manage/userList.html")
 	public ModelAndView userList() {
@@ -72,7 +84,6 @@ public class ManageController {
 				mav.addObject("user_id" , user.getUser_id());
 			}	
 		}
-		
 		return mav;
 	}
 	
@@ -164,5 +175,81 @@ public class ManageController {
 		System.out.println("managePermission");
 		ModelAndView mav = new ModelAndView("home/manage/ManagePermission");
 		return mav;
+	}
+	
+	/* Admin */
+	
+	@RequestMapping(value="/manage/loginAdmin.html", method=RequestMethod.GET)
+	public ModelAndView loginAdmin() {
+		System.out.println("loginAdmin : GET");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/manage/AdminLogin");
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/adminAccountList.html", method=RequestMethod.GET)
+	public ModelAndView adminAccountList() {
+		System.out.println("adminAccountList : GET");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/manage/AdminAccountList");
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/adminAccountAdd.html", method=RequestMethod.GET)
+	public ModelAndView adminAccountAdd() {
+		System.out.println("adminAccountAdd : GET");
+		
+		SgwAdmin sgwAdmin = new SgwAdmin();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/manage/AdminAccountAdd");
+		mav.addObject("sgwAdmin", sgwAdmin);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/adminAccountAdd.html", method=RequestMethod.POST)
+	public ModelAndView adminAccountAdd(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
+		System.out.println("adminAccountAdd : POST");
+		ModelAndView mav = new ModelAndView();
+		
+		adminIdValidator.validate(sgwAdmin, br);
+		
+		if(br.hasErrors()) {
+			mav.setViewName("home/manage/AdminAccountAdd");
+			mav.getModel().putAll(br.getModel());
+			
+			return mav;
+		}else {
+			mav.set
+			mav.addObject("sgwAdmin", sgwAdmin);
+		}
+		
+		
+	}
+	
+	@RequestMapping(value="/manage/adminDuplicationCheck.html")
+	public ModelAndView adminDuplicationCheck(SgwAdmin sgwAdmin, BindingResult br) {
+		System.out.println("adminDuplicationCheck :: " + sgwAdmin);
+		ModelAndView mav = new ModelAndView("home/manage/AdminDuplicationCheck");
+		
+		//adminIdValidator.validate(sgwAdmin, br);
+		
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			return mav;
+		}else {
+			Integer cnt = sgwAdminCatalog.getAdminAccountCnt(sgwAdmin.getAdmin_id());
+			
+			if(sgwAdmin.getAdmin_id() != null) {
+				if( cnt > 0) {
+					mav.addObject("isDuplicated", "yes");
+				}else {
+					mav.addObject("isDuplicated", "no");
+					mav.addObject("user_id" , sgwAdmin.getAdmin_id());
+				}
+			}
+			return mav;
+		}
 	}
 }

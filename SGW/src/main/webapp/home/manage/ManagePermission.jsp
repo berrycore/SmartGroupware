@@ -10,7 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script type="text/javascript" src="../js/bootstrap.js" ></script>
 
 <title>권한 관리</title>
 </head>
