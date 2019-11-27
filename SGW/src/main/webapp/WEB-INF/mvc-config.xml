@@ -60,6 +60,8 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<mvc:resources location="/ckeditor/" mapping="/ckeditor/**"/>
+
 </beans>
 
 

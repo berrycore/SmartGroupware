@@ -47,26 +47,19 @@
 					</tr>
 					</c:forEach>
 				</tbody>
-				<tfoot>
-					<tr>
-						<td colspan="4">
-							<!-- pagination -->
-							<div class="w3-bar w3-border w3-round">
-								<a href="#" class="w3-button">&#10094; Previous</a>
-							  <a href="#" class="w3-button">1</a>
-							  <a href="#" class="w3-button">2</a>
-							  <a href="#" class="w3-button">3</a>
-							  <a href="#" class="w3-button">4</a>
-							  <a href="#" class="w3-button">5</a>
-							  <a href="#" class="w3-button w3-right">Next &#10095;</a>
-							</div>
-
-						</td>
-					</tr>
-				</tfoot>
+				
 
 			</table>
-
+			<!-- pagination -->
+			<div class="w3-bar w3-border w3-round">
+				<a href="#" class="w3-button">&#10094; Previous</a>
+			  <a href="#" class="w3-button">1</a>
+			  <a href="#" class="w3-button">2</a>
+			  <a href="#" class="w3-button">3</a>
+			  <a href="#" class="w3-button">4</a>
+			  <a href="#" class="w3-button">5</a>
+			  <a href="#" class="w3-button w3-right">Next &#10095;</a>
+			</div>
 		</div>
 	</div>
 </body>

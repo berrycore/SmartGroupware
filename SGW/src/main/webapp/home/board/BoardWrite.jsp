@@ -11,28 +11,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/w3.css">
-
-<!-- summer note editor -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../ckeditor/ckeditor.js"></script>
 
 <title>새 글 작성</title>
 </head>
 <body>
-<script>
-// summer note
-$(document).ready(function(){
-	$('#summernote').summernote({
-		placeholder: '',
-    tabsize: 2,
-    height: 300
-	});
-});
-</script>
+
 	<div class="w3-container">
 		<form:form modelAttribute="board" action="../board/BoardWrite.html" method="post">
 		
@@ -45,7 +30,7 @@ $(document).ready(function(){
   
 			
 			
-	    <textarea id="summernote" name="board_content" ></textarea>
+	    <textarea id="editor" name="board_content" ></textarea>
 	    
 	    <font color="red"><form:errors path="board_content" /></font>
 	    
@@ -57,8 +42,13 @@ $(document).ready(function(){
 		</form:form>
 	</div>
 
-
+	<!-- ckeditor -->
+	<script>
+		CKEDITOR.replace("editor",{
+			width:'100%',
+			height:'300px'
+		});
+	</script>
 	
-
 </body>
 </html>

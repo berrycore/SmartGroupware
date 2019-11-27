@@ -12,7 +12,8 @@ public class LoginAuthenticationInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		try {
 			if(request.getSession().getAttribute("loginUser") == null) {
-				response.sendRedirect("../login/loginUser.html");
+//				response.sendRedirect("../login/loginUser.html");
+				response.sendRedirect("/SGW/index.jsp");
 				return false;
 			}else {
 				return true;

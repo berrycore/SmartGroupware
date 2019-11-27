@@ -10,29 +10,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- summer note editor -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../ckeditor/ckeditor.js"></script>
 
 <title>글 보기</title>
 </head>
 <body>
-<script>
-// summer note
-$(document).ready(function(){
-	$('#summernote').summernote({
-		placeholder: '',
-    tabsize: 2,
-    height: 300
-	});
-});
-</script>
+
 	<div class="container">
 		
 			<form:form action="appendReply.html" method="post" modelAttribute="reply">
@@ -61,7 +46,7 @@ $(document).ready(function(){
 			
 			<div>
 				<div class="form-group">
-					<textarea id="summernote" name="board_content" >${board.board_content }</textarea>
+					<textarea id="editor" name="board_content" readonly="readonly" >${board.board_content }</textarea>
 <%-- 					<textarea class="form-control" rows="10" id="board_content">${board.board_content }</textarea> --%>
 				</div>
 			</div>
@@ -96,8 +81,19 @@ $(document).ready(function(){
 
 			<button type="button" class="btn btn-success" style="margin: 5px">닫기</button>
 			<button type="button" class="btn btn-warning" style="margin: 5px">삭제</button>
-			<a href="board/TeamBoardList.html"> <button type="button" class="btn btn-primary" style="margin: 5px">목록으로</button> </a>
+			<a href="../board/TeamBoardListView.html"> <button type="button" class="btn btn-primary" style="margin: 5px">목록으로</button> </a>
 	</div>
+	
+	<!-- ckeditor -->
+	<script>
+		CKEDITOR.replace("editor", {
+			width:'100%',
+			height:'300px',
+			toolbar:[]
+		});
+
+		
+	</script>
 
 </body>
 </html>

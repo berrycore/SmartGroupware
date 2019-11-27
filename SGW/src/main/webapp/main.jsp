@@ -33,7 +33,7 @@
 	  			전자결재<i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-white w3-card">
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
+			    <a href="approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재할 문서</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">완료 문서</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재 조회</a>
