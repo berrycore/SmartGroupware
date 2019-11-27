@@ -23,6 +23,10 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 		return userDao.getUserAccount(user_id);
 	}
 	
+	public List<User> getUserAccountByName(String user_name) {
+		return userDao.getUserAccountByName(user_name);
+	}
+	
 	public Integer getUserAccountCount(String user_id) {
 		return userDao.getUserAccountCount(user_id);
 	}
@@ -61,4 +65,5 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 	public void updateUserLastLoginTime(String user_id) {
 		userDao.updateUserLastLoginTime(user_id);
 	}
+	
 }

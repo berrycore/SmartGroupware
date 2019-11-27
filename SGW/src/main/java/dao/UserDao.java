@@ -7,6 +7,7 @@ import model.User;
 public interface UserDao {
 
 	User getUserAccount(String user_id);
+	List<User> getUserAccountByName(String user_name);
 	Integer getUserAccountCount(String user_id);
 	void updateUserInfo(User user);
 	void updateUserPassword(User user);

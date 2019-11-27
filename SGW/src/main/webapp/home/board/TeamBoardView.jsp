@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/w3.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../ckeditor/contents.css">
 <script src="../ckeditor/ckeditor.js"></script>
 
 <title>글 보기</title>

@@ -20,6 +20,10 @@ public class UserDaoImpl implements UserDao {
 		return session.selectOne("mapper.myMapper.getUserAccount", user_id);
 	}
 	
+	public List<User> getUserAccountByName(String user_name) {
+		return session.selectList("mapper.myMapper.getUserAccountByName", user_name);
+	}
+	
 	public Integer getUserAccountCount(String user_id) {
 		return session.selectOne("mapper.myMapper.getUserAccountCount", user_id);
 	}
@@ -60,4 +64,5 @@ public class UserDaoImpl implements UserDao {
 		user.setUser_date_last_login(Utils.generateCurrentTime());
 		session.update("mapper.myMapper.updateUserLastLoginTime", user);
 	}
+
 }

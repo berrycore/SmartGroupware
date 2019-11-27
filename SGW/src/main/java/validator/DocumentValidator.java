@@ -23,6 +23,10 @@ public class DocumentValidator implements Validator {
 		if( ! StringUtils.hasLength(elecDocument.getDocument_content())){
 			errors.rejectValue("document_content", "error.required.document");
 		}
+		
+		if( ! StringUtils.hasLength(elecDocument.getFinal_id())) {
+			errors.rejectValue("final_id", "error.required.document");
+		}
 	}
 
 }

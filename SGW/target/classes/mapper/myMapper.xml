@@ -67,6 +67,22 @@
 		WHERE U.TEAM_ID = T.TEAM_ID AND U.POSITION_ID = P.POSITION_ID AND U.USER_ID = #{user_id}
 	</select>
 	
+	<!-- getUserAccountByName -->
+	<select id="getUserAccountByName" resultMap="UserJoin" parameterType="String">
+		SELECT 
+			U.USER_ID, 
+			U.USER_NAME,
+			U.USER_EMAIL,
+			U.USER_PHONE,
+			U.USER_DESCRIPTION,
+			U.USER_DATE_LAST_LOGIN,
+			U.USER_DATE_LAST_PW_CHANGED,
+			T.TEAM_NAME, 
+			P.POSITION_NAME
+		FROM SM_USERS U, SM_TEAMS T, SM_POSITION P 
+		WHERE U.TEAM_ID = T.TEAM_ID AND U.POSITION_ID = P.POSITION_ID AND U.USER_NAME = #{user_name}
+	</select>
+	
 	<insert id="insertUser" parameterType="model.User">
 		insert into SM_USERS (
 			user_id,

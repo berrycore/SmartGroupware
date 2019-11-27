@@ -14,12 +14,22 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <script src="../ckeditor/ckeditor.js"></script>
 
+<script>
+	function popup_id_search(){
+		var url = "UserSearch.html"
+		var name = "UserSearch"
+		var option = "width = 700, height = 400, top = 100, left = 200, location = no";
+		window.open(url, name, option);
+		return false;
+	}
+</script>
+
 <title>DocumentWriteNew.jsp</title>
 </head>
 <body>
 
 	<div class="container">
-		<form:form action="../approval/DocumentWriteNewSubmit.html" modelAttribute="elecDocument" method="post">
+		<form:form action="../approval/DocumentWriteNewSubmit.html" modelAttribute="elecDocument" method="post" name="frm_document">
 			<!-- document interface -->
 			<table class="table table-sm">
 				<thead>
@@ -53,20 +63,21 @@
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div><small>-</small></div>
-										<small><a href=""><span class="badge badge-info">설정하기</span></a></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_second_name" onclick="return popup_id_search(id)">설정하기</button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div><small>-</small></div>
-										<small><a href=""><span class="badge badge-info">설정하기</span></a></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_id_search(id)">설정하기</button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div><small>-</small></div>
-										<small><a href=""><span class="badge badge-info">설정하기</span></a></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_fourth_name" onclick="return popup_id_search(id)">설정하기</button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div><small>나사장</small></div>
-										<small><a href=""><span class="badge badge-warning" id="approval_final_name">설정하기</span></a></small>
-										<input type="hidden" name="final_id">
+										<small><button class="btn btn-primary btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_final_name" onclick="return popup_id_search(id)">설정하기</button></small>
+										<input type="text" name="final_id">
+										<input type="text" name="final_name">
 									</td>
 								</tr>
 								<tr>
