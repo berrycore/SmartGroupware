@@ -32,6 +32,12 @@ body {
             <div class="card-body">
               <h5 class="card-title text-center">Smart Group Ware</h5>
               
+              		<c:if test="${ msg ne null }">
+		               	<div style="margin-bottom: 10px">
+		               		<font color="blue">${msg}</font>
+		               	</div>
+	               	</c:if>
+              
                 <div class="form-label-group">
                   <input type="text" id="admin_id" name="admin_id" class="form-control" placeholder="Admin ID" autofocus> 
                   <label for="admin_id">Admin ID</label>
@@ -53,6 +59,7 @@ body {
                 <div>
                   <font color="red"><form:errors path="admin_password"/></font>
                 </div>
+	               	
             </div>
           </form:form>
         </div>

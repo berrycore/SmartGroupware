@@ -10,33 +10,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
-<title>ChangePassword</title>
+<title>AdminChangePassword</title>
 </head>
 <body>
 	<div class="container">
-		<form action="/action_page.php" class="was-validated">
-		
-			<h3 class="bg-dark text-light">관리자 - 패스워드 설정</h3>
-		
-			<div class="alert alert-success">
-	 			 <strong>패스워드 복잡도 : </strong> 영문 대소문자 , 숫자 , 특수문자 조합<br/>
-	 			 <strong>패스워드 길이   : </strong> 최소 8 자 이상 20자 이하
-			</div>
-		
-			<div class="form-group">
-				<label for="password">Password:</label> 
-				<input type="text"class="form-control" id="password" >
-			</div>
-			<div class="form-group">
-				<label for="password">Password 확인:</label> 
-				<input type="text"class="form-control" id="password" >
-			</div>
-			
-			<button type="submit" class="btn btn-primary">Confirm</button>
-		</form>
-
-	</div>
+	<form:form action="adminPasswordChange.html" method="POST" modelAttribute="sgwAdmin">
+		<table class="table table-sm">
+			<thead>
+				<tr>
+					<th colspan="2">
+						<h2>패스워드 변경</h2>	
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>관리자 이름</td>
+					<td>
+						<input class="form-control" name="admin_name" type="text" value="${sgwAdmin.admin_name }" readonly="readonly">
+					</td>
+				</tr>
+				<tr>
+					<td>ID</td>
+					<td><input class="form-control" name="admin_id" type="text" value="${sgwAdmin.admin_id }" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td>패스워드 변경</td>
+					<td>
+						<input type="password" class="form-control" name="admin_password">
+						<font color="red"><form:errors path="admin_password" /></font> 
+					</td>
+				</tr>
+				<tr>
+					<td>패스워드 변경 확인</td>
+					<td>
+						<input type="password" class="form-control" name="admin_password_re"> 
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit" class="btn btn-primary">저장하기</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form:form>
+</div>
 
 </body>
 </html>

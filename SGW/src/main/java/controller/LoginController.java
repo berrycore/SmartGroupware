@@ -36,32 +36,32 @@ public class LoginController {
 		loginValidator.validate(user, br);
 		
 		if(br.hasErrors()) {
-			return mav;
-		}
-		
-		User result = loginCatalog.getUser( "DM" + user.getUser_id());
-		
-		
-		if( result == null || ! result.getUser_id().equals( "DM" + user.getUser_id())) {
-			br.rejectValue("user_id", "error.failed.user");
-			return mav;
-		}else if( ! result.getUser_password().equals( Encrypter.sha256(user.getUser_password())) ){
-			br.rejectValue("user_password", "error.failed.user");
+			mav.getModel().putAll(br.getModel());
 			return mav;
 		}else {
-			if( result.getUser_date_last_pw_changed() == null || result.getUser_date_last_pw_changed().equals("")) {
-				mav.addObject("firstLogin", "yes");
-				mav.setViewName("home/account/changePassword");
+			User result = loginCatalog.getUser( "DM" + user.getUser_id());
+						
+			if( result == null || ! result.getUser_id().equals( "DM" + user.getUser_id())) {
+				br.rejectValue("user_id", "error.failed.user");
+				return mav;
+			}else if( ! result.getUser_password().equals( Encrypter.sha256(user.getUser_password())) ){
+				br.rejectValue("user_password", "error.failed.user");
+				return mav;
 			}else {
-				mav.setViewName("home/login/loginUserSuccess");	
+				if( result.getUser_date_last_pw_changed() == null || result.getUser_date_last_pw_changed().equals("")) {
+					mav.addObject("firstLogin", "yes");
+					mav.setViewName("home/account/changePassword");
+				}else {
+					mav.setViewName("home/login/loginUserSuccess");	
+				}
+				
+				userAccountCatalog.updateUserLastLoginTime(result.getUser_id());
+				User you = userAccountCatalog.getUserByUserId(result.getUser_id());
+				request.getSession().setAttribute("loginUser", you);
+				mav.addObject("you", you);
+				return mav;	
 			}
-			
-			userAccountCatalog.updateUserLastLoginTime(result.getUser_id());
-			User you = userAccountCatalog.getUserByUserId(result.getUser_id());
-			request.getSession().setAttribute("loginUser", you);
-			mav.addObject("you", you);
-			return mav;	
-		}
+		}		
 	}
 	
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.GET)

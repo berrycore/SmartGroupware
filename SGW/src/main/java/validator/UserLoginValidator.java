@@ -25,5 +25,6 @@ public class UserLoginValidator implements Validator{
 			errors.rejectValue("user_password", "error.required.user");
 		}
 		
+		System.out.println("validate :: " + errors.toString());
 	}
 }

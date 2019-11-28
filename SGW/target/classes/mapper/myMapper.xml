@@ -258,8 +258,24 @@
   		#{admin_access_ip}
   	)
   </insert>
-  <select id="getAdminAccountList" resultType="model.SgwAdmin">
-  	select admin_id, admin_name, admin_date_created, admin_access_ip from SM_ADM 
+  <select id="getAdminAccount" resultType="model.SgwAdmin" parameterType="String">
+  	select * from SM_ADM where admin_id = #{admin_id}
   </select>
+  <select id="getAdminAccountList" resultType="model.SgwAdmin">
+  	select admin_id, admin_name, admin_date_created, admin_date_last_login, admin_access_ip, admin_date_last_pw_changed from SM_ADM 
+  </select>
+  <update id="updateAdminLastLoginTime" parameterType="model.SgwAdmin">
+  	update SM_ADM set
+      admin_date_last_login = #{admin_date_last_login}
+    where
+      admin_id = #{admin_id}
+  </update>
+  <update id="changeAdminPassword" parameterType="model.SgwAdmin">
+  	update SM_ADM set
+  		admin_password = #{admin_password},
+  		admin_date_last_pw_changed = #{admin_date_last_pw_changed}
+ 		where
+ 			admin_id = #{admin_id}
+  </update>
   
 </mapper>

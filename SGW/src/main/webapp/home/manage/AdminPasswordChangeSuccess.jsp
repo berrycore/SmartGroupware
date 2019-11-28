@@ -10,12 +10,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>AdminLoginSuccess</title>
+<title>title</title>
 </head>
 <body>
-관리자 로그인 성공
 <script>
+alert("${msg}");
 location.href="../main.jsp";
 </script>
+
 </body>
 </html>

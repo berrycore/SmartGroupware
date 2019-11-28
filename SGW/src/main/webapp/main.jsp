@@ -57,7 +57,8 @@
 	  
     <a href="manage/loginAdmin.html" class="w3-bar-item w3-button">[admin] 관리자 로그인</a>
     <a href="manage/adminAccountAdd.html" class="w3-bar-item w3-button">[admin] 관리자 등록</a>
-    <a href="manage/adminAccountList.html" class="w3-bar-item w3-button">[admin] 관리자 리스트</a>		
+    <a href="manage/adminAccountList.html" class="w3-bar-item w3-button">[admin] 관리자 리스트</a>
+    <a href="manage/adminPasswordChange.html" class="w3-bar-item w3-button">[admin] 관리자 PW변경</a>		
 		<a href="manage/userList.html" class="w3-bar-item w3-button">[admin]사용자 리스트</a>
 		<a href="manage/userAdd.html" class="w3-bar-item w3-button">[admin]사용자 등록</a>
 		<a href="manage/managePermission.html" class="w3-bar-item w3-button">[admin]권한관리</a>  	

@@ -11,4 +11,6 @@ public interface SgwAdminCatalog {
 	void insertSgwAdmin(SgwAdmin admin);
 	SgwAdmin getAdminAccount(String admin_id);
 	List<SgwAdmin> getAdminAccountList();
+	void updateAdminLastLoginTime(String admin_id);
+	void changeAdminPassword(SgwAdmin sgwAdmin);
 }

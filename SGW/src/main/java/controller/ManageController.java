@@ -20,9 +20,11 @@ import model.Position;
 import model.SgwAdmin;
 import model.Team;
 import model.User;
+import util.Encrypter;
 import validator.AdminAccountValidator;
 import validator.AdminDuplicationValidator;
 import validator.AdminLoginValidator;
+import validator.AdminPasswordChangeValidator;
 import validator.UserEntryValidator;
 import validator.UserIdValidator;
 
@@ -52,6 +54,9 @@ public class ManageController {
 	
 	@Autowired
 	private AdminLoginValidator adminLoginValidator;
+	
+	@Autowired
+	private AdminPasswordChangeValidator adminPasswordChangeValidator;
 	
 	@Autowired
 	private UserEntryValidator userEntryValidator;
@@ -196,22 +201,31 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value="/manage/loginAdmin.html", method=RequestMethod.POST)
-	public ModelAndView loginAdmin(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
-		System.out.println("loginAdmin : POST");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/manage/AdminLogin");
-		
-		adminLoginValidator.validate(sgwAdmin, br);
+	public ModelAndView loginAdmin(HttpServletRequest request, SgwAdmin sgwadmin, BindingResult br) {
+		System.out.println("loginAdmin : POST : " + sgwadmin);
+		ModelAndView mav = new ModelAndView("home/manage/AdminLogin");
+				
+		adminLoginValidator.validate(sgwadmin, br);
 		
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());
 			return mav;
 		}else {
-			
-			// DB 조회
-			
-			mav.setViewName("home/admin/AdminLoginSuccess");
-			return mav;	
+			SgwAdmin result = sgwAdminCatalog.getAdminAccount(sgwadmin.getAdmin_id());
+			System.out.println("reslut : " + result);
+			if( result == null ) {
+				br.rejectValue("admin_id", "error.failed.sgwadmin", "No search id");
+				return mav;
+			}else if( ! result.getAdmin_password().equals( Encrypter.sha256(sgwadmin.getAdmin_password()))) {
+				br.rejectValue("admin_password", "error.failed.sgwadmin", "Password is wrong");
+				return mav;
+			}else {
+				sgwAdminCatalog.updateAdminLastLoginTime(result.getAdmin_id());
+				SgwAdmin authorizedAdmin = sgwAdminCatalog.getAdminAccount(result.getAdmin_id());
+				request.getSession().setAttribute("authorizedAdmin", authorizedAdmin);
+				mav.setViewName("home/manage/AdminLoginSuccess");
+				return mav;
+			}
 		}
 	}
 	
@@ -221,7 +235,6 @@ public class ManageController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home/manage/AdminAccountList");
 		
-		// TODO: DB
 		List<SgwAdmin> sgwAdminList = sgwAdminCatalog.getAdminAccountList();
 		if(sgwAdminList.isEmpty()) {
 			mav.addObject("noResult", "yes");
@@ -286,6 +299,52 @@ public class ManageController {
 					mav.addObject("user_id" , sgwAdmin.getAdmin_id());
 				}
 			}
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value="/manage/adminPasswordChange.html", method=RequestMethod.GET)
+	public ModelAndView adminPasswordChange(HttpServletRequest request) {
+		System.out.println("adminPasswordChange : GET");
+		SgwAdmin admin = (SgwAdmin)request.getSession().getAttribute("authorizedAdmin");
+		if( admin == null) {
+			ModelAndView mav = new ModelAndView("home/manage/AdminLogin");
+			mav.addObject("msg","관리자 로그인이 필요합니다");
+			return mav;
+		}else {
+			ModelAndView mav = new ModelAndView("home/manage/AdminPasswordChange");
+			mav.addObject("sgwAdmin", admin);
+			return mav;	
+		}
+	}
+	
+	@RequestMapping(value="/manage/adminPasswordChange.html", method=RequestMethod.POST)
+	public ModelAndView adminPasswordChange(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
+		System.out.println("adminPasswordChange : POST");
+		ModelAndView mav = new ModelAndView("home/manage/AdminPasswordChange");
+		
+		adminPasswordChangeValidator.validate(sgwAdmin, br);
+		
+		String pwd = sgwAdmin.getAdmin_password();
+		String pwd_re = request.getParameter("admin_password_re");
+		
+		System.out.println("pwd    : " + pwd);
+		System.out.println("pwd_re : " + pwd_re);
+		
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			return mav;
+		}else if( ! pwd.equals(pwd_re) ) {
+			br.rejectValue("admin_password", "error.notequal.sgwadmin");
+			mav.getModel().putAll(br.getModel());
+			return mav;
+		}else {
+			// DB 업데이트
+			
+			sgwAdminCatalog.changeAdminPassword(sgwAdmin);
+			
+			mav.setViewName("home/manage/AdminPasswordChangeSuccess");
+			mav.addObject("msg", "정상적으로 변경 되었습니다");
 			return mav;
 		}
 	}

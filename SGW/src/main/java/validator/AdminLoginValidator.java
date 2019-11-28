@@ -17,13 +17,14 @@ public class AdminLoginValidator implements Validator{
 	
 	public void validate(Object target, Errors errors) {
 	
-		SgwAdmin user = (SgwAdmin)target;
-		if( ! StringUtils.hasLength(user.getAdmin_id())) {
+		SgwAdmin sgwadmin = (SgwAdmin)target;
+		if( ! StringUtils.hasLength(sgwadmin.getAdmin_id())) {
 			errors.rejectValue("admin_id", "error.required.sgwadmin");
 		}
-		if( ! StringUtils.hasLength(user.getAdmin_password())) {
+		if( ! StringUtils.hasLength(sgwadmin.getAdmin_password())) {
 			errors.rejectValue("admin_password", "error.required.sgwadmin");
 		}
 		
+		System.out.println("validate :: " + errors.toString());
 	}
 }

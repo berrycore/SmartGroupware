@@ -28,12 +28,19 @@ public class SgwAdminCatalogImpl implements SgwAdminCatalog {
 	}
 
 	public SgwAdmin getAdminAccount(String admin_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return sgwAdminDao.getAdminAccount(admin_id);
 	}
 
 	public List<SgwAdmin> getAdminAccountList() {
 		return sgwAdminDao.getAdminAccountList();
+	}
+
+	public void updateAdminLastLoginTime(String admin_id) {
+		sgwAdminDao.updateAdminLastLoginTime(admin_id);
+	}
+
+	public void changeAdminPassword(SgwAdmin sgwAdmin) {
+		sgwAdminDao.changeAdminPassword(sgwAdmin);
 	}
 
 }

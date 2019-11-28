@@ -33,12 +33,25 @@ public class SgwAdminDaoImpl implements SgwAdminDao {
 	}
 
 	public SgwAdmin getAdminAccount(String admin_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("mapper.myMapper.getAdminAccount", admin_id);
 	}
 
 	public List<SgwAdmin> getAdminAccountList() {
 		return session.selectList("mapper.myMapper.getAdminAccountList");
+	}
+
+	public void updateAdminLastLoginTime(String admin_id) {
+		SgwAdmin admin = new SgwAdmin();
+		admin.setAdmin_id(admin_id);
+		admin.setAdmin_date_last_login(Utils.generateCurrentTime());
+		session.update("mapper.myMapper.updateAdminLastLoginTime", admin);
+	}
+
+	public void changeAdminPassword(SgwAdmin sgwAdmin) {
+		String origin = sgwAdmin.getAdmin_password();
+		sgwAdmin.setAdmin_password( Encrypter.sha256(origin));
+		sgwAdmin.setAdmin_date_last_pw_changed( Utils.generateCurrentTime());
+		session.update("mapper.myMapper.changeAdminPassword", sgwAdmin);
 	}
 
 }
