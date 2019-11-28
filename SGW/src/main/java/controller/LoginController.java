@@ -31,7 +31,8 @@ public class LoginController {
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.POST)
 	public ModelAndView loginUserTry(HttpServletRequest request, User user, BindingResult br) {
 		System.out.println("loginUser : POST : " + user);
-		ModelAndView mav = new ModelAndView("home/login/loginUser");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/login/loginUser");
 		
 		loginValidator.validate(user, br);
 		

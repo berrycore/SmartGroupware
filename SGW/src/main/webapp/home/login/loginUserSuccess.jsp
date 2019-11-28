@@ -19,7 +19,7 @@
 <body>
 로그인 성공
 <script>
-location.href="../main.jsp";
+location.href="/main.html";
 </script>
 </body>
 </html>
