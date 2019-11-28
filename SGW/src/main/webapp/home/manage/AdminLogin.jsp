@@ -28,7 +28,7 @@ body {
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
-          <form:form modelAttribute="sgwAdmin" name="frm_login" class="form-signin" action="manage/loginAdmin.html" method="POST">
+          <form:form modelAttribute="sgwAdmin" name="frm_login" class="form-signin" action="loginAdmin.html" method="POST">
             <div class="card-body">
               <h5 class="card-title text-center">Smart Group Ware</h5>
               
@@ -45,7 +45,7 @@ body {
   
                 <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                 <hr class="my-4">
-                경고 !<br />비인가자의 접속을 금지합니다 
+                	경고 !<br />비인가자의 접속을 금지합니다 
                 <hr class="my-4">
                 <div>
                   <font color="red"><form:errors path="admin_id"/></font>

@@ -20,7 +20,9 @@ import model.Position;
 import model.SgwAdmin;
 import model.Team;
 import model.User;
-import validator.AdminIdValidator;
+import validator.AdminAccountValidator;
+import validator.AdminDuplicationValidator;
+import validator.AdminLoginValidator;
 import validator.UserEntryValidator;
 import validator.UserIdValidator;
 
@@ -43,7 +45,13 @@ public class ManageController {
 	private UserIdValidator userIdValidator;
 	
 	@Autowired
-	private AdminIdValidator adminIdValidator;
+	private AdminAccountValidator adminAccountValidator;
+	
+	@Autowired
+	private AdminDuplicationValidator adminDuplicationValidator;
+	
+	@Autowired
+	private AdminLoginValidator adminLoginValidator;
 	
 	@Autowired
 	private UserEntryValidator userEntryValidator;
@@ -187,12 +195,42 @@ public class ManageController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/manage/loginAdmin.html", method=RequestMethod.POST)
+	public ModelAndView loginAdmin(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
+		System.out.println("loginAdmin : POST");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/manage/AdminLogin");
+		
+		adminLoginValidator.validate(sgwAdmin, br);
+		
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			return mav;
+		}else {
+			
+			// DB 조회
+			
+			mav.setViewName("home/admin/AdminLoginSuccess");
+			return mav;	
+		}
+	}
+	
 	@RequestMapping(value="/manage/adminAccountList.html", method=RequestMethod.GET)
 	public ModelAndView adminAccountList() {
 		System.out.println("adminAccountList : GET");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home/manage/AdminAccountList");
-		return mav;
+		
+		// TODO: DB
+		List<SgwAdmin> sgwAdminList = sgwAdminCatalog.getAdminAccountList();
+		if(sgwAdminList.isEmpty()) {
+			mav.addObject("noResult", "yes");
+			return mav;
+		}else {
+			System.out.println(sgwAdminList);
+			mav.addObject("sgwAdminList", sgwAdminList);
+			return mav;	
+		}
 	}
 	
 	@RequestMapping(value="/manage/adminAccountAdd.html", method=RequestMethod.GET)
@@ -213,19 +251,18 @@ public class ManageController {
 		System.out.println("adminAccountAdd : POST");
 		ModelAndView mav = new ModelAndView();
 		
-		adminIdValidator.validate(sgwAdmin, br);
+		adminAccountValidator.validate(sgwAdmin, br);
 		
 		if(br.hasErrors()) {
 			mav.setViewName("home/manage/AdminAccountAdd");
 			mav.getModel().putAll(br.getModel());
-			
 			return mav;
 		}else {
-			mav.set
-			mav.addObject("sgwAdmin", sgwAdmin);
+			sgwAdminCatalog.insertSgwAdmin(sgwAdmin);
+			mav.setViewName("home/manage/AdminAccountAddSuccess");
+			mav.addObject("msg", "정상적으로 등록 되었습니다");
+			return mav;
 		}
-		
-		
 	}
 	
 	@RequestMapping(value="/manage/adminDuplicationCheck.html")
@@ -233,7 +270,7 @@ public class ManageController {
 		System.out.println("adminDuplicationCheck :: " + sgwAdmin);
 		ModelAndView mav = new ModelAndView("home/manage/AdminDuplicationCheck");
 		
-		//adminIdValidator.validate(sgwAdmin, br);
+		adminDuplicationValidator.validate(sgwAdmin, br);
 		
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());

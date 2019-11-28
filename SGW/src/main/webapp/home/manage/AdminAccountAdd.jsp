@@ -10,10 +10,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-
 <title>AdminAccountAdd</title>
 </head>
 <body>
+
+<script>
+	function popup_admin_id_check(){
+		var url = "adminDuplicationCheck.html"
+		var name = "AdminDuplicationCheck"
+		var option = "width = 600, height = 400, top = 100, left = 200, location = no";
+		window.open(url, name, option);
+		return false;
+	}
+</script>
+
 <div >
   <form:form modelAttribute="sgwAdmin" method="POST" action="adminAccountAdd.html" name="frm_admin">
     <table class="table" style="margin-top: 5px;">
@@ -45,7 +55,20 @@
         </td>
       </tr>
       <tr>
-        <td>접속가능 IP주소</td>
+        <td>패스워드</td>
+        <td>
+          <input type="password" id="admin_password" name="admin_password" class="form-control"/>
+          <font color="red"><form:errors path="admin_password" /></font>
+        </td>
+      </tr>
+      <tr>
+        <td>패스워드 확인</td>
+        <td>
+        	<input type="password" id="admin_password_re" name="admin_password_re" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>접속가능 IP주소<br/>예) 127.0.0.1</td>
         <td>
           <form:input path="admin_access_ip" name="admin_access_ip" class="form-control"/>
           <font color="red"><form:errors path="admin_access_ip" /></font>

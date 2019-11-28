@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.SgwAdmin;
+import util.Encrypter;
+import util.Utils;
 
 @Repository
 public class SgwAdminDaoImpl implements SgwAdminDao {
@@ -24,8 +26,10 @@ public class SgwAdminDaoImpl implements SgwAdminDao {
 	}
 
 	public void insertSgwAdmin(SgwAdmin admin) {
-		// TODO Auto-generated method stub
-
+		String originPwd = admin.getAdmin_password();
+		admin.setAdmin_date_created(Utils.generateCurrentTime());
+		admin.setAdmin_password(Encrypter.sha256(originPwd));
+		session.insert("mapper.myMapper.insertSgwAdmin", admin);
 	}
 
 	public SgwAdmin getAdminAccount(String admin_id) {
@@ -34,8 +38,7 @@ public class SgwAdminDaoImpl implements SgwAdminDao {
 	}
 
 	public List<SgwAdmin> getAdminAccountList() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("mapper.myMapper.getAdminAccountList");
 	}
 
 }

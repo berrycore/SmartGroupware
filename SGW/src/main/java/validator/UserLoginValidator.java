@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
 import model.User;
 
 @Component
-public class LoginValidator implements Validator{
+public class UserLoginValidator implements Validator{
 
 	public boolean supports(Class<?> clazz) {
 		return User.class.isAssignableFrom(clazz);

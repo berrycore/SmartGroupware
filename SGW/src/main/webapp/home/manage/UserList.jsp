@@ -16,7 +16,7 @@
 <body>
 
 <div class="container">
-<h5>SM_USERS</h5>
+<h5>사용자 계정 리스트</h5>
 	<table class="table  table-sm table-bordered table-hover table-responsive-md">
 		<thead>
 			<tr>

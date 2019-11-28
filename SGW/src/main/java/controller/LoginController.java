@@ -13,7 +13,7 @@ import logic.LoginCatalog;
 import logic.UserAccountCatalog;
 import model.User;
 import util.Encrypter;
-import validator.LoginValidator;
+import validator.UserLoginValidator;
 
 @Controller
 public class LoginController {
@@ -25,7 +25,7 @@ public class LoginController {
 	private UserAccountCatalog userAccountCatalog;
 	
 	@Autowired
-	private LoginValidator loginValidator;
+	private UserLoginValidator loginValidator;
 	
 		
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.POST)

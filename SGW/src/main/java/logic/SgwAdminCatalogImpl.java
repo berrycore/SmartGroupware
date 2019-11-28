@@ -24,8 +24,7 @@ public class SgwAdminCatalogImpl implements SgwAdminCatalog {
 	}
 
 	public void insertSgwAdmin(SgwAdmin admin) {
-		// TODO Auto-generated method stub
-
+		sgwAdminDao.insertSgwAdmin(admin);
 	}
 
 	public SgwAdmin getAdminAccount(String admin_id) {
@@ -34,8 +33,7 @@ public class SgwAdminCatalogImpl implements SgwAdminCatalog {
 	}
 
 	public List<SgwAdmin> getAdminAccountList() {
-		// TODO Auto-generated method stub
-		return null;
+		return sgwAdminDao.getAdminAccountList();
 	}
 
 }

@@ -243,5 +243,23 @@
   <select id="getAdminAccountCnt" resultType="Integer" parameterType="String">
     select count(*) from SM_ADM where admin_id = #{admin_id}
   </select>
+  <insert id="insertSgwAdmin" parameterType="model.SgwAdmin" >
+  	insert into SM_ADM (
+  		admin_id,
+  		admin_password,
+  		admin_name,
+  		admin_date_created,
+  		admin_access_ip
+  	) values (
+  		#{admin_id},
+  		#{admin_password},
+  		#{admin_name},
+  		#{admin_date_created},
+  		#{admin_access_ip}
+  	)
+  </insert>
+  <select id="getAdminAccountList" resultType="model.SgwAdmin">
+  	select admin_id, admin_name, admin_date_created, admin_access_ip from SM_ADM 
+  </select>
   
 </mapper>

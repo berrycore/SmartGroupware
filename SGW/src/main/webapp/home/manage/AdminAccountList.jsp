@@ -14,7 +14,44 @@
 <title>AdminAccountList</title>
 </head>
 <body>
-관리자 계정 조회
-
+<div class="container">
+	관리자 계정 리스트
+	sgwAdminList
+	
+	<table class="table table-sm table-bordered table-hover table-responsive-md">
+			<thead>
+				<tr>
+					<th>admin_id</th>
+					<th>admin_name</th>
+					<th>admin_access_ip</th>
+					<th>admin_date_created</th>
+					<th>admin_date_last_login</th>
+					<th>admin_date_last_pw_changed</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:choose>
+					<c:when test="${noResult eq 'yes' }">	
+						<tr>
+							<td colspan="6">조회 결과가 없습니다</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${sgwAdminList}" var="sgwAdmin">
+							<tr>
+								<td>${sgwAdmin.admin_id }</td>
+								<td>${sgwAdmin.admin_name }</td>
+								<td>${sgwAdmin.admin_access_ip }</td>
+								<td>${sgwAdmin.admin_date_created }</td>
+								<td>${sgwAdmin.admin_date_last_login }</td>
+								<td>${sgwAdmin.admin_date_last_pw_changed }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</tbody>
+	</table>
+</div>
 </body>
 </html>
