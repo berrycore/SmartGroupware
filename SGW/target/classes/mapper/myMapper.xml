@@ -8,7 +8,7 @@
 		select * from SM_COMPANY where company_id = #{company_id}
 	</select>
 
-	<!-- SM_USERS -->
+	<!-- SM_USERS --><!-- deprecated -->
 	<select id="getUserAccount" parameterType="String" resultType="model.User">
 		select * from SM_USERS where user_id = #{user_id}
 	</select>
@@ -106,10 +106,20 @@
 		)
 	</insert>
 	
-	<update id="updateUserInfo" parameterType="model.User">
+	<update id="updateUserInfoByUser" parameterType="model.User">
 		update SM_USERS set
 			user_phone = #{user_phone},
 			user_description = #{user_description}
+		where
+			user_id = #{user_id}
+	</update>
+	<update id="updateUserInfoByAdmin" parameterType="model.User">
+		update SM_USERS set
+			user_name = #{user_name},
+			user_phone = #{user_phone},
+			user_description = #{user_description},
+			team_id = #{team_id},
+			position_id = #{position_id}
 		where
 			user_id = #{user_id}
 	</update>

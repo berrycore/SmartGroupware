@@ -111,7 +111,6 @@
 				<td>업무소개</td>
 				<td>
 					<form:textarea path="user_description" name="user_description" rows="3" class="form-control"/>
-<!-- 					<textarea class="form-control" id="exampleTextarea" rows="3"></textarea> -->
 					<font color="red"><form:errors path="user_description" /></font>
 				</td>
 			</tr>

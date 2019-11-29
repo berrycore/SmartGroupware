@@ -93,7 +93,7 @@ public class AccountController {
 			you.setUser_id(((User)request.getSession().getAttribute("loginUser")).getUser_id());
 			you.setUser_phone( user.getUser_phone());
 			you.setUser_description( user.getUser_description());
-			userAccountCatalog.updateUserInfo(you);
+			userAccountCatalog.updateUserInfoByUser(you);
 			System.out.println("DB UPDATE !");
 			mav.setViewName("home/account/changeMyInfoSuccess");
 			return mav;	

@@ -31,8 +31,12 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 		return userDao.getUserAccountCount(user_id);
 	}
 
-	public void updateUserInfo(User user) {
-		userDao.updateUserInfo(user);
+	public Integer updateUserInfoByUser(User user) {
+		return userDao.updateUserInfoByUser(user);
+	}
+	
+	public Integer updateUserInfoByAdmin(User user) {
+		return userDao.updateUserInfoByAdmin(user);
 	}
 	
 	public void updateUserPassword(User user) {
@@ -65,5 +69,4 @@ public class UserAccountCatalogImpl implements UserAccountCatalog {
 	public void updateUserLastLoginTime(String user_id) {
 		userDao.updateUserLastLoginTime(user_id);
 	}
-	
 }

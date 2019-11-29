@@ -185,10 +185,53 @@ public class ManageController {
 	
 	@RequestMapping(value="/manage/managePermission.html", method=RequestMethod.GET)
 	public ModelAndView managePermission(User user) {
-		System.out.println("managePermission");
+		System.out.println("managePermission : GET");
 		ModelAndView mav = new ModelAndView("home/manage/ManagePermission");
+		List<User> userList = userAccountCatalog.getUserList();
+		
+		if(userList.isEmpty()) {
+			mav.addObject("noResult", "yes");
+			return mav;
+		}else {
+			mav.addObject("userList", userList);
+			return mav;	
+		}
+	}
+	
+	@RequestMapping(value="/manage/userModify.html", method=RequestMethod.GET)
+	public ModelAndView userModify(User user) {
+		System.out.println("userModify : GET : user : " + user);
+		ModelAndView mav = new ModelAndView("home/manage/UserModify");
+		User you = userAccountCatalog.getUserByUserId(user.getUser_id());
+		System.out.println("userModify : GET : you : " + you);
+		mav.addObject("user", you);
 		return mav;
 	}
+	
+	@RequestMapping(value="/manage/userModify.html", method=RequestMethod.POST)
+	public ModelAndView userModify(HttpServletRequest request, User user, BindingResult br) {
+		System.out.println("userModify : POST : user : " + user);
+		ModelAndView mav = new ModelAndView();
+		
+		userEntryValidator.validate(user, br);
+		if( br.hasErrors()) {
+			mav.getModel().putAll(br.getModel());
+			mav.setViewName("home/manage/UserModify");
+			return mav;
+		}else {
+			mav.setViewName("home/manage/UserModifyResult");
+			Integer result = userAccountCatalog.updateUserInfoByAdmin(user);
+			
+			if( result == 1) {
+				mav.addObject("result", "변경되었습니다");
+			}else {
+				mav.addObject("result", "오류가 발생했습니다");
+			}
+						
+			return mav;
+		}		
+	}
+	
 	
 	/* Admin */
 	

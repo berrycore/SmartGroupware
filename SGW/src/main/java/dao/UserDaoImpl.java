@@ -16,6 +16,9 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private SqlSession session;
 	
+	/**
+	 * @deprecated
+	 * */
 	public User getUserAccount(String user_id) {
 		return session.selectOne("mapper.myMapper.getUserAccount", user_id);
 	}
@@ -28,8 +31,12 @@ public class UserDaoImpl implements UserDao {
 		return session.selectOne("mapper.myMapper.getUserAccountCount", user_id);
 	}
 
-	public void updateUserInfo(User user) {
-		session.update("mapper.myMapper.updateUserInfo", user);
+	public Integer updateUserInfoByUser(User user) {
+		return session.update("mapper.myMapper.updateUserInfoByUser", user);
+	}
+	
+	public Integer updateUserInfoByAdmin(User user) {
+		return session.update("mapper.myMapper.updateUserInfoByAdmin", user);
 	}
 	
 	public void updateUserPassword(User user) {
