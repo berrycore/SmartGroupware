@@ -25,6 +25,7 @@ public class BoardValidator implements Validator{
 			errors.rejectValue("board_content", "error.required.board");
 		}
 			
+		System.out.println("BoardValidator : " + errors);
 	}
 
 }

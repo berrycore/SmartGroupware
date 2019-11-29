@@ -154,7 +154,8 @@
 	<script>
 		CKEDITOR.replace("editor", {
 			width : '100%',
-			height : '300px'
+			height : '300px',
+			removePlugins: 'elementspath'
 		});
 	</script>
 

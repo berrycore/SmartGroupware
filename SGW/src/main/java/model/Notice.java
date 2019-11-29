@@ -8,6 +8,7 @@ public class Notice {
 	private String notice_writer_name;
 	private String notice_attached_file_name;
 	private String notice_date_regist;
+	private String admin_id;
 
 	public Integer getNotice_id() {
 		return notice_id;
@@ -57,4 +58,19 @@ public class Notice {
 		this.notice_date_regist = notice_date_regist;
 	}
 
+	public String getAdmin_id() {
+		return admin_id;
+	}
+
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Notice [notice_id=" + notice_id + ", notice_title=" + notice_title + ", notice_content="
+				+ notice_content + ", notice_writer_name=" + notice_writer_name + ", notice_attached_file_name="
+				+ notice_attached_file_name + ", notice_date_regist=" + notice_date_regist + ", admin_id=" + admin_id
+				+ "]";
+	}
 }

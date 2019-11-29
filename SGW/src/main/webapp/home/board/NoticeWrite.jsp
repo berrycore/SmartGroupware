@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,25 +13,23 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <script src="../ckeditor/ckeditor.js"></script>
 
-<title>새 글 작성</title>
+<title>공지사항 작성</title>
 </head>
 <body>
 
 	<div class="w3-container">
-		<form:form modelAttribute="board" action="../board/BoardWrite.html" method="post">
+		<form:form modelAttribute="notice" action="/board/writeNotice.html" method="post">
 		
-			<h2>새 글 작성</h2>
+			<h2>공지사항 작성</h2>
 		
 			<div class="mb-1">
-    		<input type="text" class="form-control" placeholder="제목" name="board_title">
-    		<font color="red"><form:errors path="board_title"/></font>
+    		<input type="text" class="form-control" placeholder="제목" name="notice_title">
+    		<font color="red"><form:errors path="notice_title"/></font>
   		</div>
-  
-			
-			
-	    <textarea id="editor" name="board_content" ></textarea>
+  		
+	    <textarea id="editor" name="notice_content" ></textarea>
 	    
-	    <font color="red"><form:errors path="board_content" /></font>
+	    <font color="red"><form:errors path="notice_content" /></font>
 	    
 			<div class="mt-3">
 				<input type="file" id="myFile" name="filename2" >
@@ -47,6 +44,7 @@
 		CKEDITOR.replace("editor",{
 			width:'100%',
 			height:'300px',
+			uiColor: '#FFF8DC',
 			removePlugins: 'elementspath'
 		});
 	</script>

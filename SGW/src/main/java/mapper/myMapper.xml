@@ -137,6 +137,42 @@
       user_id = #{user_id}
   </update>
 	
+	<!-- SM_NOTICE -->
+	<select id="getNoticeList" resultType="model.Notice">
+		select * from SM_NOTICE
+	</select>
+	<insert id="writeNotice" parameterType="model.Notice">
+		insert into SM_NOTICE (
+			notice_title,
+			notice_writer_name,
+			notice_attached_file_name,
+			notice_date_regist,
+			notice_content,
+			admin_id
+		) values (
+			#{notice_title},
+			#{notice_writer_name},
+			#{notice_attached_file_name},
+			#{notice_date_regist},
+			#{notice_content},
+			#{admin_id}
+		)
+	</insert>
+	<select id="selectNotice" parameterType="String" resultType="model.Notice">
+		select * from SM_NOTICE where notice_id = #{notice_id}
+	</select>
+	<update id="updateNotice" parameterType="model.Notice">
+  	update SM_NOTICE set
+      notice_title = #{notice_title},
+      notice_attached_file_name = #{notice_attached_file_name},
+      notice_content = #{notice_content}
+    where
+      notice_id = #{notice_id}
+	</update>
+	<delete id="deleteNotice" parameterType="String">
+		delete from SM_NOTICE where notice_id = #{notice_id}
+	</delete>
+	
 	
 	<!-- SM_BOARD -->
 	<insert id="writeBoard" parameterType="model.Board">
