@@ -24,7 +24,8 @@
 	  			메일<i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Mail" class="w3-hide w3-white w3-card">
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">Inbox</a>
+			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left">Inbox</a>
+          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left">메일작성</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">보낸편지함</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">휴지통</a>
 	  		</div>

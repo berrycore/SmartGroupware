@@ -9,9 +9,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+  <!-- jdbc -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		p:url="jdbc:oracle:thin:@127.0.0.1:xe"
 		p:username="c##sgw"
 		p:password="sgwservice1#">
 	</bean>
@@ -24,6 +25,12 @@
 	</bean>
 
 	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
+  
+  <!-- java mail sender -->
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl" >
+    <property name="host" value="berrycore.net"/>
+    <property name="port" value="25" />
+  </bean>
 
 	<context:component-scan 
 		base-package="dao,logic,controller,model,validator"></context:component-scan>
