@@ -1,1 +1,1 @@
-INSERT INTO SM_COMPANY values ('DM','DemoCompany','localhost');
+INSERT INTO SM_COMPANY values ('DM','DemoCompany','berrycore.net');

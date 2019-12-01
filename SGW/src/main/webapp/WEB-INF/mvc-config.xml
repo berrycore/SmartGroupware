@@ -12,7 +12,7 @@
   <!-- jdbc -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@127.0.0.1:xe"
+		p:url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
 		p:username="c##sgw"
 		p:password="sgwservice1#">
 	</bean>
@@ -29,11 +29,15 @@
   <!-- java mail sender -->
   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl" >
     <property name="host" value="berrycore.net"/>
-    <property name="port" value="25" />
+    <property name="port" value="25" /> 
+    <property name="javaMailProperties"> 
+      <props> 
+        <prop key="mail.smtp.starttls.enable">true</prop> 
+      </props> 
+    </property>
   </bean>
 
-	<context:component-scan 
-		base-package="dao,logic,controller,model,validator"></context:component-scan>
+	<context:component-scan base-package="dao,logic,controller,model,validator"></context:component-scan>
 
     <mvc:annotation-driven />
 
