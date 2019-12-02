@@ -15,7 +15,7 @@
 <body>
 <script>
 alert("게시글이 등록 되었습니다");
-location.href="../board/TeamBoardListView.html";
+location.href="/board/TeamBoardListView.html";
 </script>
 </body>
 </html>

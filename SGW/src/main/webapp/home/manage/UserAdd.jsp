@@ -9,7 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/w3.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
 
 <script>
@@ -117,7 +118,7 @@
 			<tr>
 				<td colspan="2">
 					<button type="submit" class="btn btn-dark">등록</button>
-					<a href="../main.jsp"><button type="button" class="btn btn-warning">처음으로</button></a>
+					<a href="/main_admin.html"><button type="button" class="btn btn-warning">처음으로</button></a>
 				</td>
 			</tr>
 		</table>

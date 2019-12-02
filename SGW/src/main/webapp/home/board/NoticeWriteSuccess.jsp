@@ -15,7 +15,7 @@
 <body>
 <script>
 alert("${msg}");
-location.href="/board/NoticeListView.html";
+location.href="/main_admin.html";
 </script>
 </body>
 </html>

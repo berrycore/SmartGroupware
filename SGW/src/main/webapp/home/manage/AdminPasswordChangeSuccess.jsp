@@ -15,7 +15,7 @@
 <body>
 <script>
 alert("${msg}");
-location.href="../main.jsp";
+location.href="/main_admin.html";
 </script>
 
 </body>

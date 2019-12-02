@@ -21,7 +21,7 @@ body {
   border-color: #FFA500;
 }
 </style>
-<title>AdminLogin</title>
+<title>SGW::AdminLogin</title>
 </head>
 <body>
 	<div class="container">
@@ -30,7 +30,7 @@ body {
         <div class="card card-signin my-5">
           <form:form modelAttribute="sgwAdmin" name="frm_login" class="form-signin" action="loginAdmin.html" method="POST">
             <div class="card-body">
-              <h5 class="card-title text-center">Smart Group Ware</h5>
+              <h5 class="card-title text-center">Smart Group Ware :: Admin</h5>
               
               		<c:if test="${ msg ne null }">
 		               	<div style="margin-bottom: 10px">

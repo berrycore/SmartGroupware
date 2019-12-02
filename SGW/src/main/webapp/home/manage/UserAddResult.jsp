@@ -19,7 +19,7 @@
 
 <script>
 	alert("${result}");
-	location.href="userAdd.html";
+	location.href="/manage/userAdd.html";
 </script>
 
 

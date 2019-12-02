@@ -15,7 +15,7 @@
 <body>
 관리자 로그인 성공
 <script>
-location.href="/main.html";
+location.href="/main_admin.html";
 </script>
 </body>
 </html>

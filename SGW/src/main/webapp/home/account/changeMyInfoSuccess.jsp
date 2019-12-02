@@ -16,7 +16,7 @@
 
 <script>
 alert("내 정보가 정상적으로 변경되었습니다");
-location.href="../";
+location.href="/account/changeMyInfo.html";
 </script>
 </body>
 </html>

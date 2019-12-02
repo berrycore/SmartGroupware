@@ -37,7 +37,8 @@ public class MailController {
 	
 	@RequestMapping(value="/mail/showNewMailList.html", method=RequestMethod.GET)
 	public ModelAndView checkMailList(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("home/mail/MailViewList");
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/mail/MailViewList.jsp");
 		
 		User user = (User)request.getSession().getAttribute("loginUser");
 		
@@ -133,7 +134,8 @@ public class MailController {
 	
 	@RequestMapping(value="/mail/sendMail.html", method=RequestMethod.GET)
 	public ModelAndView sendMail() {
-		ModelAndView mav = new ModelAndView("home/mail/MailWriteNew");
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/mail/MailWriteNew.jsp");
 		return mav;
 	}
 	

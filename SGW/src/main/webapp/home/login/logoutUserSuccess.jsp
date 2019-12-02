@@ -16,7 +16,7 @@
 
 <script>
 alert("${msg }");
-location.href="../index.jsp";
+location.href="/login/loginUser.html";
 </script>
 
 </body>

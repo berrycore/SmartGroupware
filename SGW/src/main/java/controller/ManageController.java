@@ -64,12 +64,13 @@ public class ManageController {
 	
 	@RequestMapping(value="/manage/userList.html")
 	public ModelAndView userList() {
-		ModelAndView mav = new ModelAndView("home/manage/UserList");
+		ModelAndView mav = new ModelAndView("main_admin");
 		List<User> userList = userAccountCatalog.getUserList();
 		for(User u : userList) {
 			u.toString();
 		}
 		mav.addObject("userList", userList);
+		mav.addObject("BODY", "/home/manage/UserList.jsp");
 		return mav;
 	}
 	
@@ -103,20 +104,20 @@ public class ManageController {
 	
 	@RequestMapping(value="/manage/userAdd.html", method=RequestMethod.GET )
 	public ModelAndView userAdd(User user) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main_admin");
 		System.out.println("userAdd : GET : " + user);
-		mav.setViewName("home/manage/UserAdd");
+		mav.addObject("BODY","/home/manage/UserAdd.jsp");
 		return mav;
 	}
 	
 	@RequestMapping(value="/manage/userAdd.html", method=RequestMethod.POST)
 	public ModelAndView userAdd(User user, BindingResult br) {
 		System.out.println("userAdd : POST : " + user);
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main_admin");
 		userEntryValidator.validate(user, br);
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());
-			mav.setViewName("home/manage/UserAdd");
+			mav.addObject("BODY","/home/manage/UserAdd.jsp");
 			return mav;
 		}
 		
@@ -186,7 +187,9 @@ public class ManageController {
 	@RequestMapping(value="/manage/managePermission.html", method=RequestMethod.GET)
 	public ModelAndView managePermission(User user) {
 		System.out.println("managePermission : GET");
-		ModelAndView mav = new ModelAndView("home/manage/ManagePermission");
+		ModelAndView mav = new ModelAndView("main_admin");
+		mav.addObject("BODY", "/home/manage/ManagePermission.jsp");
+		
 		List<User> userList = userAccountCatalog.getUserList();
 		
 		if(userList.isEmpty()) {
@@ -275,8 +278,8 @@ public class ManageController {
 	@RequestMapping(value="/manage/adminAccountList.html", method=RequestMethod.GET)
 	public ModelAndView adminAccountList() {
 		System.out.println("adminAccountList : GET");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/manage/AdminAccountList");
+		ModelAndView mav = new ModelAndView("main_admin");
+		mav.addObject("BODY", "/home/manage/AdminAccountList.jsp");
 		
 		List<SgwAdmin> sgwAdminList = sgwAdminCatalog.getAdminAccountList();
 		if(sgwAdminList.isEmpty()) {
@@ -295,8 +298,8 @@ public class ManageController {
 		
 		SgwAdmin sgwAdmin = new SgwAdmin();
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/manage/AdminAccountAdd");
+		ModelAndView mav = new ModelAndView("main_admin");
+		mav.addObject("BODY", "/home/manage/AdminAccountAdd.jsp");
 		mav.addObject("sgwAdmin", sgwAdmin);
 		
 		return mav;
@@ -305,17 +308,17 @@ public class ManageController {
 	@RequestMapping(value="/manage/adminAccountAdd.html", method=RequestMethod.POST)
 	public ModelAndView adminAccountAdd(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
 		System.out.println("adminAccountAdd : POST");
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main_admin");
 		
 		adminAccountValidator.validate(sgwAdmin, br);
 		
 		if(br.hasErrors()) {
-			mav.setViewName("home/manage/AdminAccountAdd");
+			mav.addObject("BODY", "/home/manage/AdminAccountAdd.jsp");
 			mav.getModel().putAll(br.getModel());
 			return mav;
 		}else {
 			sgwAdminCatalog.insertSgwAdmin(sgwAdmin);
-			mav.setViewName("home/manage/AdminAccountAddSuccess");
+			mav.addObject("BODY", "/home/manage/AdminAccountAddSuccess.jsp");
 			mav.addObject("msg", "정상적으로 등록 되었습니다");
 			return mav;
 		}
@@ -351,11 +354,13 @@ public class ManageController {
 		System.out.println("adminPasswordChange : GET");
 		SgwAdmin admin = (SgwAdmin)request.getSession().getAttribute("authorizedAdmin");
 		if( admin == null) {
-			ModelAndView mav = new ModelAndView("home/manage/AdminLogin");
+			ModelAndView mav = new ModelAndView("main_admin");
+			mav.addObject("BODY", "/home/manage/AdminLogin.jsp");
 			mav.addObject("msg","관리자 로그인이 필요합니다");
 			return mav;
 		}else {
-			ModelAndView mav = new ModelAndView("home/manage/AdminPasswordChange");
+			ModelAndView mav = new ModelAndView("main_admin");
+			mav.addObject("BODY", "/home/manage/AdminPasswordChange.jsp");
 			mav.addObject("sgwAdmin", admin);
 			return mav;	
 		}
@@ -364,7 +369,7 @@ public class ManageController {
 	@RequestMapping(value="/manage/adminPasswordChange.html", method=RequestMethod.POST)
 	public ModelAndView adminPasswordChange(HttpServletRequest request, SgwAdmin sgwAdmin, BindingResult br) {
 		System.out.println("adminPasswordChange : POST");
-		ModelAndView mav = new ModelAndView("home/manage/AdminPasswordChange");
+		ModelAndView mav = new ModelAndView("main_admin");
 		
 		adminPasswordChangeValidator.validate(sgwAdmin, br);
 		
@@ -376,16 +381,16 @@ public class ManageController {
 		
 		if( br.hasErrors()) {
 			mav.getModel().putAll(br.getModel());
+			mav.addObject("BODY", "/home/manage/AdminPasswordChange.jsp");
 			return mav;
 		}else if( ! pwd.equals(pwd_re) ) {
 			br.rejectValue("admin_password", "error.notequal.sgwadmin");
 			mav.getModel().putAll(br.getModel());
+			mav.addObject("BODY", "/home/manage/AdminPasswordChange.jsp");
 			return mav;
 		}else {
 			// DB 업데이트
-			
 			sgwAdminCatalog.changeAdminPassword(sgwAdmin);
-			
 			mav.setViewName("home/manage/AdminPasswordChangeSuccess");
 			mav.addObject("msg", "정상적으로 변경 되었습니다");
 			return mav;

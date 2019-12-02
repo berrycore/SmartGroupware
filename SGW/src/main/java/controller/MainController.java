@@ -14,4 +14,11 @@ public class MainController {
 		mav.setViewName("main");
 		return mav;
 	}
+	
+	@RequestMapping(value="/main_admin.html", method=RequestMethod.GET)
+	public ModelAndView viewMainAdmin() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main_admin");
+		return mav;
+	}
 }

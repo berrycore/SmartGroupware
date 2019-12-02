@@ -29,12 +29,13 @@ public class AccountController {
 	@RequestMapping(value="/account/changePassword.html", method=RequestMethod.GET )
 	public ModelAndView changePassword(HttpServletRequest request) {
 		System.out.println("changePassword : GET");
-		ModelAndView mav = new ModelAndView("home/account/changePassword");
+		ModelAndView mav = new ModelAndView("main");
 				
 		if( request.getSession().getAttribute("loginUser") != null ) {
 			String user_id = ((User)request.getSession().getAttribute("loginUser")).getUser_id();
 			User you = userAccountCatalog.getUserByUserId(user_id);
 			mav.addObject("you", you);
+			mav.addObject("BODY", "/home/account/changePassword.jsp");
 		}
 		
 		return mav;
@@ -52,10 +53,11 @@ public class AccountController {
 		}
 		
 		if(br.hasErrors()) {
-			mav.setViewName("home/account/changePassword");
+			mav.setViewName("main");
 			if( request.getSession().getAttribute("loginUser") != null ) {
 				String user_id = ((User)request.getSession().getAttribute("loginUser")).getUser_id();
 				User you = userAccountCatalog.getUserByUserId(user_id);
+				mav.addObject("BODY", "/home/account/changePassword.jsp");
 				mav.addObject("you", you);
 			}
 			return mav;
@@ -64,18 +66,21 @@ public class AccountController {
 			you.setUser_id(((User)request.getSession().getAttribute("loginUser")).getUser_id());
 			you.setUser_password( user.getUser_password());
 			userAccountCatalog.updateUserPassword(you);
-			mav.setViewName("home/account/changePasswordSuccess");
+			mav.setViewName("main");
+			mav.addObject("BODY", "/home/account/changePasswordSuccess.jsp");
+
 			return mav;
 		}
 	}
 	
 	@RequestMapping(value="/account/changeMyInfo.html", method=RequestMethod.GET)
 	public ModelAndView changeMyInfo(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("home/account/changeMyInfo");
+		ModelAndView mav = new ModelAndView("main");
 		if( request.getSession().getAttribute("loginUser") != null ) {
 			String user_id = ((User)request.getSession().getAttribute("loginUser")).getUser_id();
 			User you = userAccountCatalog.getUserByUserId(user_id);
 			mav.addObject("you", you);
+			mav.addObject("BODY" , "/home/account/changeMyInfo.jsp");
 		}
 		return mav;
 	}

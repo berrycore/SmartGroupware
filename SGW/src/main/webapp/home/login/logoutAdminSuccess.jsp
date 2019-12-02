@@ -10,12 +10,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>title</title>
+<title>Logout</title>
 </head>
 <body>
+
 <script>
-alert("패스워드가 정상적으로 변경되었습니다");
-location.href="/main.html";
+alert("${msg }");
+location.href="/manage/loginAdmin.html";
 </script>
+
 </body>
 </html>

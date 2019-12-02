@@ -40,11 +40,14 @@ public class BoardController {
 	@Autowired
 	private NoticeCatalog noticeCatalog;
 
-	@RequestMapping(value="/board/NoticeListView.html", method=RequestMethod.GET)
+	@RequestMapping(value="/board/NoticeListView.html")
 	public ModelAndView showNoticeList() {
 		System.out.println("showNoticeList : GET ");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/board/NoticeListView");
+//		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main");
+//		mav.setViewName("home/board/NoticeListView");
+		
+		mav.addObject("BODY", "/home/board/NoticeListView.jsp");
 		
 		List<Notice> noticeList = noticeCatalog.getNoticeList();
 		
@@ -67,7 +70,8 @@ public class BoardController {
 			mav.addObject("msg","관리자 로그인이 필요합니다");
 			return mav;
 		}else {
-			ModelAndView mav = new ModelAndView("home/board/NoticeWrite");
+			ModelAndView mav = new ModelAndView("main_admin");
+			mav.addObject("BODY", "/home/board/NoticeWrite.jsp");
 			mav.addObject("sgwAdmin", admin);
 			return mav;	
 		}
@@ -76,12 +80,12 @@ public class BoardController {
 	@RequestMapping(value="/board/writeNotice.html", method=RequestMethod.POST)
 	public ModelAndView writeNotice(HttpServletRequest request, Notice notice, BindingResult br) {
 		System.out.println("writeNotice : POST");
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main_admin");
 		
 		noticeValidator.validate(notice, br);
 		
 		if(br.hasErrors()) {
-			mav.setViewName("home/board/NoticeWrite");
+			mav.addObject("BODY","/home/board/NoticeWrite.jsp");
 			return mav;
 		}else {
 			
@@ -197,12 +201,13 @@ public class BoardController {
 	@RequestMapping(value="/board/TeamBoardListView.html")
 	public ModelAndView showTeamBoardList() {
 		System.out.println("showTeamBoardList");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/board/TeamBoardListView");
+		ModelAndView mav = new ModelAndView("main");
+//		mav.setViewName("home/board");
 		
 		List<Board> boardList = boardCatalog.getBoardListAndReplyCount();
 		System.out.println(boardList);
 		mav.addObject("boardList", boardList);
+		mav.addObject("BODY", "/home/board/TeamBoardListView.jsp");
 		return mav;
 	}
 	
@@ -210,12 +215,12 @@ public class BoardController {
 	public ModelAndView boardWrite(HttpServletRequest request, Board board, BindingResult br) {
 		System.out.println("boardWrite : " + board.toString());
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("main");
 		
 		boardValidator.validate(board, br);
 		
 		if( br.hasErrors()) {
-			mav.setViewName("home/board/BoardWrite");
+			mav.addObject("BODY", "/home/board/BoardWrite.jsp");
 			return mav;
 		}else {
 			User you = (User)request.getSession().getAttribute("loginUser");
