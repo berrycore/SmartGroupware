@@ -74,7 +74,7 @@
 										<div>
 											<small>
 												<input type="hidden" name="third_id" value="-">
-												<input type="text" name="thrid_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
+												<input type="text" name="third_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
 										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_id_search(id)">설정하기</button></small>

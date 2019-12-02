@@ -20,6 +20,22 @@
 window.onload = function(){
 	document.title = "${elecDocument.document_title }";
 }
+function approvalOK(){
+	var ok = confirm("승인 하시겠습니까"); 
+	if( ok == true ){
+		return true;
+	}else{
+		return alse;
+	}
+}
+function rejectOK(){
+	var ok = confirm("부결 하시겠습니까"); 
+	if( ok == true ){
+		return true;
+	}else{
+		return alse;
+	}
+}
 </script>
 <div class="container">
     
@@ -30,6 +46,14 @@ window.onload = function(){
             <td>
               <div class="form-inline" >
                 <button type="submit" class="btn btn-danger btn-sm m-1" onclick="window.close();">닫기</button>
+                <form action="/approval/ApproveDocument.html" method="post" name="frm_approve">
+                  <input type="hidden" name="document_id" value="${elecDocument.document_id }"/>
+                  <button type="submit" class="btn btn-primary btn-sm m-1" onclick="return approvalOK()">승인</button>
+                </form>
+                <form action="/approval/RejectDocument.html" method="post" name="frm_reject">
+                  <input type="hidden" name="document_id" value="${elecDocument.document_id }"/>
+                  <button type="submit" class="btn btn-warning btn-sm m-1" onclick="return rejectOK()">부결</button>
+                </form>
               </div>
             </td>
           </tr>

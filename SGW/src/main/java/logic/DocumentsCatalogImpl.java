@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.ElecDocumentDao;
+import model.DocumentSign;
 import model.ElecDocument;
 
 @Service
@@ -15,32 +16,26 @@ public class DocumentsCatalogImpl implements DocumentsCatalog {
 	private ElecDocumentDao documentsDao;
 	
 	public List<ElecDocument> getElecDocumentList() {
-		// TODO Auto-generated method stub
-		return null;
+		return documentsDao.getElecDocumentList();
 	}
 
 	public ElecDocument selectElecDocument(String document_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return documentsDao.selectElecDocument(document_id);
 	}
 
 	public Integer writeNewElecDocument(ElecDocument document) {
 		return documentsDao.writeNewElecDocument(document);
 	}
 
-	public Integer updateElecDocument(ElecDocument document) {
-		// TODO Auto-generated method stub
-		return null;
+	public void approveElecDocument(DocumentSign documentSign) {
+		documentsDao.approveElecDocument(documentSign);		
 	}
 
-	public void uploadAttachedFile() {
-		// TODO Auto-generated method stub
-
+	public void rejectElecDocument(DocumentSign documentSign) {
+		documentsDao.rejectElecDocument(documentSign);
 	}
-
-	public void downloadAttachedFile() {
-		// TODO Auto-generated method stub
-
+	
+	public List<ElecDocument> selectProcessingDocumentList(String user_id) {
+		return documentsDao.selectProcessingDocumentList(user_id);
 	}
-
 }

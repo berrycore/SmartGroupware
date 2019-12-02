@@ -382,5 +382,50 @@
 			 #{document_attached_file_name}
 	 	)
   </insert>
+  <select id="getElecDocumentList" resultType="model.ElecDocument">
+    select * from SM_ELEC_DOCUMENT
+  </select>
+  <select id="selectElecDocument" parameterType="String" resultType="model.ElecDocument">
+    select * from SM_ELEC_DOCUMENT where document_id = #{document_id}
+  </select>
+  <select id="selectProcessingDocumentList" parameterType="String" resultType="model.ElecDocument">
+    select * from SM_ELEC_DOCUMENT 
+    where second_status = 'onProcessing' and second_id = #{user_id}
+    or third_status = 'onProcessing' and third_id = #{user_id}
+    or fourth_status = 'onProcessing' and fourth_id = #{user_id} 
+    or final_status = 'onProcessing' and final_id = #{user_id}
+  </select>
+  <update id="approveSecondStatus">
+    update SM_ELEC_DOCUMENT set second_status = 'completed', second_approval_date = #{time_stamp}
+    where second_status = 'onProcessing' and second_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="approveThirdStatus">
+    update SM_ELEC_DOCUMENT set third_status = 'completed' , third_approval_date = #{time_stamp}
+    where third_status = 'onProcessing' and third_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="approveFourthStatus">
+    update SM_ELEC_DOCUMENT set fourth_status = 'completed' , fourth_approval_date = #{time_stamp}
+    where fourth_status = 'onProcessing' and fourth_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="approveFinalStatus">
+    update SM_ELEC_DOCUMENT set final_status = 'completed' , final_approval_date = #{time_stamp}
+    where final_status = 'onProcessing' and final_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="rejectSecondStatus">
+    update SM_ELEC_DOCUMENT set second_status = 'rejected', second_approval_date = #{time_stamp}
+    where second_status = 'onProcessing' and second_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="rejectThirdStatus">
+    update SM_ELEC_DOCUMENT set third_status = 'rejected' , third_approval_date = #{time_stamp}
+    where third_status = 'onProcessing' and third_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="rejectFourthStatus">
+    update SM_ELEC_DOCUMENT set fourth_status = 'rejected' , fourth_approval_date = #{time_stamp}
+    where fourth_status = 'onProcessing' and fourth_id = #{user_id} and document_id = #{document_id}
+  </update>
+  <update id="rejectFinalStatus">
+    update SM_ELEC_DOCUMENT set final_status = 'rejected' , final_approval_date = #{time_stamp}
+    where final_status = 'onProcessing' and final_id = #{user_id} and document_id = #{document_id}
+  </update>
   
 </mapper>

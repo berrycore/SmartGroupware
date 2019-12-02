@@ -13,7 +13,7 @@
 
 <script>
     function popup(document_id, title){
-        var url = "/approval/DocumentView.html?document_id="+document_id;
+        var url = "/approval/DocumentApproval.html?document_id="+document_id;
         var name = title;
         var option = "width = 550, height = 650, top = 100, left = 200, location = no"
         window.open(url, name, option);
@@ -25,7 +25,7 @@
 <body>
 
 <div class="container">
-		<h2>Documents</h2>
+		<h2>Documents :: 결재 할 문서</h2>
     
       <c:choose>
         <c:when test="${hasResult eq 'no' }">
@@ -33,7 +33,7 @@
         </c:when>
         <c:otherwise>
           <table class="table table-hover">
-          <thead>
+          <thead class="thead-dark">
             <tr>
               <th>문서번호</th>
               <th>제목</th>

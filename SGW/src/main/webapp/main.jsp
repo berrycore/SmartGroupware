@@ -46,9 +46,9 @@ function openWindow( url )
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-blue-grey w3-card">
 			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재할 문서</a>
+			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left">결재할 문서</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">완료 문서</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재 조회</a>
+			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left">결재 조회</a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
@@ -89,7 +89,7 @@ function openWindow( url )
   		<div class="w3-container">
         <div class="w3-display-container" style="height:60px">
           <div class="w3-display-left">
-            <h3>Smart Group Ware</h3>
+            <h3><a href="/main.html" style="color: white">Smart Group Ware</a></h3>
           </div>
         </div>
         

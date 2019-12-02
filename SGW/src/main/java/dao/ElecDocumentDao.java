@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import model.DocumentSign;
 import model.ElecDocument;
 
 public interface ElecDocumentDao {
@@ -9,7 +10,8 @@ public interface ElecDocumentDao {
 	List<ElecDocument> getElecDocumentList();
 	ElecDocument selectElecDocument(String document_id);
 	Integer writeNewElecDocument(ElecDocument document);
-	Integer updateElecDocument(ElecDocument document);
-	
+	void approveElecDocument(DocumentSign documentSign);
+	void rejectElecDocument(DocumentSign documentSign);
+	List<ElecDocument> selectProcessingDocumentList(String user_id);
 	
 }

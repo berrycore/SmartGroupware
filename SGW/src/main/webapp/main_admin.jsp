@@ -68,7 +68,7 @@
   		<div class="w3-container">
         <div class="w3-display-container" style="height:60px">
           <div class="w3-display-left">
-            <h3>Smart Group Ware :: Admin</h3>
+            <h3><a href="/main_admin.html" style="color: white">Smart Group Ware :: Admin</a></h3>
           </div>
         </div>
         

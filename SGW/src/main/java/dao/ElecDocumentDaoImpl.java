@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.DocumentSign;
 import model.ElecDocument;
 import model.User;
 import util.Utils;
@@ -17,16 +18,17 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 	private SqlSession session;
 
 	public List<ElecDocument> getElecDocumentList() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("mapper.myMapper.getElecDocumentList");
 	}
 
 	public ElecDocument selectElecDocument(String document_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("mapper.myMapper.selectElecDocument", document_id);
 	}
 
 	public Integer writeNewElecDocument(ElecDocument document) {
+		
+		System.out.println("document : " + document);
+		
 		User writer =  getUserByUserId( document.getFirst_id());
 		
 		String company_id = "DM";
@@ -37,21 +39,21 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 		StringBuilder sb = new StringBuilder();
 		sb.append(company_id).append("-").append(team_name).append("-").append(year).append("-").append(documentCount+1);
 		
-		if( document.getSecond_id() == null) {
+		if( document.getSecond_id().equals("-")) {
 			document.setSecond_approval_date("-");
 			document.setSecond_status("unnecessary");
 		}else {
 			document.setSecond_approval_date( Utils.generateCurrentTime());
 		}
 		
-		if( document.getThird_id() == null) {
+		if( document.getThird_id().equals("-")) {
 			document.setThird_approval_date("-");
 			document.setThird_status("unnecessary");
 		}else {
 			document.setThird_approval_date( Utils.generateCurrentTime());
 		}
 		
-		if( document.getFourth_id() == null) {
+		if( document.getFourth_id().equals("-")) {
 			document.setFourth_approval_date("-");
 			document.setFourth_status("unnecessary");
 		}else {
@@ -74,9 +76,25 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 		return session.selectOne("mapper.myMapper.getUserByUserId", user_id);
 	}
 
-	public Integer updateElecDocument(ElecDocument document) {
-		// TODO Auto-generated method stub
-		return null;
+	public void approveElecDocument(DocumentSign documentSign) {
+		documentSign.setTime_stamp( Utils.generateCurrentTime());
+		session.update("mapper.myMapper.approveSecondStatus", documentSign);
+		session.update("mapper.myMapper.approveThirdStatus", documentSign);
+		session.update("mapper.myMapper.approveFourthStatus", documentSign);
+		session.update("mapper.myMapper.approveFinalStatus", documentSign);
+	}
+
+	public void rejectElecDocument(DocumentSign documentSign) {
+		documentSign.setTime_stamp( Utils.generateCurrentTime());
+		session.update("mapper.myMapper.rejectSecondStatus", documentSign);
+		session.update("mapper.myMapper.rejectThirdStatus", documentSign);
+		session.update("mapper.myMapper.rejectFourthStatus", documentSign);
+		session.update("mapper.myMapper.rejectFinalStatus", documentSign);
+		
+	}
+	
+	public List<ElecDocument> selectProcessingDocumentList(String user_id) {
+		return session.selectList("mapper.myMapper.selectProcessingDocumentList", user_id);
 	}
 
 }

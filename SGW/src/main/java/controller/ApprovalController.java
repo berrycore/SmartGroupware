@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import logic.DocumentsCatalog;
 import logic.UserAccountCatalog;
+import model.DocumentSign;
 import model.ElecDocument;
 import model.User;
 import validator.DocumentValidator;
@@ -93,7 +94,83 @@ public class ApprovalController {
 			mav.addObject("hasResult", "yes");
 			mav.addObject("userList", userList);
 		}
-
 		return mav;		
+	}
+	
+	@RequestMapping(value="/approval/getElecDocumentList.html", method=RequestMethod.GET)
+	public ModelAndView getElecDocumentList() {
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/approval/DocumentListView.jsp");
+		
+		List<ElecDocument> documentList = documentsCatalog.getElecDocumentList();
+		if( documentList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+			return mav;
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("documentList", documentList);
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value="/approval/DocumentView.html", method=RequestMethod.GET)
+	public ModelAndView selectDocument(String document_id) {
+		ModelAndView mav = new ModelAndView();
+		ElecDocument elecDocument = documentsCatalog.selectElecDocument(document_id);
+		mav.addObject("elecDocument", elecDocument);
+		mav.setViewName("home/approval/DocumentView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/approval/ProcessingDocumentView.html", method=RequestMethod.GET)
+	public ModelAndView onProcessingDocumentView(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/approval/ProcessingDocumentView.jsp");
+		
+		User user = (User)request.getSession().getAttribute("loginUser");
+		List<ElecDocument> documentList = documentsCatalog.selectProcessingDocumentList(user.getUser_id());
+		if( documentList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+			return mav;
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("documentList", documentList);
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value="/approval/DocumentApproval.html", method=RequestMethod.GET)
+	public ModelAndView documentApproval(HttpServletRequest request, String document_id) {
+		ModelAndView mav = new ModelAndView();
+		ElecDocument elecDocument = documentsCatalog.selectElecDocument(document_id);
+		mav.addObject("elecDocument", elecDocument);
+		mav.setViewName("home/approval/DocumentApproval");
+		return mav;
+	}
+	
+	@RequestMapping(value="/approval/ApproveDocument.html", method=RequestMethod.POST)
+	public ModelAndView approveDocument(HttpServletRequest request, String document_id) {
+		ModelAndView mav = new ModelAndView();
+		User user = (User)request.getSession().getAttribute("loginUser");
+		DocumentSign documentSign = new DocumentSign();
+		documentSign.setUser_id(user.getUser_id());
+		documentSign.setDocument_id(document_id);
+		documentsCatalog.approveElecDocument(documentSign);
+		mav.setViewName("home/approval/ApproveDocumentResult");
+		mav.addObject("msg", "승인 되었습니다");
+		return mav;
+	}
+	
+	@RequestMapping(value="/approval/RejectDocument.html", method=RequestMethod.POST)
+	public ModelAndView rejectDocument(HttpServletRequest request, String document_id) {
+		ModelAndView mav = new ModelAndView();
+		User user = (User)request.getSession().getAttribute("loginUser");
+		DocumentSign documentSign = new DocumentSign();
+		documentSign.setUser_id(user.getUser_id());
+		documentSign.setDocument_id(document_id);
+		documentsCatalog.rejectElecDocument(documentSign);
+		mav.setViewName("home/approval/RejectDocumentResult");
+		mav.addObject("msg", "부결 되었습니다");
+		return mav;
 	}
 }
