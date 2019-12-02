@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import logic.DocumentsCatalog;
 import logic.UserAccountCatalog;
 import model.ElecDocument;
 import model.User;
@@ -24,11 +25,15 @@ public class ApprovalController {
 		
 	@Autowired
 	private UserAccountCatalog userAccountCatalog;
+	
+	@Autowired
+	private DocumentsCatalog documentsCatalog;
 
 	@RequestMapping(value="/approval/DocumentWriteNew.html", method=RequestMethod.GET)
 	public ModelAndView documentWriteNew(HttpServletRequest request, ElecDocument elecDocument, BindingResult br) {
 		System.out.println("documentWriteNew");
-		ModelAndView mav = new ModelAndView("home/approval/DocumentWriteNew");
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/approval/DocumentWriteNew.jsp");
 		User user = (User)request.getSession().getAttribute("loginUser");
 		mav.addObject("user", user);
 		System.out.println(user.toString());
@@ -47,11 +52,22 @@ public class ApprovalController {
 		documentValidator.validate(elecDocument, br);
 		
 		if( br.hasErrors()) {
-			mav.setViewName("home/approval/DocumentWriteNew");
+			mav.setViewName("main");
+			mav.addObject("BODY", "/home/approval/DocumentWriteNew.jsp");
 			return mav;
 		}else {
+			// TODO : DB 처리
+			elecDocument.setFirst_id( user.getUser_id() );
+			elecDocument.setFirst_name( user.getUser_name() );
+			Integer result = documentsCatalog.writeNewElecDocument(elecDocument);
+			
+			if( result == 1) {
+				mav.addObject("msg", "결재 문서가 등록되었습니다");	
+			}else {
+				mav.addObject("msg", "오류가 발생하였습니다");
+			}
+			
 			mav.setViewName("home/approval/DocumentWriteNewSuccess");
-			mav.addObject("msg", "결재 문서가 등록되었습니다");
 			return mav;
 		}
 	}

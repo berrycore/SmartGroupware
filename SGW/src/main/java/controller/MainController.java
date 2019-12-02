@@ -21,4 +21,18 @@ public class MainController {
 		mav.setViewName("main_admin");
 		return mav;
 	}
+	
+	@RequestMapping(value="/dash.html")
+	public ModelAndView dash(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("dash");
+		return mav;
+	}
+	
+	@RequestMapping(value="/dash_admin.html")
+	public ModelAndView dash_admin(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("dash_admin");
+		return mav;
+	}
 }

@@ -7,11 +7,12 @@ public class ElecDocument {
 	private String document_content;
 	private String first_id;
 	private String first_name;
+	private String first_status;
 	private String first_approval_date;
 	private String second_id;
 	private String second_name;
 	private String second_status;
-	private String secon_approval_date;
+	private String second_approval_date;
 	private String third_id;
 	private String third_name;
 	private String third_status;
@@ -55,6 +56,12 @@ public class ElecDocument {
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
+	public String getFirst_status() {
+		return first_status;
+	}
+	public void setFirst_status(String first_status) {
+		this.first_status = first_status;
+	}
 	public String getFirst_approval_date() {
 		return first_approval_date;
 	}
@@ -79,11 +86,11 @@ public class ElecDocument {
 	public void setSecond_status(String second_status) {
 		this.second_status = second_status;
 	}
-	public String getSecon_approval_date() {
-		return secon_approval_date;
+	public String getSecond_approval_date() {
+		return second_approval_date;
 	}
-	public void setSecon_approval_date(String secon_approval_date) {
-		this.secon_approval_date = secon_approval_date;
+	public void setSecond_approval_date(String second_approval_date) {
+		this.second_approval_date = second_approval_date;
 	}
 	public String getThird_id() {
 		return third_id;
@@ -166,15 +173,16 @@ public class ElecDocument {
 	@Override
 	public String toString() {
 		return "ElecDocument [document_id=" + document_id + ", document_title=" + document_title + ", document_content="
-				+ document_content + ", first_id=" + first_id + ", first_name=" + first_name + ", first_approval_date="
-				+ first_approval_date + ", second_id=" + second_id + ", second_name=" + second_name + ", second_status="
-				+ second_status + ", secon_approval_date=" + secon_approval_date + ", third_id=" + third_id
-				+ ", third_name=" + third_name + ", third_status=" + third_status + ", third_approval_date="
-				+ third_approval_date + ", fourth_id=" + fourth_id + ", fourth_name=" + fourth_name + ", fourth_status="
-				+ fourth_status + ", fourth_approval_date=" + fourth_approval_date + ", final_id=" + final_id
-				+ ", final_name=" + final_name + ", final_status=" + final_status + ", final_approval_date="
-				+ final_approval_date + ", document_attached_file_name=" + document_attached_file_name + "]";
+				+ document_content + ", first_id=" + first_id + ", first_name=" + first_name + ", first_status="
+				+ first_status + ", first_approval_date=" + first_approval_date + ", second_id=" + second_id
+				+ ", second_name=" + second_name + ", second_status=" + second_status + ", second_approval_date="
+				+ second_approval_date + ", third_id=" + third_id + ", third_name=" + third_name + ", third_status="
+				+ third_status + ", third_approval_date=" + third_approval_date + ", fourth_id=" + fourth_id
+				+ ", fourth_name=" + fourth_name + ", fourth_status=" + fourth_status + ", fourth_approval_date="
+				+ fourth_approval_date + ", final_id=" + final_id + ", final_name=" + final_name + ", final_status="
+				+ final_status + ", final_approval_date=" + final_approval_date + ", document_attached_file_name="
+				+ document_attached_file_name + "]";
 	}
-
+	
 	
 }

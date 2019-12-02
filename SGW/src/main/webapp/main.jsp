@@ -45,7 +45,7 @@ function openWindow( url )
 	  			전자결재<i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-blue-grey w3-card">
-			    <a href="approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
+			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재할 문서</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">완료 문서</a>
 			    <a href="#" class="w3-bar-item w3-button w3-margin-left">결재 조회</a>
@@ -103,10 +103,8 @@ function openWindow( url )
 			<c:when test="${BODY != null }">
 				<jsp:include page="${BODY }" />
 			</c:when>		
-		  <c:otherwise>
-		  	<p>
-		  	메인 페이지 입니다.
-		  	</p>
+		  <c:otherwise>		  	
+		  	<jsp:include page="/dash.html" />
 		  </c:otherwise>
 	  </c:choose>
 	</div>   
@@ -166,16 +164,6 @@ function myAccFuncAccount() {
   }
 }
 </script>
-
-
-<!-- <p> -->
-<%--     <jsp:include page="/home/mail/MailViewList.jsp" />  --%>
-<%--     <jsp:include page="/home/account/changeMyInfo.jsp" /> --%>
-<%--     <jsp:include page="/home/account/changePassword.jsp" /> --%>
-<%-- 	<jsp:include page="/home/approval/DocumentListView.jsp" /> --%>
-<%-- 	<jsp:include page="/home/board/NoticeListView.jsp" /> --%>
-<%-- 	<jsp:include page="/home/board/TeamBoardListView.jsp" /> --%>
-<!-- </p> -->
 
 </body>
 </html>

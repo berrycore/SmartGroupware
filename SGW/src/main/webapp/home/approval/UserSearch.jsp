@@ -10,12 +10,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
 
 <script >
 	function idOK() {
-		opener.document.frm_document.final_id.value = document.frm.user_id.value;
-		opener.document.frm_document.final_name.value = document.frm.user_name.value;
+		opener.document.frm_document.final_id.value = document.frm.final_id.value;
+		opener.document.frm_document.final_name.value = document.frm.final_name.value;
+		opener.document.frm_document.final_position.value = document.frm.final_position.value;
 		self.close();
 	}
 </script>
@@ -46,10 +47,10 @@
 					<c:if test="${ hasResult eq 'yes' }">
 						<c:forEach var="user" items="${userList}">
 							<tr>
-								<td>${user.user_id }</td>
-								<td>${user.user_name }</td>
+								<td>${user.user_id } <input type="hidden" name="final_id" value="${user.user_id }"> </td>
+								<td>${user.user_name } <input type="hidden" name="final_name" value="${user.user_name }"></td>
 								<td>${user.team.team_name }</td>
-								<td>${user.position.position_name }</td>
+								<td>${user.position.position_name } <input type="hidden" name="final_position" value="${user.position.position_name }"></td>
 								<td>
 									<button class="btn btn-primary btn-small" type="button" onclick="idOK()">Confirm</button>
 								</td>

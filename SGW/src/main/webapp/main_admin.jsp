@@ -82,9 +82,7 @@
 				<jsp:include page="${BODY }" />
 			</c:when>		
 		  <c:otherwise>
-		  	<p>
-		  	관리자 메인 페이지 입니다.
-		  	</p>
+		  	<jsp:include page="/dash_admin.html" />
 		  </c:otherwise>
 	  </c:choose>
 	</div>   

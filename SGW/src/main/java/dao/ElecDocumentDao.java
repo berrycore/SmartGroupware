@@ -8,6 +8,8 @@ public interface ElecDocumentDao {
 
 	List<ElecDocument> getElecDocumentList();
 	ElecDocument selectElecDocument(String document_id);
-	void insertElecDocument(ElecDocument document);
-	void updateElecDocument(ElecDocument document);
+	Integer writeNewElecDocument(ElecDocument document);
+	Integer updateElecDocument(ElecDocument document);
+	
+	
 }

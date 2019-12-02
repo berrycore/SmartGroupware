@@ -9,4 +9,9 @@ final public class Utils {
 		return  format.format(System.currentTimeMillis());
 	}
 	
+	public static String generateCurrentYear() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy");
+		return format.format(System.currentTimeMillis());
+	}
+	
 }
