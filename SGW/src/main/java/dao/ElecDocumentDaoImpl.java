@@ -43,21 +43,24 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 			document.setSecond_approval_date("-");
 			document.setSecond_status("unnecessary");
 		}else {
-			document.setSecond_approval_date( Utils.generateCurrentTime());
+			document.setSecond_approval_date("-");
+			document.setSecond_status("onProcessing");
 		}
 		
 		if( document.getThird_id().equals("-")) {
 			document.setThird_approval_date("-");
 			document.setThird_status("unnecessary");
 		}else {
-			document.setThird_approval_date( Utils.generateCurrentTime());
+			document.setThird_approval_date("-");
+			document.setThird_status("onProcessing");
 		}
 		
 		if( document.getFourth_id().equals("-")) {
 			document.setFourth_approval_date("-");
 			document.setFourth_status("unnecessary");
 		}else {
-			document.setFourth_approval_date( Utils.generateCurrentTime());
+			document.setFourth_approval_date("-");
+			document.setFourth_status("onProcessing");
 		}
 		
 		if( document.getDocument_attached_file_name() == null || document.getDocument_attached_file_name().isEmpty()) {
@@ -95,6 +98,10 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 	
 	public List<ElecDocument> selectProcessingDocumentList(String user_id) {
 		return session.selectList("mapper.myMapper.selectProcessingDocumentList", user_id);
+	}
+
+	public List<ElecDocument> selectCompletedDocumentList(String user_id) {
+		return session.selectList("mapper.myMapper.selectCompletedDocumentList", user_id);
 	}
 
 }

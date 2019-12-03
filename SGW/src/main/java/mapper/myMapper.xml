@@ -383,7 +383,7 @@
 	 	)
   </insert>
   <select id="getElecDocumentList" resultType="model.ElecDocument">
-    select * from SM_ELEC_DOCUMENT
+    select * from SM_ELEC_DOCUMENT ORDER BY FIRST_APPROVAL_DATE DESC
   </select>
   <select id="selectElecDocument" parameterType="String" resultType="model.ElecDocument">
     select * from SM_ELEC_DOCUMENT where document_id = #{document_id}
@@ -394,7 +394,14 @@
     or third_status = 'onProcessing' and third_id = #{user_id}
     or fourth_status = 'onProcessing' and fourth_id = #{user_id} 
     or final_status = 'onProcessing' and final_id = #{user_id}
+    ORDER BY FIRST_APPROVAL_DATE DESC
   </select>
+  <select id="selectCompletedDocumentList" parameterType="String" resultType="model.ElecDocument">
+    select * from SM_ELEC_DOCUMENT 
+    where final_status = 'completed'
+    ORDER BY FIRST_APPROVAL_DATE DESC
+  </select>
+  
   <update id="approveSecondStatus">
     update SM_ELEC_DOCUMENT set second_status = 'completed', second_approval_date = #{time_stamp}
     where second_status = 'onProcessing' and second_id = #{user_id} and document_id = #{document_id}

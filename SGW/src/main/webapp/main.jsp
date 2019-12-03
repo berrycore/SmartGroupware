@@ -45,7 +45,7 @@ function openWindow( url )
 	  		<div id="Accordion_Approval" class="w3-hide w3-blue-grey w3-card">
 			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.draft"/></a>
 			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.awating"/></a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.completed" /></a>
+			    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.completed" /></a>
 			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.lookup"/></a>
 	  		</div>
 	  		

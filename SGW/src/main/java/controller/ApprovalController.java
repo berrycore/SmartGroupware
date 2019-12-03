@@ -73,17 +73,89 @@ public class ApprovalController {
 		}
 	}
 	
-	@RequestMapping(value="/approval/UserSearch.html", method=RequestMethod.GET)
-	public ModelAndView userSearch() {
+	@RequestMapping(value="/approval/SecondSearch.html", method=RequestMethod.GET)
+	public ModelAndView secondSearch() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/approval/UserSearch");
+		mav.setViewName("home/approval/SecondSearch");
 		return mav;	
 	}
 	
-	@RequestMapping(value="/approval/UserSearch.html", method=RequestMethod.POST)
-	public ModelAndView userSearch(HttpServletRequest request, String user_name) {
+	@RequestMapping(value="/approval/SecondSearch.html", method=RequestMethod.POST)
+	public ModelAndView secondSearch(HttpServletRequest request, String user_name) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/approval/UserSearch");
+		mav.setViewName("home/approval/SecondSearch");
+		
+		System.out.println("userSearch : POST : " + user_name);
+				
+		List<User> userList = userAccountCatalog.getUserAccountByName(user_name);
+		if( userList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("userList", userList);
+		}
+		return mav;		
+	}
+	
+	@RequestMapping(value="/approval/ThirdSearch.html", method=RequestMethod.GET)
+	public ModelAndView thirdSearch() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/ThirdSearch");
+		return mav;	
+	}
+	
+	@RequestMapping(value="/approval/ThirdSearch.html", method=RequestMethod.POST)
+	public ModelAndView thirdSearch(HttpServletRequest request, String user_name) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/ThirdSearch");
+		
+		System.out.println("userSearch : POST : " + user_name);
+				
+		List<User> userList = userAccountCatalog.getUserAccountByName(user_name);
+		if( userList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("userList", userList);
+		}
+		return mav;		
+	}
+	
+	@RequestMapping(value="/approval/FourthSearch.html", method=RequestMethod.GET)
+	public ModelAndView fourthSearch() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/FourthSearch");
+		return mav;	
+	}
+	
+	@RequestMapping(value="/approval/FourthSearch.html", method=RequestMethod.POST)
+	public ModelAndView fourthSearch(HttpServletRequest request, String user_name) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/FourthSearch");
+		
+		System.out.println("userSearch : POST : " + user_name);
+				
+		List<User> userList = userAccountCatalog.getUserAccountByName(user_name);
+		if( userList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("userList", userList);
+		}
+		return mav;		
+	}
+	
+	@RequestMapping(value="/approval/FinalSearch.html", method=RequestMethod.GET)
+	public ModelAndView finalSearch() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/FinalSearch");
+		return mav;	
+	}
+	
+	@RequestMapping(value="/approval/FinalSearch.html", method=RequestMethod.POST)
+	public ModelAndView finalSearch(HttpServletRequest request, String user_name) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home/approval/FinalSearch");
 		
 		System.out.println("userSearch : POST : " + user_name);
 				
@@ -129,6 +201,23 @@ public class ApprovalController {
 		
 		User user = (User)request.getSession().getAttribute("loginUser");
 		List<ElecDocument> documentList = documentsCatalog.selectProcessingDocumentList(user.getUser_id());
+		if( documentList.isEmpty()) {
+			mav.addObject("hasResult", "no");
+			return mav;
+		}else {
+			mav.addObject("hasResult", "yes");
+			mav.addObject("documentList", documentList);
+			return mav;
+		}
+	}
+	
+	@RequestMapping(value="/approval/CompletedDocumentView.html", method=RequestMethod.GET)
+	public ModelAndView completedDocumentView(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("main");
+		mav.addObject("BODY", "/home/approval/CompletedDocumentView.jsp");
+		
+		User user = (User)request.getSession().getAttribute("loginUser");
+		List<ElecDocument> documentList = documentsCatalog.selectCompletedDocumentList(user.getUser_id());
 		if( documentList.isEmpty()) {
 			mav.addObject("hasResult", "no");
 			return mav;

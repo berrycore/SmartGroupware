@@ -15,8 +15,29 @@
 <script src="/ckeditor/ckeditor.js"></script>
 
 <script>
-	function popup_id_search(){
-		var url = "UserSearch.html"
+  function popup_second_search(){
+  	var url = "SecondSearch.html"
+  	var name = "UserSearch"
+  	var option = "width = 700, height = 400, top = 100, left = 200, location = no";
+  	window.open(url, name, option);
+  	return false;
+  }
+  function popup_third_search(){
+	  	var url = "ThirdSearch.html"
+	  	var name = "UserSearch"
+	  	var option = "width = 700, height = 400, top = 100, left = 200, location = no";
+	  	window.open(url, name, option);
+	  	return false;
+	}
+  function popup_fourth_search(){
+	  	var url = "FourthSearch.html"
+	  	var name = "UserSearch"
+	  	var option = "width = 700, height = 400, top = 100, left = 200, location = no";
+	  	window.open(url, name, option);
+	  	return false;
+	}
+	function popup_final_search(){
+		var url = "FinalSearch.html"
 		var name = "UserSearch"
 		var option = "width = 700, height = 400, top = 100, left = 200, location = no";
 		window.open(url, name, option);
@@ -65,7 +86,7 @@
 												<input type="text" name="second_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_second_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_second_name" onclick="return popup_second_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -74,7 +95,7 @@
 												<input type="text" name="third_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_third_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -83,7 +104,7 @@
 												<input type="text" name="fourth_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_fourth_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_fourth_name" onclick="return popup_fourth_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -92,7 +113,7 @@
 												<input type="text" name="final_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-primary btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_final_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
+										<small><button class="btn btn-primary btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_final_name" onclick="return popup_final_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 								</tr>
 								<tr>

@@ -38,4 +38,8 @@ public class DocumentsCatalogImpl implements DocumentsCatalog {
 	public List<ElecDocument> selectProcessingDocumentList(String user_id) {
 		return documentsDao.selectProcessingDocumentList(user_id);
 	}
+
+	public List<ElecDocument> selectCompletedDocumentList(String user_id) {
+		return documentsDao.selectCompletedDocumentList(user_id);
+	}
 }

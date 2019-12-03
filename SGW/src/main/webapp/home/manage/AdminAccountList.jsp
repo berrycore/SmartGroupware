@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
-<title><spring:message cod="sgw.admin.list" /></title>
+<title><spring:message code="sgw.admin.list" /></title>
 </head>
 <body>
 <div class="container">

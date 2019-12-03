@@ -13,5 +13,5 @@ public interface ElecDocumentDao {
 	void approveElecDocument(DocumentSign documentSign);
 	void rejectElecDocument(DocumentSign documentSign);
 	List<ElecDocument> selectProcessingDocumentList(String user_id);
-	
+	List<ElecDocument> selectCompletedDocumentList(String user_id);
 }

@@ -41,15 +41,16 @@ public class MailController {
 		mav.addObject("BODY", "/home/mail/MailViewList.jsp");
 		
 		User user = (User)request.getSession().getAttribute("loginUser");
-		
+		System.out.println(user);
 		
 		Properties props = new Properties();
 		props.put("mail.pop3.host", "berrycore.net");
 		props.put("mail.pop3.port", "995");
-		props.put("mail.pop3.starttls.enable", "true");
-		props.put("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		props.put("mail.pop3.auth", "true");
+		props.put("mail.pop3.ssl.enable", "true");
+		//props.put("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		
-		Authenticator auth = new MyAuthentication("userid", "password");
+		Authenticator auth = new MyAuthentication(user.getUser_id(), "sgwservice1#");
 		Session session = Session.getDefaultInstance(props, auth);
 		session.setDebug(true);
 		
@@ -57,7 +58,7 @@ public class MailController {
 		Folder folder = null;
 		try {
 			store = session.getStore("pop3");
-			store.connect();
+			store.connect("berrycore.net", user.getUser_id(), "sgwservice1#");
 			System.out.println(store.toString());
 			
 			folder = store.getFolder("INBOX");
@@ -142,7 +143,7 @@ public class MailController {
 	@RequestMapping(value="/mail/sendMail.html", method=RequestMethod.POST)
 	public ModelAndView sendMail(HttpServletRequest request, Email email, BindingResult br) {
 		ModelAndView mav = new ModelAndView("home/mail/MailWriteNew");
-		
+		User user = (User)request.getSession().getAttribute("loginUser");
 		if( br.hasErrors()) {
 			return mav;
 		}else {
@@ -155,7 +156,7 @@ public class MailController {
 				messageHelper.setTo( email.getReceiver_name() );
 				messageHelper.setText( email.getMail_content(), true);
 //				messageHelper.setFrom( email.getSender_name() );
-				messageHelper.setFrom( "shjeong@berrycore.net" );
+				messageHelper.setFrom( user.getUser_email() );
 				messageHelper.setSubject( email.getMail_title());
 				mailSender.send(message);
 				mav.setViewName("home/mail/MailWriteNewSuccess");
