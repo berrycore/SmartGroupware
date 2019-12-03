@@ -21,19 +21,19 @@ window.onload = function(){
 	document.title = "${elecDocument.document_title }";
 }
 function approvalOK(){
-	var ok = confirm("승인 하시겠습니까"); 
+	var ok = confirm("<spring:message code='sgw.document.willyouapprove' />"); 
 	if( ok == true ){
 		return true;
 	}else{
-		return alse;
+		return false;
 	}
 }
 function rejectOK(){
-	var ok = confirm("부결 하시겠습니까"); 
+	var ok = confirm("<spring:message code='sgw.document.willyoureject' />"); 
 	if( ok == true ){
 		return true;
 	}else{
-		return alse;
+		return false;
 	}
 }
 </script>

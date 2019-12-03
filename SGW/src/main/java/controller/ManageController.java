@@ -239,7 +239,7 @@ public class ManageController {
 	/* Admin */
 	
 	@RequestMapping(value="/manage/loginAdmin.html", method=RequestMethod.GET)
-	public ModelAndView loginAdmin() {
+	public ModelAndView loginAdmin(HttpServletRequest request) {
 		System.out.println("loginAdmin : GET");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home/manage/AdminLogin");

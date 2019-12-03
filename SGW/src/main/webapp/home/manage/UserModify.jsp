@@ -9,9 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
 
-<title>사용자 정보 수정</title>
+<title> <spring:message code="sgw.manage.user.modify" /> </title>
 </head>
 <body>
 	<script>
@@ -40,12 +40,12 @@
 			<thead>
 				<tr>
 					<th colspan="2">
-						<h2>사용자 정보 수정</h2>	
+						<h2><spring:message code="sgw.manage.user.modify" /></h2>	
 					</th>
 				</tr>
 			</thead>
 			<tr>
-				<td>이름</td>
+				<td> <spring:message code="sgw.manage.user.modify.name" /> </td>
 				<td>
 					<form:input path="user_name" name="user_name" class="form-control" />
 					<font color="red"><form:errors path="user_name" /></font>
@@ -58,17 +58,17 @@
 				</td>
 			</tr>
 			<tr>
-				<td>전화번호</td>
+				<td> <spring:message code="sgw.manage.user.modify.telephone" /> </td>
 				<td>
 					<form:input path="user_phone" name="user_phone" class="form-control" />
 					<font color="red"><form:errors path="user_phone" /></font>
 				</td>
 			</tr>
 			<tr>
-				<td>부서명</td>
+				<td> <spring:message code="sgw.manage.user.modify.team" /> </td>
 				<td>
 					<div class="input-group mb-3">
-						<input class="form-control" value="부서를 선택해 주세요" name="team_name" id="team_name" type="text" readonly="readonly">
+						<input class="form-control" value='<spring:message code='sgw.manage.user.modify.team.please' />' name="team_name" id="team_name" type="text" readonly="readonly" />
 						<div class="input-group-append">
 							<input type="hidden" value="${user.team.team_id }" name="team_id" id="team_id" />
 							<button class="btn btn-primary" onclick="return popup_team_check()">부서조회</button>		
@@ -78,20 +78,20 @@
 				</td>
 			</tr>
 			<tr>
-				<td>직급</td>
+				<td> <spring:message code="sgw.manage.user.modify.position" /> </td>
 				<td>
 					<div class="input-group mp-3">
-						<input class="form-control" value="직급을 선택해 주세요" name="position_name" id="position_name" type="text" readonly="readonly">
+						<input class="form-control" value='<spring:message code='sgw.manage.user.modify.position.please' />' name="position_name" id="position_name" type="text" readonly="readonly" />
 						<div class="input-group-append">
 							<input type="hidden" value="${user.position.position_id }" name="position_id" id="position_id"/>
-							<button class="btn btn-primary" onclick="return popup_position_check()">직급조회</button>	
+							<button class="btn btn-primary" onclick="return popup_position_check()"> <spring:message code="sgw.manage.user.modify.position.lookup" /> </button>	
 						</div>					
 					</div>
 					<font color="red"><form:errors path="position_id" /></font>
 				</td>
 			</tr>
 			<tr>
-				<td>업무소개</td>
+				<td> <spring:message code="sgw.manage.user.modify.description" /> </td>
 				<td>
 					<form:textarea path="user_description" name="user_description" rows="3" class="form-control"/>
 					<font color="red"><form:errors path="user_description" /></font>
@@ -99,7 +99,7 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<button type="submit" class="btn btn-dark">저장하기</button>
+					<button type="submit" class="btn btn-dark"><spring:message code="sgw.manage.user.modify.save" /> </button>
 				</td>
 			</tr>
 		</table>

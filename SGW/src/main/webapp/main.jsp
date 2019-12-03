@@ -15,7 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>SGW</title>
+<title><spring:message code="sgw.title.default"/></title>
 </head>
 <body>
 <script>
@@ -32,50 +32,49 @@ function openWindow( url )
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 2</a> -->
 		
 			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncMail()">
-	  			메일<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.main.menu.email" /><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Mail" class="w3-hide w3-blue-grey w3-card">
-			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left">Inbox</a>
-          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left">메일작성</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">보낸편지함</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">휴지통</a>
+			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.inbox" /></a>
+          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.write"/></a>
 	  		</div>
   		
   			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncApproval()">
-	  			전자결재<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.main.menu.document" /><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-blue-grey w3-card">
-			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left">기안하기</a>
-			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left">결재할 문서</a>
-			    <a href="#" class="w3-bar-item w3-button w3-margin-left">완료 문서</a>
-			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left">결재 조회</a>
+			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.draft"/></a>
+			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.awating"/></a>
+			    <a href="#" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.completed" /></a>
+			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.lookup"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
-	  			게시판<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.main.menu.board"/><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Board" class="w3-hide w3-blue-grey w3-card">
-			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left">전사공지</a>
-			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left">Team게시판</a>
+			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.notice"/></a>
+			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.teamboard"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">
-	  			내 정보 관리<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.main.menu.myinfo"/><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Account" class="w3-hide blue-grey w3-card">
-			    <a href="/account/changeMyInfo.html" class="w3-bar-item w3-button w3-margin-left">내 정보 수정</a>
-			    <a href="/account/changePassword.html" class="w3-bar-item w3-button w3-margin-left">패스워드 변경</a>
+			    <a href="/account/changeMyInfo.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.modify"/></a>
+			    <a href="/account/changePassword.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.changepassword"/></a>
 	  		</div>
 	  
-	  <a href="/login/logoutUser.html" class="w3-button w3-block w3-left-align w3-dark-gray">로그아웃</a>
-	  <a href="/manage/loginAdmin.html" onclick="javascript:openWindow(this.href);return false;" class="w3-bar-item w3-button w3-indigo">관리자 로그인</a>
+	  <a href="/login/logoutUser.html" class="w3-button w3-block w3-left-align w3-dark-gray"><spring:message code="sgw.main.menu.logout"/></a>
+	  <a href="/manage/loginAdmin.html" onclick="javascript:openWindow(this.href);return false;" class="w3-bar-item w3-button w3-indigo"><spring:message code="sgw.main.menu.adminlogin"/></a>
 	  <div class="dropdown">
 			<button type="button" class="btn btn-outline-light dropdown-toggle m-2" data-toggle="dropdown">
 		    	Language
 	  	</button>
 	  	<div class="dropdown-menu">
-	    	<a class="dropdown-item" href="#">Korean</a>
-	    	<a class="dropdown-item" href="#">English</a>
+	    	<a class="dropdown-item" href="?lang=ko">Korean</a>
+	    	<a class="dropdown-item" href="?lang=en">English</a>
+        <a class="dropdown-item" href="?lang=ja">Japanese</a>
 	  	</div>
 		</div>
 </div>
@@ -89,7 +88,7 @@ function openWindow( url )
   		<div class="w3-container">
         <div class="w3-display-container" style="height:60px">
           <div class="w3-display-left">
-            <h3><a href="/main.html" style="color: white">Smart Group Ware</a></h3>
+            <h3><a href="/main.html" style="color: white"> <spring:message code="sgw.title.main"/> </a></h3>
           </div>
         </div>
         

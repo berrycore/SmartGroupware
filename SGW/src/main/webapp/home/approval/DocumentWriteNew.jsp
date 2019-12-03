@@ -24,7 +24,7 @@
 	}
 </script>
 
-<title>DocumentWriteNew.jsp</title>
+<title><spring:message code="sgw.document.newdocument"/></title>
 </head>
 <body>
 
@@ -36,10 +36,7 @@
 					<tr>
 						<td>
 							<div class="form-inline" >
-								<button type="submit" class="btn btn-danger btn-sm m-1">결재올림</button>
-								<!-- 						  <button type="button" class="btn btn-secondary btn-sm m-1">결재선</button> -->
-								<button type="button" class="btn btn-secondary btn-sm m-1">임시저장</button>
-								<button type="button" class="btn btn-warning btn-sm m-1">문서삭제</button>
+								<button type="submit" class="btn btn-danger btn-sm m-1"><spring:message code="sgw.document.draftout"/></button>
 							</div>
 						</td>
 					</tr>
@@ -68,7 +65,7 @@
 												<input type="text" name="second_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_second_name" onclick="return popup_id_search(id)">설정하기</button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_second_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -77,7 +74,7 @@
 												<input type="text" name="third_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_id_search(id)">설정하기</button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_third_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -86,7 +83,7 @@
 												<input type="text" name="fourth_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_fourth_name" onclick="return popup_id_search(id)">설정하기</button></small>
+										<small><button class="btn btn-info btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_fourth_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 									<td style="height: 50px; width: 60px">
 										<div>
@@ -95,7 +92,7 @@
 												<input type="text" name="final_name" value="-" maxlength="4" size="4" readonly="readonly"  style="border: 0px;" />
 											</small>
 										</div>
-										<small><button class="btn btn-primary btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_final_name" onclick="return popup_id_search(id)">설정하기</button></small>
+										<small><button class="btn btn-primary btn-sm" style="padding: 0.25em 0.4em;font-size: 75%;" id="approval_final_name" onclick="return popup_id_search(id)"><spring:message code="sgw.document.setting"/></button></small>
 									</td>
 								</tr>
 								<tr>
@@ -122,7 +119,7 @@
 										<th>
 											<div class="input-group">
 												<div class="input-group-prepend">
-													<span class="input-group-text">제목</span>
+													<span class="input-group-text"><spring:message code="sgw.document.title"/></span>
 												</div>
 												<input type="text" name="document_title" class="form-control">
 											</div>

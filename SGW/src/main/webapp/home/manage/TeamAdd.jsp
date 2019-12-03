@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>title</title>
+<title><spring:message code="sgw.manage.team.add" /></title>
 </head>
 <body>
 
@@ -20,22 +20,22 @@
 	
 	<form action="teamAdd.html" method="POST">
 		
-		<h2>팀 추가하기</h2>
+		<h4><spring:message code="sgw.manage.team.add" /></h4>
 		
 		<div class="form-group">
-			<label for="team_id">팀ID</label>
-			<input type="text" class="form-control" name="team_id" placeholder="자동생성됨" readonly="readonly">
+			<label for="team_id"> <spring:message code="sgw.manage.team.id" /></label>
+			<input type="text" class="form-control" name="team_id" placeholder='<spring:message code="sgw.manage.team.add.id.auto" />' readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="team_name">팀이름</label>
+			<label for="team_name"> <spring:message code="sgw.manage.team.name" /></label>
 			<input type="text" class="form-control" name="team_name" >
 		</div>
 		<div class="form-group">
-			<label for="parent_team_id">상위부서 ID</label>
+			<label for="parent_team_id"> <spring:message code="sgw.manage.team.parent.id" /></label>
 			<input type="text" class="form-control" name="team_parent_id" >
 		</div>
 		<div class="form-group">
-			<input type="submit" class="btn btn-primary" value="등록" >
+			<button type="submit" class="btn btn-primary" ><spring:message code="sgw.manage.team.add.confirm" /></button>
 		</div>
 	</form>
 </div>

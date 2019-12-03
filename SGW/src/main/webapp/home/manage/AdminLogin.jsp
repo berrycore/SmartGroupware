@@ -21,16 +21,16 @@ body {
   border-color: #FFA500;
 }
 </style>
-<title>SGW::AdminLogin</title>
+<title><spring:message code="sgw.title.default" />::<spring:message code="sgw.admin.login" /></title>
 </head>
 <body>
 	<div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
-          <form:form modelAttribute="sgwAdmin" name="frm_login" class="form-signin" action="loginAdmin.html" method="POST">
+          <form:form modelAttribute="sgwAdmin" name="frm_login" class="form-signin" action="/manage/loginAdmin.html" method="POST">
             <div class="card-body">
-              <h5 class="card-title text-center">Smart Group Ware :: Admin</h5>
+              <h5 class="card-title text-center"><spring:message code="sgw.title.default" />::<spring:message code="sgw.admin.login" /></h5>
               
               		<c:if test="${ msg ne null }">
 		               	<div style="margin-bottom: 10px">
@@ -51,7 +51,8 @@ body {
   
                 <button id="submit" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                 <hr class="my-4">
-                	경고 !<br />비인가자의 접속을 금지합니다 
+                	<spring:message code="sgw.admn.login.warning" /><br />
+                	<spring:message code="sgw.admin.login.unauthorized" /> 
                 <hr class="my-4">
                 <div>
                   <font color="red"><form:errors path="admin_id"/></font>

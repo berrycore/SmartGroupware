@@ -14,7 +14,7 @@
 <title>메뉴 관리</title>
 </head>
 <body>
-
+개발중
 <div class="container">
   <h2>사용자 권한 리스트</h2>
   <p>사용자별 접근 가능한 메뉴 현황</p>                                                                                      

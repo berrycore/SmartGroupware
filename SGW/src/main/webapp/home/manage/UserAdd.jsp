@@ -39,23 +39,23 @@
 	}
 </script>
 
-<title>사용자 추가</title>
+<title> <spring:message code="sgw.manage.user.add" /> </title>
 </head>
 <body>
 
 <div >
-<%-- 	<form:form modelAttribute="user" method="POST" action="userAddRegist.html" name="frm_user"> --%>
+
 	<form:form modelAttribute="user" method="POST" action="userAdd.html" name="frm_user">
 		<table class="table" style="margin-top: 5px;">
 			<thead>
 				<tr>
 					<th colspan="2">
-						<h2>사용자 추가</h2>	
+						<h4> <spring:message code="sgw.manage.user.add" /> </h4>	
 					</th>
 				</tr>
 			</thead>
 			<tr>
-				<td>이름</td>
+				<td> <spring:message code="sgw.manage.user.add.name" /> </td>
 				<td>
 					<form:input path="user_name" name="user_name" class="form-control"/>
 					<font color="red"><form:errors path="user_name" /></font>
@@ -67,7 +67,7 @@
 					<div class="input-group mb-3">
 						<form:input path="user_id" name="user_id" class="form-control" readonly="true"/>
 						<div class="input-group-append">
-							<button class="btn btn-primary" onclick="return popup_user_id_check()">중복조회</button>	
+							<button class="btn btn-primary" onclick="return popup_user_id_check()"> <spring:message code="sgw.manage.user.add.duplicate.check" /></button>	
 						</div>	
 					</div>
 					
@@ -76,40 +76,40 @@
 			</tr>
 			
 			<tr>
-				<td>전화번호</td>
+				<td> <spring:message code="sgw.manage.user.add.telephone" /> </td>
 				<td>
 					<form:input path="user_phone" name="user_phone" class="form-control" />
 					<font color="red"><form:errors path="user_phone" /></font>
 				</td>
 			</tr>
 			<tr>
-				<td>부서명</td>
+				<td> <spring:message code="sgw.manage.user.add.team.name" /></td>
 				<td>
 					<div class="input-group mb-3">
 						<input class="form-control" name="team_name" id="team_name" type="text" readonly="readonly">
 						<div class="input-group-append">
 							<form:hidden path="team_id" name="team_id" value="" />
-							<button class="btn btn-primary" onclick="return popup_team_check()">부서조회</button>		
+							<button class="btn btn-primary" onclick="return popup_team_check()"> <spring:message code="sgw.manage.user.add.team.lookup" /></button>		
 						</div>	
 					</div>
 					<font color="red"><form:errors path="team_id" /></font>
 				</td>
 			</tr>
 			<tr>
-				<td>직급</td>
+				<td><spring:message code="sgw.manage.user.add.position.name" /></td>
 				<td>
 					<div class="input-group mp-3">
 						<input class="form-control" name="position_name" id="position_name" type="text" readonly="readonly">
 						<div class="input-group-append">
 							<form:hidden path="position_id" name="position_id" value="" />
-							<button class="btn btn-primary" onclick="return popup_position_check()">직급조회</button>	
+							<button class="btn btn-primary" onclick="return popup_position_check()"> <spring:message code="sgw.manage.user.add.position.lookup" /></button>	
 						</div>					
 					</div>
 					<font color="red"><form:errors path="position_id" /></font>
 				</td>
 			</tr>
 			<tr>
-				<td>업무소개</td>
+				<td><spring:message code="sgw.manage.user.add.description" /></td>
 				<td>
 					<form:textarea path="user_description" name="user_description" rows="3" class="form-control"/>
 					<font color="red"><form:errors path="user_description" /></font>
@@ -117,8 +117,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<button type="submit" class="btn btn-dark">등록</button>
-					<a href="/main_admin.html"><button type="button" class="btn btn-warning">처음으로</button></a>
+					<button type="submit" class="btn btn-dark"> <spring:message code="sgw.manage.user.add.submit" /></button>
+					<a href="/main_admin.html"><button type="button" class="btn btn-warning"> <spring:message code="sgw.manage.user.add.to.main" /> </button></a>
 				</td>
 			</tr>
 		</table>

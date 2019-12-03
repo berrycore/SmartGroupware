@@ -18,19 +18,19 @@
 <body>
 
 <div class="container">
-<h5>사용자 계정 리스트</h5>
+<h5> <spring:message code="sgw.manage.user.list" /> </h5>
 	<table class="table  table-sm table-bordered table-hover table-responsive-md">
 		<thead>
 			<tr>
-				<th>user_id</th>
-				<th>user_name</th>
-				<th>team_name</th>
-				<th>position_name</th>
-				<th>user_email</th>
-				<th>user_phone</th>
-				<th>user_description</th>
-				<th>user_date_last_login</th>
-				<th>user_date_last_pw_changed</th>
+				<th> <spring:message code="sgw.manage.user.list.id" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.name" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.team" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.position" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.email" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.phone" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.description" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.last.login" /> </th>
+				<th> <spring:message code="sgw.manage.user.list.last.pw.change" /> </th>
 			</tr>
 		</thead>
 		<tbody>

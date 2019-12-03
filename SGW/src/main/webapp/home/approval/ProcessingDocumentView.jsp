@@ -20,26 +20,26 @@
     }
 </script>
 
-<title>DocumentListView.jsp</title>
+<title><spring:message code="sgw.document.awaiting"/></title>
 </head>
 <body>
 
 <div class="container">
-		<h2>Documents :: 결재 할 문서</h2>
+		<h2>Documents :: <spring:message code="sgw.document.awaiting"/></h2>
     
       <c:choose>
         <c:when test="${hasResult eq 'no' }">
-                     조회 결과가 없습니다
+          <spring:message code="sgw.document.noresult" />
         </c:when>
         <c:otherwise>
           <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
-              <th>문서번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-              <th>문서상태</th>
+              <th><spring:message code="sgw.document.document_id" /></th>
+              <th><spring:message code="sgw.document.document_title" /></th>
+              <th><spring:message code="sgw.document.writer" /></th>
+              <th><spring:message code="sgw.document.registdate" /></th>
+              <th><spring:message code="sgw.document.status" /></th>
             </tr>
           </thead>
           <tbody>

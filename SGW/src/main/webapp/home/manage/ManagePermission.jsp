@@ -14,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js" ></script>
-<title>사용자 관리</title></head>
+<title> <spring:message code="sgw.manage.user.permission" /> </title></head>
 <body>
 
 <script>
@@ -28,38 +28,38 @@
 </script>
 
 	<div class="container-fluid">
-		<h2>사용자 관리</h2>
+		<h2><spring:message code="sgw.manage.user.permission" /></h2>
 		<br>
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">사용자 계정 관리</a></li>
-			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">사용자 추가</a></li>
-			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">부서 설정</a></li>
-			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">직급 설정</a></li>
-			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu4">메뉴 설정</a></li>
+			<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home"><spring:message code="sgw.manage.user.account" /></a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1"><spring:message code="sgw.manage.user.account.add" /></a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2"><spring:message code="sgw.manage.team"/></a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3"><spring:message code="sgw.manage.position"/></a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu4"><spring:message code="sgw.manage.menu"/></a></li>
 		</ul>
 
 		<!-- Tab panes -->
 		<div class="tab-content">
 			<div id="home" class="container tab-pane active">
 				<br>
-				<h3>사용자 리스트</h3>
+				<h4><spring:message code="sgw.manage.user.list"/></h4>
 					<table class="table">
 						<thead>
 							<tr>
-								<th>ID</th>
-								<th>이름</th>
-								<th>부서</th>
-								<th>직급</th>
-								<th>이메일</th>
-								<th>관리</th>
+								<th><spring:message code="sgw.manage.user.id" /></th>
+								<th><spring:message code="sgw.manage.user.name" /></th>
+								<th><spring:message code="sgw.manage.user.team" /></th>
+								<th><spring:message code="sgw.manage.user.position" /></th>
+								<th><spring:message code="sgw.manage.user.email" /></th>
+								<th><spring:message code="sgw.manage.user.control" /></th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:choose>
 								<c:when test="${noResult eq 'yes' }">	
 									<tr>
-										<td colspan="6">조회 결과가 없습니다</td>
+										<td colspan="6"> <spring:message code="sgw.manage.user.no.result" /></td>
 									</tr>
 								</c:when>
 								<c:otherwise>
@@ -71,7 +71,7 @@
 											<td>${user.position.position_name }</td>
 											<td>${user.user_email }</td>
 											<td>
-												<button class="btn btn-info btn-sm" onclick="return popup_user_modify('${user.user_id }')" >수정하기</button>
+												<button class="btn btn-info btn-sm" onclick="return popup_user_modify('${user.user_id }')" > <spring:message code="sgw.manage.user.modify" /></button>
 											</td>
 										</tr>		
 									</c:forEach>

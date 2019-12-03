@@ -13,6 +13,9 @@
 <title>title</title>
 </head>
 <body>
-sended
+<script>
+alert("sended successfully");
+location.href="/main.html";
+</script>
 </body>
 </html>

@@ -25,38 +25,39 @@
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 2</a> -->
 		
 			<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncAdmin()">
-	  			관리자 설정<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.admin.menu.setting" /><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Mail" class="w3-hide w3-indigo w3-card">
-	  			<a href="/manage/adminAccountList.html" class="w3-bar-item w3-button w3-margin-left"> > 관리자 리스트</a>
-			    <a href="/manage/adminAccountAdd.html" class="w3-bar-item w3-button w3-margin-left"> > 관리자 등록</a>
-			    <a href="/manage/adminPasswordChange.html" class="w3-bar-item w3-button w3-margin-left"> > 패스워드 변경</a>
+	  			<a href="/manage/adminAccountList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.list"/></a>
+			    <a href="/manage/adminAccountAdd.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.add" /></a>
+			    <a href="/manage/adminPasswordChange.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.password"/></a>
 	  		</div>
   		
   			<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncUser()">
-	  			사용자 관리<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.admin.menu.manage.user" /><i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-indigo w3-card">
-			    <a href="/manage/userList.html" class="w3-bar-item w3-button w3-margin-left"> > 사용자 리스트</a>
-			    <a href="/manage/userAdd.html" class="w3-bar-item w3-button w3-margin-left"> > 사용자 등록</a>
-			    <a href="/manage/managePermission.html" class="w3-bar-item w3-button w3-margin-left"> > 사용자 권한 설정</a>
+			    <a href="/manage/userList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.list"/></a>
+			    <a href="/manage/userAdd.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.add"/></a>
+			    <a href="/manage/managePermission.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.permission"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncBoard()">
-	  			게시판 관리<i class="fa fa-caret-down"></i>
+	  			<spring:message code="sgw.admin.menu.manage.board"/> <i class="fa fa-caret-down"></i>
 	  		</button>
 	  		<div id="Accordion_Board" class="w3-hide w3-indigo w3-card">
-			    <a href="/board/writeNotice.html" class="w3-bar-item w3-button w3-margin-left"> > 공지사항 등록</a>    
+			    <a href="/board/writeNotice.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.board.notice"/></a>    
 	  		</div>
 	  
-		<a href="/login/logoutAdmin.html" class="w3-button w3-block w3-left-align w3-deep-purple">관리자 로그아웃</a>
+		<a href="/login/logoutAdmin.html" class="w3-button w3-block w3-left-align w3-deep-purple"><spring:message code="sgw.admin.menu.logout"/></a>
 		<div class="dropdown">
 			<button type="button" class="btn btn-outline-light dropdown-toggle m-2" data-toggle="dropdown">
 		    	Language
 	  	</button>
 	  	<div class="dropdown-menu">
-	    	<a class="dropdown-item" href="#">Korean</a>
-	    	<a class="dropdown-item" href="#">English</a>
+	    	<a class="dropdown-item" href="?lang=ko">Korean</a>
+	    	<a class="dropdown-item" href="?lang=en">English</a>
+        <a class="dropdown-item" href="?lang=ja">Japanese</a>
 	  	</div>
 		</div>
 </div>

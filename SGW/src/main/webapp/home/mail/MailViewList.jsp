@@ -16,7 +16,7 @@
 <title>MailViewList.jsp</title>
 </head>
 <body>
-	
+개발중	
 	<div class="container">
 		<h2>Smart Email</h2>
 

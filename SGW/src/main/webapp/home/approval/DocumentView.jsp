@@ -29,7 +29,7 @@ window.onload = function(){
           <tr>
             <td>
               <div class="form-inline" >
-                <button type="submit" class="btn btn-danger btn-sm m-1" onclick="window.close();">닫기</button>
+                <button type="submit" class="btn btn-danger btn-sm m-1" onclick="window.close();"><spring:message code="sgw.document.close" /></button>
               </div>
             </td>
           </tr>
@@ -105,7 +105,7 @@ window.onload = function(){
                     <th>
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">제목</span>
+                          <span class="input-group-text"><spring:message code="sgw.document.document_title"/></span>
                         </div>
                         <input type="text" name="document_title" value="${elecDocument.document_title }" class="form-control" readonly="readonly">
                       </div>

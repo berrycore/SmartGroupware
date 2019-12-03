@@ -238,7 +238,7 @@ public class BoardController {
 	@RequestMapping(value="/board/TeamBoardView.html")
 	public ModelAndView boardView(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home/board/TeamBoardView");
+		mav.setViewName("main");
 		
 		// board
 		String board_id = request.getParameter("board_id");
@@ -248,7 +248,7 @@ public class BoardController {
 		// reply
 		List<Reply> replyList = boardCatalog.getReplyList(board_id);
 		mav.addObject("replyList", replyList);
-		
+		mav.addObject("BODY", "/home/board/TeamBoardView.jsp" );
 		return mav;
 	}
 	

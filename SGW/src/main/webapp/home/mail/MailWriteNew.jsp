@@ -12,26 +12,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/w3.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
-<script src="../ckeditor/ckeditor.js"></script>
+<script src="/ckeditor/ckeditor.js"></script>
 
-<title>MailWriteNew.jsp</title>
+<title><spring:message code="sgw.mail.title.writenew"/></title>
 </head>
 <body>
 
 	<div class="container">
 		<form:form modelAttribute="email" action="/mail/sendMail.html" method="post">
-			<h2>새 메일</h2>
+			<h2><spring:message code="sgw.mail.newmail" /></h2>
 	
 			<div class="form-group">
-				<label for="receiver_name">받는사람</label> 
+				<label for="receiver_name"><spring:message code="sgw.mail.recipient" /></label> 
 				<input type="text" class="form-control" name="receiver_name">
 			</div>
 			<div class="form-group">
-				<label for="cc_name">참조</label> 
+				<label for="cc_name"><spring:message code="sgw.mail.cc" /></label> 
 				<input type="text" class="form-control" name="cc_name">
 			</div>
 			<div class="form-group">
-				<label for="mail_title">제목</label> 
+				<label for="mail_title"><spring:message code="sgw.mail.subject" /></label> 
 				<input type="text" class="form-control" name="mail_title">
 			</div>
 			<div class="custom-file">
@@ -42,7 +42,7 @@
         <textarea id="editor" name="mail_content" ></textarea>
 			</div>
 			
-			<button type="submit" class="btn btn-primary">보내기</button>
+			<button type="submit" class="btn btn-primary"><spring:message code="sgw.mail.send" /></button>
 		
 		</form:form>
 	</div>

@@ -10,11 +10,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>title</title>
+<title><spring:message code="sgw.account.change.password" /></title>
 </head>
 <body>
 <script>
-alert("패스워드가 정상적으로 변경되었습니다");
+alert('<spring:message code="sgw.account.password.change.success" />');
 location.href="/main.html";
 </script>
 </body>

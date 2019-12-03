@@ -10,9 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="/css/w3.css">
 
-<title>NoticeListView.jsp</title>
+<title>NoticeListView</title>
 </head>
 <body>
 	<div>
@@ -21,10 +21,10 @@
 			<table class="w3-table-all w3-small">
 					<thead>
 						<tr class="w3-green">
-							<th>글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
+							<th><spring:message code="sgw.board.board_id" /></th>
+							<th><spring:message code="sgw.board.submit" /></th>
+							<th><spring:message code="sgw.board.writer" /></th>
+							<th><spring:message code="sgw.board.registdate" /></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,7 +32,7 @@
 							<c:when test="${noResult eq 'yes' }">
 								<tr>
 									<td colspan="4">
-										<h4>등록된 공지사항이 없습니다</h4>
+										<h3><spring:message code="sgw.board.no.result" /></h3>
 									</td>
 								</tr>
 							</c:when>

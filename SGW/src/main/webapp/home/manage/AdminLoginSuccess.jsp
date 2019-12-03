@@ -13,7 +13,7 @@
 <title>AdminLoginSuccess</title>
 </head>
 <body>
-관리자 로그인 성공
+Login Success
 <script>
 location.href="/main_admin.html";
 </script>

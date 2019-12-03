@@ -12,22 +12,20 @@
 <link rel="stylesheet" type="text/css" href="/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
-<title>AdminAccountList</title>
+<title><spring:message cod="sgw.admin.list" /></title>
 </head>
 <body>
 <div class="container">
-	관리자 계정 리스트
-	sgwAdminList
-	
+	<h4><spring:message code="sgw.admin.list" /></h4>
 	<table class="table table-sm table-bordered table-hover table-responsive-md">
 			<thead>
 				<tr>
-					<th>admin_id</th>
-					<th>admin_name</th>
-					<th>admin_access_ip</th>
-					<th>admin_date_created</th>
-					<th>admin_date_last_login</th>
-					<th>admin_date_last_pw_changed</th>
+					<th><spring:message code="sgw.admin.account.id" /></th>
+					<th><spring:message code="sgw.admin.account.name" /></th>
+					<th><spring:message code="sgw.admin.accessible.ip" /></th>
+					<th><spring:message code="sgw.admin.account.created.date" /></th>
+					<th><spring:message code="sgw.admin.last.login.date" /></th>
+					<th><spring:message code="sgw.admin.last.password.changed.date" /></th>
 				</tr>
 			</thead>
 			
@@ -35,7 +33,7 @@
 				<c:choose>
 					<c:when test="${noResult eq 'yes' }">	
 						<tr>
-							<td colspan="6">조회 결과가 없습니다</td>
+							<td colspan="6"><spring:message code="sgw.admin.account.no.result" /></td>
 						</tr>
 					</c:when>
 					<c:otherwise>

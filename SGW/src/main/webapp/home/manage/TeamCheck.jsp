@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
-<title>팀 조회</title>
+<title> <spring:message code="sgw.manage.team.lookup" /></title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		}
 	</script>
 
-<h2>팀 조회</h2>
+<h2><spring:message code="sgw.manage.team.lookup" /></h2>
 <div>
 	<form class="form-inline my-2 my-lg-0" name="frm">
 		<select class="form-control" id="teams">
@@ -35,7 +35,7 @@
 		</select>
 		
 		&nbsp;
-		<button class="btn btn-info my-2 my-sm-0" type="button" onClick="teamOK()">Confirm</button>
+		<button class="btn btn-info my-2 my-sm-0" type="button" onClick="teamOK()"> <spring:message code="sgw.manage.team.add.confirm" /></button>
 	</form>
 </div>
 </body>

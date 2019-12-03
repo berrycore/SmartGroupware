@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../css/login.css">
 
 
-<title>Login</title>
+<title><spring:message code="sgw.title.default"/>::<spring:message code="sgw.title.login"/></title>
 </head>
 <body>
 	<div class="container">
@@ -37,7 +37,8 @@
 	
 								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
 								<hr class="my-4">
-								아이디는 관리자에게 문의 바랍니다.<br /> 첫 로그인시 #Gw사번 입니다
+								<spring:message code="sgw.login.msg1"/><br /> 
+								<spring:message code="sgw.login.msg2"/>
 								<hr class="my-4">
 								<div>
 									<font color="red"><form:errors path="user_id"/></font>

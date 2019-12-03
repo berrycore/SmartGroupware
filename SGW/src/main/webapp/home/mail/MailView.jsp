@@ -11,10 +11,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>title</title>
+<title><spring:message code="sgw.mail.title"/></title>
 </head>
 <body>
-
+개발중
 	<div class="container">
 		<table class="table">
 			<thead>

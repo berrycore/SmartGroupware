@@ -10,26 +10,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/w3.css">
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
-<title>팀 게시판</title>
+<title><spring:message code="sgw.board.teamboard" /></title>
 </head>
 <body>
 	<div>
 		<div class="w3-container">
-			<h2>팀 게시판</h2>
+			<h2><spring:message code="sgw.board.teamboard" /></h2>
 
-			<a href="../board/BoardWrite.html">
-				<button class="w3-button w3-black w3-padding-small" style="margin-bottom: 5px">새글작성</button>
+			<a href="/board/BoardWrite.html">
+				<button class="w3-button w3-black w3-padding-small" style="margin-bottom: 5px"><spring:message code="sgw.board.teamboard.new" /></button>
 			</a>
 			<table class="w3-table-all w3-small">
 				<thead>
 					<tr class="w3-blue">
-						<th>글번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
+						<th><spring:message code="sgw.board.board_id" /></th>
+						<th><spring:message code="sgw.board.subject" /></th>
+						<th><spring:message code="sgw.board.writer" /></th>
+						<th><spring:message code="sgw.board.writer" /></th>
 					</tr>
 				</thead>
 				<tbody>

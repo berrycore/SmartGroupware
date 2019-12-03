@@ -10,12 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/w3.css">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../ckeditor/contents.css">
-<script src="../ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/ckeditor/contents.css">
+<script src="/ckeditor/ckeditor.js"></script>
 
-<title>글 보기</title>
+<title><spring:message code="sgw.board.view" /></title>
 </head>
 <body>
 
@@ -24,22 +24,22 @@
 			<form:form action="appendReply.html" method="post" modelAttribute="reply">
 			 <div class="input-group mb-3">
 			    <div class="input-group-prepend">
-			       <span class="input-group-text">제목</span>
+			       <span class="input-group-text"><spring:message code="sgw.board.title" /></span>
 			       <input type="text" class="form-control bg-light" value="${board.board_title}" readonly="readonly">
 			    </div>
 			 </div>
 			 
 			 <div class="input-group mb-3">
 			    <div class="input-group-prepend">
-			       <span class="input-group-text">작성자</span>
+			       <span class="input-group-text"><spring:message code="sgw.board.writer" /></span>
 			       <input type="text" class="form-control bg-light" value="${board.board_writer_name}" readonly="readonly">
 			    </div>
 			    <div class="input-group-prepend">
-			       <span class="input-group-text">작성시간</span>
+			       <span class="input-group-text"><spring:message code="sgw.board.registdate" /></span>
 			       <input type="text" class="form-control bg-light" value="${board.board_date_regist}" readonly="readonly">
 			    </div>
 			    <div class="input-group-prepend">
-			       <span class="input-group-text">첨부파일</span>
+			       <span class="input-group-text"><spring:message code="sgw.board.attachedfile" /></span>
 			       <input type="text" class="form-control bg-light" value="" readonly="readonly">
 			    </div>
 			    
@@ -48,13 +48,12 @@
 			<div>
 				<div class="form-group">
 					<textarea id="editor" name="board_content" readonly="readonly" >${board.board_content }</textarea>
-<%-- 					<textarea class="form-control" rows="10" id="board_content">${board.board_content }</textarea> --%>
 				</div>
 			</div>
 
-			<p>댓글 : </p>
+			<p><spring:message code="sgw.board.comment" /> </p>
 			
-			<!-- 댓글 위치 -->
+			<!-- comment here -->
 			<c:forEach items="${replyList }" var="reply">
 				<div class="card" style="margin-top: 5px">
 				    <h5 class="card-header">
@@ -67,21 +66,20 @@
 				</div>
 			</c:forEach>
 			
-			<!-- 댓글 남기기 -->
-			
+			<!-- leave comment -->
 				<input type="hidden" name="board_id" value="${board.board_id }" />
 				<div class="card" style="margin-top:10px">
-					<h6 class="card-header">댓글 남기기</h6>
+					<h6 class="card-header"><spring:message code="sgw.board.leave.comment" /></h6>
 					<div class="card-body">
-						<textarea class="form-control" rows="3" name="reply_content" placeholder="댓글을 입력해주세요"></textarea>
+						<textarea class="form-control" rows="3" name="reply_content" placeholder='<spring:message code="sgw.board.please.input.comment" />'></textarea>
 						<font color="red"><form:errors path="reply_content"/></font>
-						<button type="submit" class="btn btn-primary" style="margin-top: 2px">댓글남기기</button>
+						<button type="submit" class="btn btn-primary" style="margin-top: 2px"><spring:message code="sgw.board.leave.comment" /></button>
 					</div>
 				</div>
 			</form:form>
 
-			<button type="button" class="btn btn-success" style="margin: 5px">닫기</button>
-			<button type="button" class="btn btn-warning" style="margin: 5px">삭제</button>
+			?<button type="button" class="btn btn-success" style="margin: 5px"><spring:message code="sgw.board.close"  /></button>
+			?<button type="button" class="btn btn-warning" style="margin: 5px"><spring:message code="sgw.board.delete" /></button>
 			<a href="../board/TeamBoardListView.html"> <button type="button" class="btn btn-primary" style="margin: 5px">목록으로</button> </a>
 	</div>
 	

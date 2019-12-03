@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
-<title>AdminChangePassword</title>
+<title><spring:message code="sgw.admin.password.change" /></title>
 </head>
 <body>
 	<div class="container">
@@ -22,13 +22,13 @@
 			<thead>
 				<tr>
 					<th colspan="2">
-						<h2>패스워드 변경</h2>	
+						<h2><spring:message code="sgw.admin.password.change" /></h2>	
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>관리자 이름</td>
+					<td><spring:message code="sgw.admin.account.name" /></td>
 					<td>
 						<input class="form-control" name="admin_name" type="text" value="${sgwAdmin.admin_name }" readonly="readonly">
 					</td>
@@ -38,21 +38,21 @@
 					<td><input class="form-control" name="admin_id" type="text" value="${sgwAdmin.admin_id }" readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td>패스워드 변경</td>
+					<td><spring:message code="sgw.admin.password"/></td>
 					<td>
 						<input type="password" class="form-control" name="admin_password">
 						<font color="red"><form:errors path="admin_password" /></font> 
 					</td>
 				</tr>
 				<tr>
-					<td>패스워드 변경 확인</td>
+					<td><spring:message code="sgw.admin.password.re" /></td>
 					<td>
 						<input type="password" class="form-control" name="admin_password_re"> 
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="submit" class="btn btn-primary">저장하기</button>
+						<button type="submit" class="btn btn-primary"><spring:message code="sgw.admin.password.save" /></button>
 					</td>
 				</tr>
 			</tbody>

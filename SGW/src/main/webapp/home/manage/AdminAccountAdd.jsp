@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-<title>AdminAccountAdd</title>
+<title><spring:message code="sgw.admin.admin.account.add" /></title>
 </head>
 <body>
 
@@ -31,24 +31,24 @@
       <thead>
         <tr>
           <th colspan="2">
-            <h2>관리계정 등록</h2> 
+            <h2><spring:message code="sgw.admin.admin.account.add" /></h2> 
           </th>
         </tr>
       </thead>
       <tr>
-        <td>관리자 이름</td>
+        <td><spring:message code="sgw.admin.account.name" /></td>
         <td>
           <form:input path="admin_name" name="admin_name" class="form-control"/>
           <font color="red"><form:errors path="admin_name" /></font>
         </td>
       </tr>
       <tr>
-        <td>관리자 ID</td>
+        <td><spring:message code="sgw.admin.account.id" /></td>
         <td>
           <div class="input-group">
             <form:input path="admin_id" name="admin_id" class="form-control" readonly="true"/>
             <div class="input-group-append">
-              <button class="btn btn-primary" onclick="return popup_admin_id_check()">중복조회</button>  
+              <button class="btn btn-primary" onclick="return popup_admin_id_check()"><spring:message code="sgw.admin.duplicate.check" /></button>  
             </div>  
           </div>
           
@@ -56,20 +56,20 @@
         </td>
       </tr>
       <tr>
-        <td>패스워드</td>
+        <td><spring:message code="sgw.account.password" /></td>
         <td>
           <input type="password" id="admin_password" name="admin_password" class="form-control"/>
           <font color="red"><form:errors path="admin_password" /></font>
         </td>
       </tr>
       <tr>
-        <td>패스워드 확인</td>
+        <td><spring:message code="sgw.account.password.re" /></td>
         <td>
         	<input type="password" id="admin_password_re" name="admin_password_re" class="form-control"/>
         </td>
       </tr>
       <tr>
-        <td>접속가능 IP주소<br/>예) 127.0.0.1</td>
+        <td><spring:message code="sgw.admin.accessible.ip" /><br/> <spring:message code="sgw.admin.accessible.ip.ex" /></td>
         <td>
           <form:input path="admin_access_ip" name="admin_access_ip" class="form-control"/>
           <font color="red"><form:errors path="admin_access_ip" /></font>
@@ -78,8 +78,8 @@
       <tr>
       <tr>
         <td colspan="2">
-          <button type="submit" class="btn btn-dark">등록</button>
-          <a href="#"><button type="button" class="btn btn-warning">처음으로</button></a>
+          <button type="submit" class="btn btn-dark"><spring:message code="sgw.admin.submit" /></button>
+          <a href="#"><button type="button" class="btn btn-warning"><spring:message code="sgw.admin.to.main" /></button></a>
         </td>
       </tr>
     </table>

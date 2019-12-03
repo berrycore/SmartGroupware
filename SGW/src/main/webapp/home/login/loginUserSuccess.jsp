@@ -17,7 +17,7 @@
 <title>Login Success</title>
 </head>
 <body>
-로그인 성공
+login...
 <script>
 location.href="/main.html";
 </script>

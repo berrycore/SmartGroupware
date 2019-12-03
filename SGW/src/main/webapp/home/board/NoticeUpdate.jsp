@@ -9,18 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/w3.css">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<script src="../ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<script src="/ckeditor/ckeditor.js"></script>
 
-<title>공지사항 수정</title>
+<title><spring:message code="sgw.notice.modify" /></title>
 </head>
 <body>
 
 	<div class="w3-container">
 		<form:form modelAttribute="notice" action="/board/NoticeUpdate.html" method="post">
 			<form:hidden path="notice_id"/>
-			<h2>공지사항 수정</h2>
+			<h2><spring:message code="sgw.notice.modify" /></h2>
 		
 			<div class="mb-1">
     		<form:input path="notice_title" class="form-control"/>
@@ -33,7 +33,7 @@
 	    
 			<div class="mt-3">
 				<input type="file" id="myFile" name="filename2" >
-				<button type="submit" class="btn btn-primary">등록</button>
+				<button type="submit" class="btn btn-primary"><spring:message code="sgw.notice.modify.submit" /></button>
 			</div>
 			
 		</form:form>

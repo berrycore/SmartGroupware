@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
 
-<title>title</title>
+<title> <spring:message code="sgw.manage.position.add" /> </title>
 </head>
 <body>
 
@@ -22,18 +22,18 @@
 	
 	<form action="positionAdd.html" method="POST">
 		
-		<h2>직급 추가하기</h2>
+		<h4> <spring:message code="sgw.manage.position.add" /> </h4>
 		
 		<div class="form-group">
-			<label for="position_id">직급 ID</label>
-			<input type="text" class="form-control" name="position_id" placeholder="자동생성됨" readonly="readonly">
+			<label for="position_id"> <spring:message code="sgw.manage.position.add.id" /></label>
+			<input type="text" class="form-control" name="position_id" placeholder='<spring:message code="sgw.manage.position.add.id.auto" />' readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="position_name">직급 이름</label>
+			<label for="position_name"> <spring:message code="sgw.manage.position.add.name" /></label>
 			<input type="text" class="form-control" name="position_name" >
 		</div>
 		<div class="form-group">
-			<input type="submit" class="btn btn-primary" value="등록">
+			<button type="submit" class="btn btn-primary" ><spring:message code='sgw.manage.position.add.confirm'/></button>
 		</div>
 	</form>
 </div>

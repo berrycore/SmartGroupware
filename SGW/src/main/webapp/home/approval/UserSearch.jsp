@@ -21,26 +21,26 @@
 	}
 </script>
 
-<title>UserIdSearch</title>
+<title><spring:message code="sgw.document.user.search" /></title>
 </head>
 <body>
 
 	<div class="container">
-	User Search by Name	
+		<spring:message code="sgw.document.user.search" />
 		<form action="UserSearch.html" name="frm" method="post">
 			<div>
 				<input type="text" name="user_name">
-				<button class="btn btn-success btn-small" type="submit">Search</button>&nbsp;
+				<button class="btn btn-success btn-small" type="submit"><spring:message code="sgw.document.search" /></button>&nbsp;
 			</div>
 
 			<table class="table table-bordered table-sm">
 				<thead>
 					<tr>
-						<td>ID</td>
-						<td>이름</td>
-						<td>부서</td>
-						<td>직급</td>
-						<td>선택</td>
+						<td><spring:message code="sgw.document.user.id" /></td>
+						<td><spring:message code="sgw.document.user.name" /></td>
+						<td><spring:message code="sgw.document.team.name" /></td>
+						<td><spring:message code="sgw.document.position" /></td>
+						<td><spring:message code="sgw.document.select" /></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -52,7 +52,7 @@
 								<td>${user.team.team_name }</td>
 								<td>${user.position.position_name } <input type="hidden" name="final_position" value="${user.position.position_name }"></td>
 								<td>
-									<button class="btn btn-primary btn-small" type="button" onclick="idOK()">Confirm</button>
+									<button class="btn btn-primary btn-small" type="button" onclick="idOK()"><spring:message code="sgw.document.confirm"/></button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -61,7 +61,7 @@
 					<c:if test="${ hasResult eq 'no' }">
 						<tr>
 							<td colspan="5">
-								<font color="red">조회 결과가 없습니다</font>
+								<font color="red"> <spring:message code="sgw.document.noresult" /></font>
 							</td>
 						</tr>
 					</c:if>

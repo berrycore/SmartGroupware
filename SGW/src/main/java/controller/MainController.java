@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
+	
+	
 
 	@RequestMapping(value="/main.html", method=RequestMethod.GET)
 	public ModelAndView viewMain() {

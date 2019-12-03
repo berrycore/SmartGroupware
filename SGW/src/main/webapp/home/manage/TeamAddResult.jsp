@@ -17,7 +17,7 @@
 
 	
 		<script type="text/javascript">
-			alert("등록 되었습니다.");
+			alert('<spring:message code="sgw.manage.team.add.result" />');
 			location.href = "managePermission.html";
 		</script>
 	

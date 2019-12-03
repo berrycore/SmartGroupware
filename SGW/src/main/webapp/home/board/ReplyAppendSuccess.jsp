@@ -10,12 +10,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Reply</title>
+<title>ReplyAppendSuccess</title>
 </head>
 <body>
 <script>
 alert("${msg}");
-location.href="../board/TeamBoardView.html?board_id="+"${board_id}";
+location.href="/board/TeamBoardView.html?board_id="+"${board_id}";
 </script>
 </body>
 </html>

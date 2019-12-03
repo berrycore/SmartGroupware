@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>관리 설정</title>
+<title><spring:message code="sgw.admin.setting" /></title>
 </head>
 <body>
 
@@ -20,38 +20,18 @@
 	
 
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			<!-- Brand/logo -->
-			<a class="navbar-brand" href="#">관리설정</a>
+
+			<a class="navbar-brand" href="#"><spring:message code="sgw.admin.setting" /></a>
 	
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">계정설정</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">부서설정</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">게시판설정</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><spring:message code="sgw.admin.setting.user" /></a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><spring:message code="sgw.admin.setting.team" /></a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><spring:message code="sgw.admin.setting.board" /></a></li>
 			</ul>
 		</nav>
-		
-		
-			
-			<form class="form-inline my-2 my-lg-0">
-				
-				<!-- Dropdown -->
-				<ul class="navbar-nav">
-			    <li class="nav-item dropdown">
-			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-			      	검색조건
-			      </a>
-			      <div class="dropdown-menu">
-			        <a class="dropdown-item" href="#">ID</a>
-			        <a class="dropdown-item" href="#">이름</a>
-			      </div>
-			    </li>
-			    </ul>
-				 
-				<input class="form-control mr-sm-2" type="text" placeholder="Search">
-				<button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
-			</form>
-		
+	
+	 개발중	
 		<table class="table">
 			<thead>
 				<tr>
