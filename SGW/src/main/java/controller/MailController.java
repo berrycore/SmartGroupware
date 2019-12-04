@@ -40,52 +40,52 @@ public class MailController {
 		ModelAndView mav = new ModelAndView("main");
 		mav.addObject("BODY", "/home/mail/MailViewList.jsp");
 		
-		User user = (User)request.getSession().getAttribute("loginUser");
-		System.out.println(user);
-		
-		Properties props = new Properties();
-		props.put("mail.pop3.host", "berrycore.net");
-		props.put("mail.pop3.port", "995");
-		props.put("mail.pop3.auth", "true");
-		props.put("mail.pop3.ssl.enable", "true");
-		//props.put("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		
-		Authenticator auth = new MyAuthentication(user.getUser_id(), "sgwservice1#");
-		Session session = Session.getDefaultInstance(props, auth);
-		session.setDebug(true);
-		
-		Store store = null;
-		Folder folder = null;
-		try {
-			store = session.getStore("pop3");
-			store.connect("berrycore.net", user.getUser_id(), "sgwservice1#");
-			System.out.println(store.toString());
-			
-			folder = store.getFolder("INBOX");
-			System.out.println(folder.toString());
-			
-			folder.open(Folder.READ_ONLY);
-			List<Message> messages = Arrays.asList(folder.getMessages());
-			System.out.println("messages : " + messages);
-			for(Message m : messages) {
-				System.out.println("subject : " + m.getSubject());
-				System.out.println("From : " + m.getFrom());
-				System.out.println("Date : " + m.getHeader("Date"));
-				System.out.println("Body : " + getTextFromMessage(m));
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				folder.close(false);
-				store.close();
-			} catch (MessagingException e1) {
-				e1.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		User user = (User)request.getSession().getAttribute("loginUser");
+//		System.out.println(user);
+//		
+//		Properties props = new Properties();
+//		props.put("mail.pop3.host", "berrycore.net");
+//		props.put("mail.pop3.port", "995");
+//		props.put("mail.pop3.auth", "true");
+//		props.put("mail.pop3.ssl.enable", "true");
+//		//props.put("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//		
+//		Authenticator auth = new MyAuthentication(user.getUser_id(), "sgwservice1#");
+//		Session session = Session.getDefaultInstance(props, auth);
+//		session.setDebug(true);
+//		
+//		Store store = null;
+//		Folder folder = null;
+//		try {
+//			store = session.getStore("pop3");
+//			store.connect("berrycore.net", user.getUser_id(), "sgwservice1#");
+//			System.out.println(store.toString());
+//			
+//			folder = store.getFolder("INBOX");
+//			System.out.println(folder.toString());
+//			
+//			folder.open(Folder.READ_ONLY);
+//			List<Message> messages = Arrays.asList(folder.getMessages());
+//			System.out.println("messages : " + messages);
+//			for(Message m : messages) {
+//				System.out.println("subject : " + m.getSubject());
+//				System.out.println("From : " + m.getFrom());
+//				System.out.println("Date : " + m.getHeader("Date"));
+//				System.out.println("Body : " + getTextFromMessage(m));
+//			}
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				folder.close(false);
+//				store.close();
+//			} catch (MessagingException e1) {
+//				e1.printStackTrace();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
 		return mav;
 	}

@@ -29,7 +29,7 @@
 		<div class="w3-container">	
 				<div class="form-group">
 					<label for="receiver_name"><spring:message code="sgw.mail.recipient" /></label> 
-					<input type="text" class="form-control" name="receiver_name">
+					<input type="text" class="form-control" name="receiver_name" value="berrycore@gmail.com">
 				</div>
 				<div class="form-group">
 					<label for="cc_name"><spring:message code="sgw.mail.cc" /></label> 
@@ -68,7 +68,7 @@
   <script>
     CKEDITOR.replace("editor",{
       width:'100%',
-      height:'200px',
+      height:'160px',
       uiColor: '#f1f1f1',
       removePlugins: 'elementspath'
     });

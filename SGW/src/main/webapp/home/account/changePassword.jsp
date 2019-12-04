@@ -29,7 +29,7 @@
 		<div class="w3-container">
 				<div class="w3-responsive">
 					<table class="w3-table w3-dark-grey">
-						<thead>
+						<thead >
 							<tr>
 								<th colspan="2">
 									<h4></h4>	
@@ -64,7 +64,7 @@
 								<td><spring:message code="sgw.account.password" /></td>
 								<td>
 									<input type="password" class="form-control" name="user_password">
-									<font color="red"><form:errors path="user_password" /></font> 
+									<font color="white"><form:errors path="user_password" /></font> 
 								</td>
 							</tr>
 							<tr>

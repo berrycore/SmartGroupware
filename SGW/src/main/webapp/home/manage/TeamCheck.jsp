@@ -14,7 +14,7 @@
 
 <title> <spring:message code="sgw.manage.team.lookup" /></title>
 </head>
-<body>
+<body class="w3-indigo">
 
 	<script>
 		function teamOK() {
@@ -25,18 +25,27 @@
 		}
 	</script>
 
-<h2><spring:message code="sgw.manage.team.lookup" /></h2>
-<div>
-	<form class="form-inline my-2 my-lg-0" name="frm">
-		<select class="form-control" id="teams">
-			<c:forEach var="team" items="${teamList}">
-				<option value="${team.team_id}" >${team.team_name }</option>
-			</c:forEach>
-		</select>
-		
-		&nbsp;
-		<button class="btn btn-info my-2 my-sm-0" type="button" onClick="teamOK()"> <spring:message code="sgw.manage.team.add.confirm" /></button>
-	</form>
+<div class="w3-container mt-3">
+     <div class="w3-card-4">
+      <header class="w3-container w3-blue">
+        <h3> <spring:message code="sgw.manage.team.lookup" /> </h3>
+      </header>
+
+    <div class="container">
+      <div class="mb-6">
+      	<form class="form-inline my-2 my-lg-0" name="frm">
+      		<select class="form-control" id="teams">
+      			<c:forEach var="team" items="${teamList}">
+      				<option value="${team.team_id}" >${team.team_name }</option>
+      			</c:forEach>
+      		</select>
+      		
+      		&nbsp;
+      		<button class="btn btn-info my-2 my-sm-0" type="button" onClick="teamOK()"> <spring:message code="sgw.manage.team.add.confirm" /></button>
+      	</form>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

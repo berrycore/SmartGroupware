@@ -29,7 +29,7 @@
 	  <form:form modelAttribute="sgwAdmin" method="POST" action="adminAccountAdd.html" name="frm_admin">
 	  
 	  <div class="w3-card-4">
-		<header class="w3-container">
+		<header class="w3-container w3-blue">
 			<h1><spring:message code="sgw.admin.admin.account.add" /></h1>
 		</header>
 	  

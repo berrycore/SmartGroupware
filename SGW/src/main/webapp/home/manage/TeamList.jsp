@@ -18,7 +18,7 @@
 <div class="container">
 
 	<div class="w3-card-4">
-		<header class="w3-container">
+		<header class="w3-container w3-blue">
 			<h1><spring:message code="sgw.dash.team.list" /></h1>
 		</header>
 

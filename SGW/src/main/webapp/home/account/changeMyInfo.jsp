@@ -44,7 +44,7 @@
 							<td><spring:message code="sgw.account.tel.number" /></td>
 							<td>
 								<input type="text" class="form-control" name="user_phone" value="${you.user_phone }">
-								<font color="red"><form:errors path="user_phone" /></font> 
+								<font color="white"><form:errors path="user_phone" /></font> 
 							</td>
 						</tr>
 						<tr>

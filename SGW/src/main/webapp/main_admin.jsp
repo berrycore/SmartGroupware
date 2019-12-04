@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/w3.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -25,34 +26,34 @@
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 2</a> -->
 		
 			<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncAdmin()">
-	  			<spring:message code="sgw.admin.menu.setting" /><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-terminal mr-3"></i><spring:message code="sgw.admin.menu.setting" />
 	  		</button>
 	  		<div id="Accordion_Mail" class="w3-hide w3-indigo w3-card">
-	  			<a href="/manage/adminAccountList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.list"/></a>
-			    <a href="/manage/adminAccountAdd.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.add" /></a>
-			    <a href="/manage/adminPasswordChange.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.setting.password"/></a>
+	  			<a href="/manage/adminAccountList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-th-list mr-3"></i><spring:message code="sgw.admin.menu.setting.list"/></a>
+			    <a href="/manage/adminAccountAdd.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-id-badge mr-3"></i><spring:message code="sgw.admin.menu.setting.add" /></a>
+			    <a href="/manage/adminPasswordChange.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-keyboard-o mr-3"></i><spring:message code="sgw.admin.menu.setting.password"/></a>
 	  		</div>
   		
   			<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncUser()">
-	  			<spring:message code="sgw.admin.menu.manage.user" /><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-sitemap mr-3"></i><spring:message code="sgw.admin.menu.manage.user" />
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-indigo w3-card">
-			    <a href="/manage/userList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.list"/></a>
-			    <a href="/manage/userAdd.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.add"/></a>
-			    <a href="/manage/teamList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.team.list"/></a>
-			    <a href="/manage/managePermission.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.permission"/></a>
+			    <a href="/manage/userList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-th-list mr-3"></i><spring:message code="sgw.admin.menu.manage.user.list"/></a>
+			    <a href="/manage/userAdd.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-user-plus mr-3"></i><spring:message code="sgw.admin.menu.manage.user.add"/></a>
+			    <a href="/manage/teamList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-users mr-3"></i><spring:message code="sgw.admin.menu.manage.team.list"/></a>
+			    <a href="/manage/managePermission.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-wrench mr-3"></i><spring:message code="sgw.admin.menu.manage.user.permission"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-deep-purple" onclick="myAccFuncBoard()">
-	  			<spring:message code="sgw.admin.menu.manage.board"/> <i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-list mr-3"></i><spring:message code="sgw.admin.menu.manage.board"/> 
 	  		</button>
 	  		<div id="Accordion_Board" class="w3-hide w3-indigo w3-card">
-			    <a href="/board/writeNotice.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.board.notice"/></a>    
+			    <a href="/board/writeNotice.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-bullhorn mr-3"></i><spring:message code="sgw.admin.menu.manage.board.notice"/></a>    
 	  		</div>
 	  
-		<a href="/login/logoutAdmin.html" class="w3-button w3-block w3-left-align w3-deep-purple"><spring:message code="sgw.admin.menu.logout"/></a>
+		<a href="/login/logoutAdmin.html" class="w3-button w3-block w3-left-align w3-deep-purple"><i class="fa fa-sign-out mr-3"></i><spring:message code="sgw.admin.menu.logout"/></a>
 		 <div class="w3-dropdown-click">
-			<button onclick="myFunction()" class="w3-button w3-deep-purple">Language</button>
+			<button onclick="myFunction()" class="w3-button w3-deep-purple"><i class="fa fa-refresh mr-3"></i>Language</button>
 	  	<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
 	    	<a class="w3-bar-item w3-button" href="?lang=ko">Korean</a>
 	    	<a class="w3-bar-item w3-button" href="?lang=en">English</a>
@@ -72,7 +73,7 @@
           	<div class="container-fluid">
           		<div class="row">
           			<div class="col-sm-8">
-          				<h3><a href="/main_admin.html" style="color: white">Smart Group Ware :: Admin</a></h3>
+          				<h3><a href="/main_admin.html" style="color: white"><i class="fa fa-cogs mr-3"></i>Smart Group Ware :: Admin</a></h3>
           			</div>
           			<div class="col-sm-4">
        						<span class="w3-tag w3-round w3-white">${sessionScope.authorizedAdmin.admin_id }</span>

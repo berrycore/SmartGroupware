@@ -20,8 +20,8 @@
 <div class="container">
 	
 	<div class="w3-card-4">
-		<header class="w3-container">
-			<h1><spring:message code="sgw.manage.user.list" /></h1>
+		<header class="w3-container w3-blue">
+			<h1> <spring:message code="sgw.manage.user.list" /></h1>
 		</header>
 
 			<table class="w3-table w3-dark">

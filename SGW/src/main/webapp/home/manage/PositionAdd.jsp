@@ -15,7 +15,7 @@
 
 <title> <spring:message code="sgw.manage.position.add" /> </title>
 </head>
-<body>
+<body class="w3-indigo">
 
 
 <div class="container">

@@ -48,7 +48,7 @@
 	<form:form modelAttribute="user" method="POST" action="userAdd.html" name="frm_user">
 
 	<div class="w3-card-4">
-		<header class="w3-container">
+		<header class="w3-container w3-blue">
 			<h1><spring:message code="sgw.manage.user.add" /></h1>
 		</header>
 

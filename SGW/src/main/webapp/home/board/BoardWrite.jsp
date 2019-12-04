@@ -16,31 +16,38 @@
 
 <title><spring:message code="sgw.board.write.new" /></title>
 </head>
-<body>
+<body class="w3-dark-grey">
+
+  <form:form modelAttribute="board" action="/board/BoardWrite.html" method="post">
 
 	<div class="w3-container">
-		<form:form modelAttribute="board" action="/board/BoardWrite.html" method="post">
 		
-			<h2><spring:message code="sgw.board.write.new" /></h2>
+    <div class="w3-card-4"> 
+      <header class="w3-container">
+        <h1><spring:message code="sgw.board.write.new" /></h1>
+      </header>
+      <div class="w3-container">
 		
 			<div class="mb-1">
     		<input type="text" class="form-control" placeholder='<spring:message code="sgw.board.title"/>' name="board_title">
-    		<font color="red"><form:errors path="board_title"/></font>
+    		<font color="white"><form:errors path="board_title"/></font>
   		</div>
   
 			
 			
 	    <textarea id="editor" name="board_content" ></textarea>
 	    
-	    <font color="red"><form:errors path="board_content" /></font>
+	    <font color="white"><form:errors path="board_content" /></font>
 	    
-			<div class="mt-3">
-				<input type="file" id="myFile" name="filename2" >
-				<button type="submit" class="btn btn-primary"><spring:message code="sgw.board.submit" /></button>
+			<div class="mt-3 mb-3">
+<!-- 				<input type="file" id="myFile" name="filename2" > -->
+				<button type="submit" class="btn btn-light"><spring:message code="sgw.board.submit" /></button>
 			</div>
 			
-		</form:form>
-	</div>
+	
+  	 </div>
+    </div>
+  </div>
 
 	<!-- ckeditor -->
 	<script>
@@ -50,6 +57,7 @@
 			removePlugins: 'elementspath'
 		});
 	</script>
-	
+	 </form:form>
+   
 </body>
 </html>

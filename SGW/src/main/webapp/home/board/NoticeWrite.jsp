@@ -22,11 +22,11 @@
 	<div class="w3-container">
 	
 		<div class="w3-card-4">
-		<header class="w3-container">
+		<header class="w3-container w3-blue">
 	  	<h1><spring:message code="sgw.notice.write.new" /></h1>
 		</header>
 		
-					<table class="table table-sm w3-dark">
+					<table class="w3-table w3-dark">
 						<tbody>
 							<tr>
 								<td>

@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/w3.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -32,43 +33,43 @@ function openWindow( url )
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 2</a> -->
 		
 			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncMail()">
-	  			<spring:message code="sgw.main.menu.email" /><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-envelope mr-3"></i><spring:message code="sgw.main.menu.email" />
 	  		</button>
 	  		<div id="Accordion_Mail" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.inbox" /></a>
-          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.write"/></a>
+			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-envelope-open-o mr-3"></i><spring:message code="sgw.main.menu.email.inbox" /></a>
+          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-pencil-square-o mr-3"></i><spring:message code="sgw.main.menu.email.write"/></a>
 	  		</div>
   		
   			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncApproval()">
-	  			<spring:message code="sgw.main.menu.document" /><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-file-o mr-3"></i><spring:message code="sgw.main.menu.document" />
 	  		</button>
 	  		<div id="Accordion_Approval" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.draft"/></a>
-			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.awating"/></a>
-			    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.completed" /></a>
-			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.lookup"/></a>
+			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-text-height mr-3"></i><spring:message code="sgw.main.menu.document.draft"/></a>
+			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-exclamation mr-3"></i><spring:message code="sgw.main.menu.document.awating"/></a>
+			    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-check-square-o mr-3"></i><spring:message code="sgw.main.menu.document.completed" /></a>
+			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-search mr-3"></i><spring:message code="sgw.main.menu.document.lookup"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
-	  			<spring:message code="sgw.main.menu.board"/><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-th-list mr-3"></i><spring:message code="sgw.main.menu.board"/>
 	  		</button>
 	  		<div id="Accordion_Board" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.notice"/></a>
-			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.teamboard"/></a>
+			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-bullhorn mr-3"></i><spring:message code="sgw.main.menu.board.notice"/></a>
+			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-comments mr-3"></i><spring:message code="sgw.main.menu.board.teamboard"/></a>
 	  		</div>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">
-	  			<spring:message code="sgw.main.menu.myinfo"/><i class="fa fa-caret-down"></i>
+	  			<i class="fa fa-user mr-3"></i><spring:message code="sgw.main.menu.myinfo"/>
 	  		</button>
 	  		<div id="Accordion_Account" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/account/changeMyInfo.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.modify"/></a>
-			    <a href="/account/changePassword.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.changepassword"/></a>
+			    <a href="/account/changeMyInfo.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-cog mr-3"></i><spring:message code="sgw.main.menu.myinfo.modify"/></a>
+			    <a href="/account/changePassword.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-key mr-3"></i><spring:message code="sgw.main.menu.myinfo.changepassword"/></a>
 	  		</div>
 	  
-	  <a href="/login/logoutUser.html" class="w3-button w3-block w3-left-align w3-dark-gray"><spring:message code="sgw.main.menu.logout"/></a>
-	  <a href="/manage/loginAdmin.html" onclick="javascript:openWindow(this.href);return false;" class="w3-bar-item w3-button w3-indigo"><spring:message code="sgw.main.menu.adminlogin"/></a>
+	  <a href="/login/logoutUser.html" class="w3-button w3-block w3-left-align w3-dark-grey"><i class="fa fa-sign-out mr-3"></i><spring:message code="sgw.main.menu.logout"/></a>
+	  <a href="/manage/loginAdmin.html" onclick="javascript:openWindow(this.href);return false;" class="w3-bar-item w3-button w3-dark-grey"><i class="fa fa-terminal mr-3"></i><spring:message code="sgw.main.menu.adminlogin"/></a>
 	  <div class="w3-dropdown-click">
-			<button onclick="myFunction()" class="w3-button w3-dark-gray">Language</button>
+			<button onclick="myFunction()" class="w3-button w3-dark-gray"><i class="fa fa-refresh mr-3"></i>Language</button>
 	  	<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
 	    	<a class="w3-bar-item w3-button" href="?lang=ko">Korean</a>
 	    	<a class="w3-bar-item w3-button" href="?lang=en">English</a>
@@ -88,7 +89,7 @@ function openWindow( url )
 	          <div class="container-fluid">
 						  <div class="row">
 						    <div class="col-sm-8">
-						      <h3><a href="/main.html" style="color: white"> Smart Group Ware </a> </h3>
+						      <h3><a href="/main.html" style="color: white"><i class="fa fa-home mr-3"></i>Smart Group Ware </a> </h3>
 						    </div>
 						    <div class="col-sm-4">
 						      	        

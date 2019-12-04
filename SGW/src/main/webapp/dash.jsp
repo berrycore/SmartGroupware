@@ -50,7 +50,7 @@
 			    	</c:when>
 			    	<c:otherwise>
 			    		<c:forEach items="${documentList }" var="document">
-			    			${document.document_title }
+			    			<p>${document.document_title }</p>
 			    		</c:forEach>
 			    	</c:otherwise>
 			    </c:choose>
