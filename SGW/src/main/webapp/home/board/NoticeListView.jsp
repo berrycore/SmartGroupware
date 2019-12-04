@@ -28,7 +28,7 @@
 				<thead class="w3-bordered">
 					<tr>
 						<th><spring:message code="sgw.board.board_id" /></th>
-						<th><spring:message code="sgw.board.submit" /></th>
+						<th><spring:message code="sgw.board.title" /></th>
 						<th><spring:message code="sgw.board.writer" /></th>
 						<th><spring:message code="sgw.board.registdate" /></th>
 					</tr>

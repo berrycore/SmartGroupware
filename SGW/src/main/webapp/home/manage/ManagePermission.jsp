@@ -10,10 +10,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script type="text/javascript" src="../js/bootstrap.js" ></script>
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js" ></script>
 <title> <spring:message code="sgw.manage.user.permission" /> </title></head>
 <body class="w3-indigo">
 
@@ -59,7 +60,7 @@
 									<th><spring:message code="sgw.manage.user.control" /></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody  >
 								<c:choose>
 									<c:when test="${noResult eq 'yes' }">	
 										<tr>
@@ -85,17 +86,18 @@
 						</table>
 				</div>
 				
-				<div id="menu1" class="container tab-pane fade">
-					<jsp:include page="UserAdd.jsp" flush="false" />				
-				</div>
+<!-- 				<div id="menu1" class="container tab-pane fade"> -->
+<%-- 					<jsp:include page="UserAdd.jsp" flush="false" />				 --%>
+<!-- 				</div> -->
 				<div id="menu2" class="container tab-pane fade">
 					<jsp:include page="TeamAdd.jsp" flush="false"/>
 				</div>
 				<div id="menu3" class="container tab-pane fade">
 					<jsp:include page="PositionAdd.jsp" flush="false"/>
 				</div>
-				<div id="menu4" class="container tab-pane fade">
-					<jsp:include page="MenuAccessManage.jsp" flush="false"/>	
+				<div id="menu4" class="container tab-pane fade mb-3">
+<%-- 					<jsp:include page="MenuAccessManage.jsp" flush="false"/>	 --%>
+         <jsp:include page="/manage/getUserAccessList.html" flush="false"/>  
 				</div>
 			</div>
 	</div>

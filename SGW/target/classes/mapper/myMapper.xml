@@ -139,7 +139,7 @@
 	
 	<!-- SM_NOTICE -->
 	<select id="getNoticeList" resultType="model.Notice">
-		select * from SM_NOTICE
+		select * from SM_NOTICE ORDER BY notice_date_regist DESC
 	</select>
 	<insert id="writeNotice" parameterType="model.Notice">
 		insert into SM_NOTICE (
@@ -438,6 +438,25 @@
   <update id="rejectFinalStatus">
     update SM_ELEC_DOCUMENT set final_status = 'rejected' , final_approval_date = #{time_stamp}
     where final_status = 'onProcessing' and final_id = #{user_id} and document_id = #{document_id}
+  </update>
+  
+  <!-- SM_ACCESS -->
+  <select id="getSgwAccessList" resultType="model.SgwAccess">
+    select 
+      u.user_id, u.user_name, a.access_board, a.access_elec_document, a.access_email
+    from 
+      sm_users u, sm_access a where u.user_id = a.user_id
+  </select>
+  <select id="getSgwAccess" resultType="model.SgwAccess" parameterType="String">
+    select a.user_id, u.user_name, a.access_board, a.access_elec_document, a.access_email
+    from sm_users u, sm_access a where u.user_id = a.user_id and a.user_id = #{user_id}
+  </select>
+  <update id="updateSgwAccess" parameterType="model.SgwAccess">
+    update SM_ACCESS set 
+      access_board = #{access_board},
+      access_elec_document = #{access_elec_document},
+      access_email = #{access_email}
+    where user_id = #{user_id}
   </update>
   
 </mapper>

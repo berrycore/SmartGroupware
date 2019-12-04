@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.PositionDao;
+import dao.SgwAccessDao;
 import dao.TeamDao;
 import model.Position;
 import model.SgwAccess;
@@ -20,6 +21,9 @@ public class ManageCatalogImpl implements ManageCatalog {
 	
 	@Autowired
 	private TeamDao teamDao;
+	
+	@Autowired
+	private SgwAccessDao sgwAccessDao;
 
 	public void updateAdminAccessip(String addresses) {
 		// TODO Auto-generated method stub
@@ -88,16 +92,14 @@ public class ManageCatalogImpl implements ManageCatalog {
 	}
 
 	public List<SgwAccess> getSgwAccessList() {
-		// TODO Auto-generated method stub
-		return null;
+		return sgwAccessDao.getSgwAccessList();
 	}
 
+	public SgwAccess getSgwAccess(String user_id) {
+		return sgwAccessDao.getSgwAccess(user_id);
+	}
+	
 	public void updateSgwAccess(SgwAccess sgwAccess) {
-		// TODO Auto-generated method stub
-
+		sgwAccessDao.updateSgwAccess(sgwAccess);
 	}
-
-
-
-
 }

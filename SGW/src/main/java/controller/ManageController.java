@@ -17,6 +17,7 @@ import logic.SgwAdminCatalog;
 import logic.UserAccountCatalog;
 import model.Company;
 import model.Position;
+import model.SgwAccess;
 import model.SgwAdmin;
 import model.Team;
 import model.User;
@@ -396,4 +397,31 @@ public class ManageController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping(value="/manage/getUserAccessList.html", method=RequestMethod.GET)
+	public ModelAndView getUserAccessList(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("home/manage/MenuAccessManage");
+		List<SgwAccess> accessList = manageCatalog.getSgwAccessList();
+		mav.addObject("accessList" , accessList);
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/manage/MenuPermissionChange.html", method=RequestMethod.GET)
+	public ModelAndView menuPermissionChange(HttpServletRequest request, String user_id){
+		ModelAndView mav = new ModelAndView("home/manage/MenuPermissionChange");
+		SgwAccess sgwAccess = manageCatalog.getSgwAccess(user_id);
+		System.out.println("GET : sgwAccess : " +  sgwAccess);
+		mav.addObject("sgwAccess", sgwAccess);
+		return mav;
+	}
+	
+	@RequestMapping(value="/manage/MenuPermissionChange.html", method=RequestMethod.POST)
+	public ModelAndView menuPermissionChange(HttpServletRequest request, SgwAccess sgwAccess){
+		ModelAndView mav = new ModelAndView("home/manage/MenuPermissionChangeSuccess");
+		System.out.println("POST : sgwAccess : " + sgwAccess);
+		manageCatalog.updateSgwAccess(sgwAccess);
+		return mav;
+	}
+	
 }

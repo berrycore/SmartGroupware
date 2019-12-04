@@ -15,7 +15,7 @@
 
 <title></title>
 </head>
-<body>
+<body class="w3-dark-grey">
 <script>
 window.onload = function(){
 	document.title = "${elecDocument.document_title }";
@@ -24,7 +24,7 @@ window.onload = function(){
 <div class="container">
     
       <!-- document interface -->
-      <table class="table table-sm w3-white">
+      <table class="table table-sm w3-white mt-3">
         <thead>
           <tr>
             <td>

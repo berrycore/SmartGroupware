@@ -9,7 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
 
 <title><spring:message code="sgw.manage.team.add" /></title>
 </head>
@@ -35,7 +36,7 @@
 			<input type="text" class="form-control" name="team_parent_id" >
 		</div>
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary" ><spring:message code="sgw.manage.team.add.confirm" /></button>
+			<button type="submit" class="btn btn-light mb-3" ><spring:message code="sgw.manage.team.add.confirm" /></button>
 		</div>
 	</form>
 </div>

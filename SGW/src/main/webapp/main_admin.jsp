@@ -67,7 +67,7 @@
     <button class="w3-button w3-indigo w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     	
   		<div class="w3-container">
-        <div class="w3-display-container w3-margin-top" style="height:80px">
+        <div class="w3-display-container w3-margin-top mb-3" style="height:80px">
           <div class="w3-display">
           
           	<div class="container-fluid">

@@ -73,7 +73,7 @@
 				    		<p class="card-text"> <spring:message code="sgw.dash.teamboard.noresult"/></p>
 				      </div>
 				      <div class="card-footer">
-				      		<a href="#" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
+				      		<a href="/board/TeamBoardListView.html" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
 				      </div>
 				    </div>
 				    <br/>
@@ -89,7 +89,7 @@
 						    		<p class="card-text"> ${board.board_content }</p>
 						      </div>
 						      <div class="card-footer">
-						      		<a href="#" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
+						      		<a href="/board/TeamBoardView.html?board_id=${board.board_id}" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
 						      </div>
 						    </div>
 						    <br/>

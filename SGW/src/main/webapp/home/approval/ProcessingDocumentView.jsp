@@ -15,7 +15,7 @@
     function popup(document_id, title){
         var url = "/approval/DocumentApproval.html?document_id="+document_id;
         var name = title;
-        var option = "width = 550, height = 650, top = 100, left = 200, location = no"
+        var option = "width = 550, height = 550, top = 100, left = 200, location = no"
         window.open(url, name, option);
     }
 </script>

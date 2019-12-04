@@ -37,10 +37,10 @@
   			       <span class="input-group-text"><spring:message code="sgw.board.registdate" /></span>
   			       <input type="text" class="form-control bg-light" value="${board.board_date_regist}" readonly="readonly">
   			    </div>
-  			    <div class="input-group-prepend">
-  			       <span class="input-group-text"><spring:message code="sgw.board.attachedfile" /></span>
-  			       <input type="text" class="form-control bg-light" value="" readonly="readonly">
-  			    </div>
+<!--   			    <div class="input-group-prepend"> -->
+<%--   			       <span class="input-group-text"><spring:message code="sgw.board.attachedfile" /></span> --%>
+<!--   			       <input type="text" class="form-control bg-light" value="" readonly="readonly"> -->
+<!--   			    </div> -->
   			    
   			 </div>
   			
@@ -60,7 +60,7 @@
   				    	<span class="badge badge-info" style="margin-left: 5px">${reply.reply_date_regist }</span>
   				    </h5>
   				    <div class="card-body">
-  				      <p class="card-text">${reply.reply_content }</p>
+  				      <p class="card-text" style="color:#616161">${reply.reply_content }</p>
   				  </div>
   				</div>
   			</c:forEach>
@@ -68,7 +68,7 @@
   			<!-- leave comment -->
   				<input type="hidden" name="board_id" value="${board.board_id }" />
   				<div class="card" style="margin-top:10px">
-  					<h6 class="card-header"><spring:message code="sgw.board.leave.comment" /></h6>
+  					<h6 class="card-header" style="color:#616161"><spring:message code="sgw.board.leave.comment" /></h6>
   					<div class="card-body">
   						<textarea class="form-control" rows="3" name="reply_content" placeholder='<spring:message code="sgw.board.please.input.comment" />'></textarea>
   						<font color="red"><form:errors path="reply_content"/></font>

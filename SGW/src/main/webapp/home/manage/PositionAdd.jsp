@@ -32,8 +32,8 @@
 			<label for="position_name"> <spring:message code="sgw.manage.position.add.name" /></label>
 			<input type="text" class="form-control" name="position_name" >
 		</div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary" ><spring:message code='sgw.manage.position.add.confirm'/></button>
+		<div class="form-group ">
+			<button type="submit" class="btn btn-light mb-3" ><spring:message code='sgw.manage.position.add.confirm'/></button>
 		</div>
 	</form>
 </div>

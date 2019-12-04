@@ -24,5 +24,6 @@ public interface ManageCatalog {
 	void insertPosition(Position position);
 	
 	List<SgwAccess> getSgwAccessList();
+	SgwAccess getSgwAccess(String user_id);
 	void updateSgwAccess(SgwAccess sgwAccess);
 }
