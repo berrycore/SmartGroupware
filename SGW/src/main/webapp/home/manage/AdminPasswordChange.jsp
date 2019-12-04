@@ -15,49 +15,57 @@
 
 <title><spring:message code="sgw.admin.password.change" /></title>
 </head>
-<body>
-	<div class="container">
-	<form:form action="adminPasswordChange.html" method="POST" modelAttribute="sgwAdmin">
-		<table class="table table-sm">
-			<thead>
-				<tr>
-					<th colspan="2">
-						<h2><spring:message code="sgw.admin.password.change" /></h2>	
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><spring:message code="sgw.admin.account.name" /></td>
-					<td>
-						<input class="form-control" name="admin_name" type="text" value="${sgwAdmin.admin_name }" readonly="readonly">
-					</td>
-				</tr>
-				<tr>
-					<td>ID</td>
-					<td><input class="form-control" name="admin_id" type="text" value="${sgwAdmin.admin_id }" readonly="readonly"></td>
-				</tr>
-				<tr>
-					<td><spring:message code="sgw.admin.password"/></td>
-					<td>
-						<input type="password" class="form-control" name="admin_password">
-						<font color="red"><form:errors path="admin_password" /></font> 
-					</td>
-				</tr>
-				<tr>
-					<td><spring:message code="sgw.admin.password.re" /></td>
-					<td>
-						<input type="password" class="form-control" name="admin_password_re"> 
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit" class="btn btn-primary"><spring:message code="sgw.admin.password.save" /></button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</form:form>
+<body class="w3-indigo">
+
+<div class="container">
+
+	<div class="w3-card-4">
+		<header class="w3-container">
+			<h1><spring:message code="sgw.admin.password.change" /></h1>
+		</header>
+
+		<div class="w3-container">
+			<div class="w3-responsive">
+			<form:form action="adminPasswordChange.html" method="POST" modelAttribute="sgwAdmin">
+				<table class="w3-table w3-dark">
+						
+						<tbody>
+							<tr>
+								<td><spring:message code="sgw.admin.account.name" /></td>
+								<td>
+									<input class="form-control" name="admin_name" type="text" value="${sgwAdmin.admin_name }" readonly="readonly">
+								</td>
+							</tr>
+							<tr>
+								<td>ID</td>
+								<td><input class="form-control" name="admin_id" type="text" value="${sgwAdmin.admin_id }" readonly="readonly"></td>
+							</tr>
+							<tr>
+								<td><spring:message code="sgw.admin.password"/></td>
+								<td>
+									<input type="password" class="form-control" name="admin_password">
+									<font color="red"><form:errors path="admin_password" /></font> 
+								</td>
+							</tr>
+							<tr>
+								<td><spring:message code="sgw.admin.password.re" /></td>
+								<td>
+									<input type="password" class="form-control" name="admin_password_re"> 
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2">
+									<button type="submit" class="btn btn-light"><spring:message code="sgw.admin.password.save" /></button>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</form:form>
+			</div>
+		</div>
+	</div>
 </div>
 
 </body>

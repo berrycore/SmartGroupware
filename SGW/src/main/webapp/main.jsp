@@ -34,7 +34,7 @@ function openWindow( url )
 			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncMail()">
 	  			<spring:message code="sgw.main.menu.email" /><i class="fa fa-caret-down"></i>
 	  		</button>
-	  		<div id="Accordion_Mail" class="w3-hide w3-blue-grey w3-card">
+	  		<div id="Accordion_Mail" class="w3-hide w3-dark-gray w3-card">
 			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.inbox" /></a>
           <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.email.write"/></a>
 	  		</div>
@@ -42,7 +42,7 @@ function openWindow( url )
   			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncApproval()">
 	  			<spring:message code="sgw.main.menu.document" /><i class="fa fa-caret-down"></i>
 	  		</button>
-	  		<div id="Accordion_Approval" class="w3-hide w3-blue-grey w3-card">
+	  		<div id="Accordion_Approval" class="w3-hide w3-dark-gray w3-card">
 			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.draft"/></a>
 			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.awating"/></a>
 			    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.document.completed" /></a>
@@ -52,7 +52,7 @@ function openWindow( url )
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
 	  			<spring:message code="sgw.main.menu.board"/><i class="fa fa-caret-down"></i>
 	  		</button>
-	  		<div id="Accordion_Board" class="w3-hide w3-blue-grey w3-card">
+	  		<div id="Accordion_Board" class="w3-hide w3-dark-gray w3-card">
 			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.notice"/></a>
 			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.board.teamboard"/></a>
 	  		</div>
@@ -60,44 +60,52 @@ function openWindow( url )
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">
 	  			<spring:message code="sgw.main.menu.myinfo"/><i class="fa fa-caret-down"></i>
 	  		</button>
-	  		<div id="Accordion_Account" class="w3-hide blue-grey w3-card">
+	  		<div id="Accordion_Account" class="w3-hide w3-dark-gray w3-card">
 			    <a href="/account/changeMyInfo.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.modify"/></a>
 			    <a href="/account/changePassword.html" class="w3-bar-item w3-button w3-margin-left"><spring:message code="sgw.main.menu.myinfo.changepassword"/></a>
 	  		</div>
 	  
 	  <a href="/login/logoutUser.html" class="w3-button w3-block w3-left-align w3-dark-gray"><spring:message code="sgw.main.menu.logout"/></a>
 	  <a href="/manage/loginAdmin.html" onclick="javascript:openWindow(this.href);return false;" class="w3-bar-item w3-button w3-indigo"><spring:message code="sgw.main.menu.adminlogin"/></a>
-	  <div class="dropdown">
-			<button type="button" class="btn btn-outline-light dropdown-toggle m-2" data-toggle="dropdown">
-		    	Language
-	  	</button>
-	  	<div class="dropdown-menu">
-	    	<a class="dropdown-item" href="?lang=ko">Korean</a>
-	    	<a class="dropdown-item" href="?lang=en">English</a>
-        <a class="dropdown-item" href="?lang=ja">Japanese</a>
+	  <div class="w3-dropdown-click">
+			<button onclick="myFunction()" class="w3-button w3-dark-gray">Language</button>
+	  	<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+	    	<a class="w3-bar-item w3-button" href="?lang=ko">Korean</a>
+	    	<a class="w3-bar-item w3-button" href="?lang=en">English</a>
+	      <a class="w3-bar-item w3-button" href="?lang=ja">Japanese</a>
 	  	</div>
 		</div>
 </div>
 
 <div class="w3-main" style="margin-left:200px">
-	<div class="w3-teal">
-    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-    	
-    	
+	<div class="w3-dark-grey">
+    <button class="w3-button w3-dark-grey w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     	
   		<div class="w3-container">
-        <div class="w3-display-container" style="height:60px">
-          <div class="w3-display-left">
-            <h3><a href="/main.html" style="color: white"> <spring:message code="sgw.title.main"/> </a></h3>
+        <div class="w3-display-container  w3-margin-top" style="height:60px">
+          <div class="w3-display">
+          
+	          <div class="container-fluid">
+						  <div class="row">
+						    <div class="col-sm-8">
+						      <h3><a href="/main.html" style="color: white"> Smart Group Ware </a> </h3>
+						    </div>
+						    <div class="col-sm-4">
+						      	        
+								 <span class="w3-tag w3-round w3-white">${sessionScope.loginUser.user_name }</span>
+								 <span class="w3-tag w3-round w3-yellow">${sessionScope.loginUser.team.team_name }</span>
+								 <span class="w3-tag w3-round w3-green">${sessionScope.loginUser.position.position_name }</span>
+						      
+						    </div>
+						  </div>
+						</div>
           </div>
         </div>
-        
-			 <span class="w3-tag w3-round">${sessionScope.loginUser.user_name }</span>
-			 <span class="w3-tag w3-round w3-green">${sessionScope.loginUser.team.team_name }</span>
-			 <span class="w3-tag w3-round w3-green">${sessionScope.loginUser.position.position_name }</span>
+
   		</div>
 	</div>			
-	<div class="w3-container">
+<!-- 	<div class="w3-container"> -->
+	<div>
 		<c:choose>
 			<c:when test="${BODY != null }">
 				<jsp:include page="${BODY }" />
@@ -162,6 +170,17 @@ function myAccFuncAccount() {
     x.previousElementSibling.className.replace(" w3-green", "");
   }
 }
+
+
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) { 
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
 </script>
 
 </body>

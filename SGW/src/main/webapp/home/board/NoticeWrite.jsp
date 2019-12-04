@@ -15,39 +15,57 @@
 
 <title><spring:message code="sgw.notice.write.new" /></title>
 </head>
-<body>
+<body class="w3-indigo">
+
+<form:form modelAttribute="notice" action="/board/writeNotice.html" method="post">
 
 	<div class="w3-container">
-		<form:form modelAttribute="notice" action="/board/writeNotice.html" method="post">
-		
-			<h2><spring:message code="sgw.notice.write.new" /></h2>
-		
-			<div class="mb-1">
-    		<input type="text" class="form-control" placeholder='<spring:message code="sgw.notice.title" />' name="notice_title">
-    		<font color="red"><form:errors path="notice_title"/></font>
-  		</div>
-  		
-	    <textarea id="editor" name="notice_content" ></textarea>
-	    
-	    <font color="red"><form:errors path="notice_content" /></font>
-	    
-			<div class="mt-3">
-				<input type="file" id="myFile" name="filename2" >
-				<button type="submit" class="btn btn-primary"><spring:message code="sgw.notice.write.submit" /></button>
-			</div>
-			
-		</form:form>
-	</div>
-
-	<!-- ckeditor -->
-	<script>
-		CKEDITOR.replace("editor",{
-			width:'100%',
-			height:'300px',
-			uiColor: '#FFF8DC',
-			removePlugins: 'elementspath'
-		});
-	</script>
 	
+		<div class="w3-card-4">
+		<header class="w3-container">
+	  	<h1><spring:message code="sgw.notice.write.new" /></h1>
+		</header>
+		
+					<table class="table table-sm w3-dark">
+						<tbody>
+							<tr>
+								<td>
+									<div class="mb-1">
+					    			<input type="text" class="form-control" placeholder='<spring:message code="sgw.notice.title" />' name="notice_title">
+					    			<font color="red"><form:errors path="notice_title"/></font>
+					  			</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<textarea id="editor" name="notice_content" ></textarea>
+									<font color="red"><form:errors path="notice_content" /></font>
+								</td>
+							</tr>
+						</tbody>
+						
+					</table>
+<!-- 					<div class="mt-3"> -->
+<!-- 						<input type="file" id="myFile" name="filename2" > -->
+<%-- 						<button type="submit" class="btn btn-primary"><spring:message code="sgw.notice.write.submit" /></button> --%>
+<!-- 					</div> -->
+
+		
+			<!-- ckeditor -->
+			<script>
+				CKEDITOR.replace("editor",{
+					width:'100%',
+					height:'200px',
+					uiColor: '#FFF8DC',
+					removePlugins: 'elementspath'
+				});
+			</script>
+			
+			<footer class="w3-container w3-dark">
+		  	<h5><button type="submit" class="btn btn-light"><spring:message code="sgw.notice.write.submit" /></button></h5>
+			</footer>
+				</div>
+		</div>	
+</form:form>
 </body>
 </html>

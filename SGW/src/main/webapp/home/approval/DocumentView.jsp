@@ -24,7 +24,7 @@ window.onload = function(){
 <div class="container">
     
       <!-- document interface -->
-      <table class="table table-sm">
+      <table class="table table-sm w3-white">
         <thead>
           <tr>
             <td>
@@ -119,16 +119,16 @@ window.onload = function(){
                     </td>
                   </tr>
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <td>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div>
-                    </td>
-                  </tr>
-                </tfoot>
+<!--                 <tfoot> -->
+<!--                   <tr> -->
+<!--                     <td> -->
+<!--                       <div class="custom-file"> -->
+<!--                         <input type="file" class="custom-file-input" id="customFile"> -->
+<!--                         <label class="custom-file-label" for="customFile">Choose file</label> -->
+<!--                       </div> -->
+<!--                     </td> -->
+<!--                   </tr> -->
+<!--                 </tfoot> -->
               </table>
 
             </td>
@@ -152,7 +152,7 @@ window.onload = function(){
   <script>
     CKEDITOR.replace("editor", {
       width : '100%',
-      height : '300px',
+      height : '200px',
       removePlugins: 'elementspath',
       toolbar : []
     });

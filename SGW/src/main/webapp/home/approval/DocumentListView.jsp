@@ -22,60 +22,71 @@
 
 <title><spring:message code="sgw.document.listview" /></title>
 </head>
-<body>
+<body class="w3-dark-grey">
 
 <div class="container">
-		<h2>Documents</h2>
-    
-      <c:choose>
-        <c:when test="${hasResult eq 'no' }">
-           <spring:message code="sgw.document.noresult" />
-        </c:when>
-        <c:otherwise>
-          <table class="table table-hover">
-          <thead>
-            <tr>
-              <th><spring:message code="sgw.document.document_id" /></th>
-              <th><spring:message code="sgw.document.document_title" /></th>
-              <th><spring:message code="sgw.document.writer" /></th>
-              <th><spring:message code="sgw.document.registdate" /></th>
-              <th><spring:message code="sgw.document.status" /></th>
-            </tr>
-          </thead>
-          <tbody>
-            <c:forEach items="${documentList }" var="document">
-              <tr>
-                <td>${document.document_id }</td>
-                <td> <a href="javascript:popup('${document.document_id }' ,'${document.document_title}')" >${document.document_title}</a></td>
-                <td>${document.first_name }</td>
-                <td>${document.first_approval_date }</td>
-                <td>${document.final_status }</td>
-              </tr>
-            </c:forEach>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5">
-                  <!-- pagination -->
-                  <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                  </ul>
-                </td>
-              </tr>
-            </tfoot>
-        </table>
-        
-
-        
-       </c:otherwise>
-      </c:choose>
-    
- </div><!-- end of container -->
+	
+		<div class="w3-card-4">	
+			<header class="w3-container">
+		  	<h1><spring:message code="sgw.document.listview"/></h1>
+			</header>
+			<div class="w3-container">
 		
+    
+		      <c:choose>
+		        <c:when test="${hasResult eq 'no' }">
+		           <spring:message code="sgw.document.noresult" />
+		        </c:when>
+		        <c:otherwise>
+		        	<div class="w3-responsive">
+				          <table class="w3-table w3-dark">
+				          <thead class="w3-bordered">
+				            <tr>
+				              <th><spring:message code="sgw.document.document_id" /></th>
+				              <th><spring:message code="sgw.document.document_title" /></th>
+				              <th><spring:message code="sgw.document.writer" /></th>
+				              <th><spring:message code="sgw.document.registdate" /></th>
+				              <th><spring:message code="sgw.document.status" /></th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <c:forEach items="${documentList }" var="document">
+				              <tr>
+				                <td>${document.document_id }</td>
+				                <td> <a style="color: white" href="javascript:popup('${document.document_id }' ,'${document.document_title}')" >${document.document_title}</a></td>
+				                <td>${document.first_name }</td>
+				                <td>${document.first_approval_date }</td>
+				                <td>${document.final_status }</td>
+				              </tr>
+				            </c:forEach>
+				            </tbody>
+				            <tfoot>
+				              <tr>
+				                <td colspan="5">
+				                  <!-- pagination -->
+				                  <div class="w3-bar">
+														<div class="w3-bar w3-border w3-round">
+							 								<a href="#" class="w3-button">&#10094; Previous</a>
+							 								<a href="#" class="w3-button">1</a>
+														  <a href="#" class="w3-button">2</a>
+														  <a href="#" class="w3-button">3</a>
+														  <a href="#" class="w3-button">4</a>
+														  <a href="#" class="w3-button">5</a>
+							 								<a href="#" class="w3-button w3-right">Next &#10095;</a>
+														</div>
+													</div>
+				                </td>
+				              </tr>
+				            </tfoot>
+				        </table>
+		        </div>
+		
+		        
+		       </c:otherwise>
+		      </c:choose>
+    </div>
+ </div>
+</div><!-- end of container -->
 
 </body>
 </html>

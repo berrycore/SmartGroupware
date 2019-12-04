@@ -12,6 +12,8 @@ public interface NoticeCatalog {
 	Integer updateNotice(Notice notice);
 	Integer deleteNotice(String notice_id);
 	
+	Notice getNoticeRecentOne();
+	
 	void uploadAttachedFile();
 	void downloadAttachedFile();
 }

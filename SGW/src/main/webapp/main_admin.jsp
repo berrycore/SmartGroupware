@@ -39,6 +39,7 @@
 	  		<div id="Accordion_Approval" class="w3-hide w3-indigo w3-card">
 			    <a href="/manage/userList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.list"/></a>
 			    <a href="/manage/userAdd.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.add"/></a>
+			    <a href="/manage/teamList.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.team.list"/></a>
 			    <a href="/manage/managePermission.html" class="w3-bar-item w3-button w3-margin-left"> <spring:message code="sgw.admin.menu.manage.user.permission"/></a>
 	  		</div>
 	  		
@@ -50,14 +51,12 @@
 	  		</div>
 	  
 		<a href="/login/logoutAdmin.html" class="w3-button w3-block w3-left-align w3-deep-purple"><spring:message code="sgw.admin.menu.logout"/></a>
-		<div class="dropdown">
-			<button type="button" class="btn btn-outline-light dropdown-toggle m-2" data-toggle="dropdown">
-		    	Language
-	  	</button>
-	  	<div class="dropdown-menu">
-	    	<a class="dropdown-item" href="?lang=ko">Korean</a>
-	    	<a class="dropdown-item" href="?lang=en">English</a>
-        <a class="dropdown-item" href="?lang=ja">Japanese</a>
+		 <div class="w3-dropdown-click">
+			<button onclick="myFunction()" class="w3-button w3-deep-purple">Language</button>
+	  	<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+	    	<a class="w3-bar-item w3-button" href="?lang=ko">Korean</a>
+	    	<a class="w3-bar-item w3-button" href="?lang=en">English</a>
+	       <a class="w3-bar-item w3-button" href="?lang=ja">Japanese</a>
 	  	</div>
 		</div>
 </div>
@@ -67,14 +66,22 @@
     <button class="w3-button w3-indigo w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     	
   		<div class="w3-container">
-        <div class="w3-display-container" style="height:60px">
-          <div class="w3-display-left">
-            <h3><a href="/main_admin.html" style="color: white">Smart Group Ware :: Admin</a></h3>
+        <div class="w3-display-container w3-margin-top" style="height:80px">
+          <div class="w3-display">
+          
+          	<div class="container-fluid">
+          		<div class="row">
+          			<div class="col-sm-8">
+          				<h3><a href="/main_admin.html" style="color: white">Smart Group Ware :: Admin</a></h3>
+          			</div>
+          			<div class="col-sm-4">
+       						<span class="w3-tag w3-round w3-white">${sessionScope.authorizedAdmin.admin_id }</span>
+			 						<span class="w3-tag w3-round w3-yellow">${sessionScope.authorizedAdmin.admin_name }</span>   				
+          			</div>
+          		</div>
+          	</div>  
           </div>
         </div>
-        
-			 <span class="w3-tag w3-round">${sessionScope.authorizedAdmin.admin_id }</span>
-			 <span class="w3-tag w3-round w3-green">${sessionScope.authorizedAdmin.admin_name }</span>
   		</div>
 	</div>			
 	<div class="w3-container">
@@ -143,17 +150,17 @@ function myAccFuncAccount() {
     x.previousElementSibling.className.replace(" w3-green", "");
   }
 }
+
+function myFunction() {
+	  var x = document.getElementById("Demo");
+	  if (x.className.indexOf("w3-show") == -1) { 
+	    x.className += " w3-show";
+	  } else {
+	    x.className = x.className.replace(" w3-show", "");
+	  }
+	}
+
 </script>
-
-
-<!-- <p> -->
-<%--     <jsp:include page="/home/mail/MailViewList.jsp" />  --%>
-<%--     <jsp:include page="/home/account/changeMyInfo.jsp" /> --%>
-<%--     <jsp:include page="/home/account/changePassword.jsp" /> --%>
-<%-- 	<jsp:include page="/home/approval/DocumentListView.jsp" /> --%>
-<%-- 	<jsp:include page="/home/board/NoticeListView.jsp" /> --%>
-<%-- 	<jsp:include page="/home/board/TeamBoardListView.jsp" /> --%>
-<!-- </p> -->
 
 </body>
 </html>

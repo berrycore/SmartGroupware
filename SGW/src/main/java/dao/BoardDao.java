@@ -11,4 +11,5 @@ public interface BoardDao {
 	Integer writeBoard(Board board);
 	void updateBoard(Board board);
 	void deleteBoard(String baord_id);
+	List<Board> getBoardListRecent(Integer count);
 }

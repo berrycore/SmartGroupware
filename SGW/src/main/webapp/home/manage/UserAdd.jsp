@@ -41,87 +41,96 @@
 
 <title> <spring:message code="sgw.manage.user.add" /> </title>
 </head>
-<body>
+<body class="w3-indigo">
 
-<div >
+<div class="container">
 
 	<form:form modelAttribute="user" method="POST" action="userAdd.html" name="frm_user">
-		<table class="table" style="margin-top: 5px;">
-			<thead>
-				<tr>
-					<th colspan="2">
-						<h4> <spring:message code="sgw.manage.user.add" /> </h4>	
-					</th>
-				</tr>
-			</thead>
-			<tr>
-				<td> <spring:message code="sgw.manage.user.add.name" /> </td>
-				<td>
-					<form:input path="user_name" name="user_name" class="form-control"/>
-					<font color="red"><form:errors path="user_name" /></font>
-				</td>
-			</tr>
-			<tr>
-				<td>ID</td>
-				<td>
-					<div class="input-group mb-3">
-						<form:input path="user_id" name="user_id" class="form-control" readonly="true"/>
-						<div class="input-group-append">
-							<button class="btn btn-primary" onclick="return popup_user_id_check()"> <spring:message code="sgw.manage.user.add.duplicate.check" /></button>	
-						</div>	
-					</div>
-					
-					<font color="red"><form:errors path="user_id" /></font> 
-				</td>
-			</tr>
-			
-			<tr>
-				<td> <spring:message code="sgw.manage.user.add.telephone" /> </td>
-				<td>
-					<form:input path="user_phone" name="user_phone" class="form-control" />
-					<font color="red"><form:errors path="user_phone" /></font>
-				</td>
-			</tr>
-			<tr>
-				<td> <spring:message code="sgw.manage.user.add.team.name" /></td>
-				<td>
-					<div class="input-group mb-3">
-						<input class="form-control" name="team_name" id="team_name" type="text" readonly="readonly">
-						<div class="input-group-append">
-							<form:hidden path="team_id" name="team_id" value="" />
-							<button class="btn btn-primary" onclick="return popup_team_check()"> <spring:message code="sgw.manage.user.add.team.lookup" /></button>		
-						</div>	
-					</div>
-					<font color="red"><form:errors path="team_id" /></font>
-				</td>
-			</tr>
-			<tr>
-				<td><spring:message code="sgw.manage.user.add.position.name" /></td>
-				<td>
-					<div class="input-group mp-3">
-						<input class="form-control" name="position_name" id="position_name" type="text" readonly="readonly">
-						<div class="input-group-append">
-							<form:hidden path="position_id" name="position_id" value="" />
-							<button class="btn btn-primary" onclick="return popup_position_check()"> <spring:message code="sgw.manage.user.add.position.lookup" /></button>	
-						</div>					
-					</div>
-					<font color="red"><form:errors path="position_id" /></font>
-				</td>
-			</tr>
-			<tr>
-				<td><spring:message code="sgw.manage.user.add.description" /></td>
-				<td>
-					<form:textarea path="user_description" name="user_description" rows="3" class="form-control"/>
-					<font color="red"><form:errors path="user_description" /></font>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="submit" class="btn btn-dark"> <spring:message code="sgw.manage.user.add.submit" /></button>
-					<a href="/main_admin.html"><button type="button" class="btn btn-warning"> <spring:message code="sgw.manage.user.add.to.main" /> </button></a>
-				</td>
-			</tr>
-		</table>
+
+	<div class="w3-card-4">
+		<header class="w3-container">
+			<h1><spring:message code="sgw.manage.user.add" /></h1>
+		</header>
+
+		<div class="w3-container">
+			<div class="w3-responsive">
+		
+					<table class="w3-table w3-dark">
+						<tbody >
+							<tr>
+								<td> <spring:message code="sgw.manage.user.add.name" /> </td>
+								<td>
+									<form:input path="user_name" name="user_name" class="form-control"/>
+									<font color="red"><form:errors path="user_name" /></font>
+								</td>
+							</tr>
+							<tr>
+								<td>ID</td>
+								<td>
+									<div class="input-group mb-3">
+										<form:input path="user_id" name="user_id" class="form-control" readonly="true"/>
+										<div class="input-group-append">
+											<button class="btn btn-primary" onclick="return popup_user_id_check()"> <spring:message code="sgw.manage.user.add.duplicate.check" /></button>	
+										</div>	
+									</div>
+									
+									<font color="red"><form:errors path="user_id" /></font> 
+								</td>
+							</tr>
+							
+							<tr>
+								<td> <spring:message code="sgw.manage.user.add.telephone" /> </td>
+								<td>
+									<form:input path="user_phone" name="user_phone" class="form-control" />
+									<font color="red"><form:errors path="user_phone" /></font>
+								</td>
+							</tr>
+							<tr>
+								<td> <spring:message code="sgw.manage.user.add.team.name" /></td>
+								<td>
+									<div class="input-group mb-3">
+										<input class="form-control" name="team_name" id="team_name" type="text" readonly="readonly">
+										<div class="input-group-append">
+											<form:hidden path="team_id" name="team_id" value="" />
+											<button class="btn btn-primary" onclick="return popup_team_check()"> <spring:message code="sgw.manage.user.add.team.lookup" /></button>		
+										</div>	
+									</div>
+									<font color="red"><form:errors path="team_id" /></font>
+								</td>
+							</tr>
+							<tr>
+								<td><spring:message code="sgw.manage.user.add.position.name" /></td>
+								<td>
+									<div class="input-group mp-3">
+										<input class="form-control" name="position_name" id="position_name" type="text" readonly="readonly">
+										<div class="input-group-append">
+											<form:hidden path="position_id" name="position_id" value="" />
+											<button class="btn btn-primary" onclick="return popup_position_check()"> <spring:message code="sgw.manage.user.add.position.lookup" /></button>	
+										</div>					
+									</div>
+									<font color="red"><form:errors path="position_id" /></font>
+								</td>
+							</tr>
+							<tr>
+								<td><spring:message code="sgw.manage.user.add.description" /></td>
+								<td>
+									<form:textarea path="user_description" name="user_description" rows="3" class="form-control"/>
+									<font color="red"><form:errors path="user_description" /></font>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2">
+									<button type="submit" class="btn btn-light"> <spring:message code="sgw.manage.user.add.submit" /></button>
+									<a href="/main_admin.html"><button type="button" class="btn btn-warning"> <spring:message code="sgw.manage.user.add.to.main" /> </button></a>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
 	</form:form>
 </div>
 

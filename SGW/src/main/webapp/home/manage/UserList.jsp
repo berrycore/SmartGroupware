@@ -15,58 +15,66 @@
 
 <title>user list</title>
 </head>
-<body>
+<body class="w3-indigo">
 
 <div class="container">
-<h5> <spring:message code="sgw.manage.user.list" /> </h5>
-	<table class="table  table-sm table-bordered table-hover table-responsive-md">
-		<thead>
-			<tr>
-				<th> <spring:message code="sgw.manage.user.list.id" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.name" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.team" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.position" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.email" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.phone" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.description" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.last.login" /> </th>
-				<th> <spring:message code="sgw.manage.user.list.last.pw.change" /> </th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach items="${userList }" var="user">
-			<tr>
-				<td>
-					${user.user_id}
-				</td>
-				<td>
-					${user.user_name}
-				</td>
-				<td>
-					${user.team.team_name}
-				</td>
-				<td>
-					${user.position.position_name}
-				</td>
-				<td>
-					${user.user_email}
-				</td>
-				<td>
-					${user.user_phone}
-				</td>
-				<td>
-					${user.user_description}
-				</td>
-				<td>
-					${user.user_date_last_login}
-				</td>
-				<td>
-					${user.user_date_last_pw_changed}
-				</td>
-			</tr>
-		</c:forEach>
-		</tbody>
-	</table>
+	
+	<div class="w3-card-4">
+		<header class="w3-container">
+			<h1><spring:message code="sgw.manage.user.list" /></h1>
+		</header>
+
+			<table class="w3-table w3-dark">
+				<thead class="w3-bordered">
+					<tr>
+						<th> <spring:message code="sgw.manage.user.list.id" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.name" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.team" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.position" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.email" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.phone" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.description" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.last.login" /> </th>
+						<th> <spring:message code="sgw.manage.user.list.last.pw.change" /> </th>
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach items="${userList }" var="user">
+					<tr>
+						<td>
+							${user.user_id}
+						</td>
+						<td>
+							${user.user_name}
+						</td>
+						<td>
+							${user.team.team_name}
+						</td>
+						<td>
+							${user.position.position_name}
+						</td>
+						<td>
+							${user.user_email}
+						</td>
+						<td>
+							${user.user_phone}
+						</td>
+						<td>
+							${user.user_description}
+						</td>
+						<td>
+							${user.user_date_last_login}
+						</td>
+						<td>
+							${user.user_date_last_pw_changed}
+						</td>
+					</tr>
+				</c:forEach>
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+	</div>
 </div>
 </body>
 </html>

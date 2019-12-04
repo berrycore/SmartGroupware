@@ -23,4 +23,7 @@ public interface BoardCatalog {
 	List<Reply> getReplyList(String parent_board_id);
 	void insertReply(Reply reply);
 	Integer getReplyCount(String parent_board_id);
+	
+	// dash board
+	List<Board> getBoardListRecent(Integer count);
 }

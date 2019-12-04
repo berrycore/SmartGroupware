@@ -172,6 +172,9 @@
 	<delete id="deleteNotice" parameterType="String">
 		delete from SM_NOTICE where notice_id = #{notice_id}
 	</delete>
+	<select id="getNoticeRecentOne" resultType="model.Notice">
+		select  * from (SELECT * FROM SM_NOTICE ORDER BY NOTICE_DATE_REGIST DESC) WHERE ROWNUM <![CDATA[ <= ]]> 1
+	</select>
 	
 	
 	<!-- SM_BOARD -->
@@ -234,11 +237,13 @@
       SM_BOARD
     ORDER BY BOARD_ID DESC
   </select>
-
 	
 	<select id="selectBoard" parameterType="Integer" resultType="model.Board">
 		select * from SM_BOARD where board_id = #{board_id}
 	</select>
+	<select id="getBoardListRecent" parameterType="Integer" resultType="model.Board" >
+		select  * from (SELECT * FROM SM_BOARD ORDER BY BOARD_DATE_REGIST DESC) WHERE ROWNUM <![CDATA[ <= ]]> 3
+	</select> 	
 	
 	
 	<!-- SM_REPLY -->

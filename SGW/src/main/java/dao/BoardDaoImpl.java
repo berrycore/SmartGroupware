@@ -40,4 +40,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	}
 
+	public List<Board> getBoardListRecent(Integer count) {
+		return session.selectList("mapper.myMapper.getBoardListRecent", count);
+	}
+
 }

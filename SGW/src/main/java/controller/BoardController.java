@@ -113,11 +113,12 @@ public class BoardController {
 	public ModelAndView noticeView(String notice_id) {
 		System.out.println("noticeView : GET : notice_id : " + notice_id);
 		
-		ModelAndView mav = new ModelAndView("home/board/NoticeView");
+		ModelAndView mav = new ModelAndView("main");
 		
 		Notice notice = noticeCatalog.selectNotice(notice_id);
 		
 		mav.addObject("notice", notice);
+		mav.addObject("BODY", "/home/board/NoticeView.jsp");
 		return mav;
 	}
 	

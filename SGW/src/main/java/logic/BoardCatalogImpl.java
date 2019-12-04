@@ -62,4 +62,8 @@ public class BoardCatalogImpl implements BoardCatalog {
 	public Integer getReplyCount(String parent_board_id) {
 		return replyDao.getReplyCount(parent_board_id);
 	}
+
+	public List<Board> getBoardListRecent(Integer count) {
+		return boardDao.getBoardListRecent(count);
+	}
 }

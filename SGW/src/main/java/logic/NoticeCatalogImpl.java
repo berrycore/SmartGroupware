@@ -33,6 +33,10 @@ public class NoticeCatalogImpl implements NoticeCatalog {
 	public Integer deleteNotice(String notice_id) {
 		return noticeDao.deleteNotice(notice_id);
 	}
+	
+	public Notice getNoticeRecentOne() {
+		return noticeDao.getNoticeRecentOne();
+	}
 
 	public void uploadAttachedFile() {
 		// TODO Auto-generated method stub

@@ -14,43 +14,55 @@
 
 <title><spring:message code="sgw.admin.list" /></title>
 </head>
-<body>
+<body class="w3-indigo">
+
 <div class="container">
-	<h4><spring:message code="sgw.admin.list" /></h4>
-	<table class="table table-sm table-bordered table-hover table-responsive-md">
-			<thead>
-				<tr>
-					<th><spring:message code="sgw.admin.account.id" /></th>
-					<th><spring:message code="sgw.admin.account.name" /></th>
-					<th><spring:message code="sgw.admin.accessible.ip" /></th>
-					<th><spring:message code="sgw.admin.account.created.date" /></th>
-					<th><spring:message code="sgw.admin.last.login.date" /></th>
-					<th><spring:message code="sgw.admin.last.password.changed.date" /></th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<c:choose>
-					<c:when test="${noResult eq 'yes' }">	
-						<tr>
-							<td colspan="6"><spring:message code="sgw.admin.account.no.result" /></td>
-						</tr>
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${sgwAdminList}" var="sgwAdmin">
-							<tr>
-								<td>${sgwAdmin.admin_id }</td>
-								<td>${sgwAdmin.admin_name }</td>
-								<td>${sgwAdmin.admin_access_ip }</td>
-								<td>${sgwAdmin.admin_date_created }</td>
-								<td>${sgwAdmin.admin_date_last_login }</td>
-								<td>${sgwAdmin.admin_date_last_pw_changed }</td>
-							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</tbody>
-	</table>
+
+	<div class="w3-card-4">
+		<header class="w3-container">
+			<h1><spring:message code="sgw.admin.list" /></h1>
+		</header>
+
+		<div class="w3-container">
+			<div class="w3-responsive">
+	
+				<table class="w3-table w3-dark">
+							<thead class="w3-bordered">
+								<tr>
+									<th><spring:message code="sgw.admin.account.id" /></th>
+									<th><spring:message code="sgw.admin.account.name" /></th>
+									<th><spring:message code="sgw.admin.accessible.ip" /></th>
+									<th><spring:message code="sgw.admin.account.created.date" /></th>
+									<th><spring:message code="sgw.admin.last.login.date" /></th>
+									<th><spring:message code="sgw.admin.last.password.changed.date" /></th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<c:choose>
+									<c:when test="${noResult eq 'yes' }">	
+										<tr>
+											<td colspan="6"><spring:message code="sgw.admin.account.no.result" /></td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${sgwAdminList}" var="sgwAdmin">
+											<tr>
+												<td>${sgwAdmin.admin_id }</td>
+												<td>${sgwAdmin.admin_name }</td>
+												<td>${sgwAdmin.admin_access_ip }</td>
+												<td>${sgwAdmin.admin_date_created }</td>
+												<td>${sgwAdmin.admin_date_last_login }</td>
+												<td>${sgwAdmin.admin_date_last_pw_changed }</td>
+											</tr>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
 </div>
 </body>
 </html>

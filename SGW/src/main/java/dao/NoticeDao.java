@@ -11,4 +11,6 @@ public interface NoticeDao {
 	Integer writeNotice(Notice notice);
 	Integer updateNotice(Notice notice);
 	Integer deleteNotice(String notice_id);
+	Notice getNoticeRecentOne();
+	
 }

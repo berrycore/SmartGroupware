@@ -47,12 +47,19 @@
 
 <title><spring:message code="sgw.document.newdocument"/></title>
 </head>
-<body>
+<body class="w3-dark-grey">
 
 	<div class="container">
 		<form:form action="/approval/DocumentWriteNewSubmit.html" modelAttribute="elecDocument" method="post" name="frm_document">
-			<!-- document interface -->
-			<table class="table table-sm">
+			
+		<div class="w3-card-4">	
+			<header class="w3-container">
+	  		<h1><spring:message code="sgw.document.newdocument" /></h1>
+			</header>
+			
+			<div class="w3-container">
+			
+			<table class="table table-sm w3-white">
 				<thead>
 					<tr>
 						<td>
@@ -159,10 +166,10 @@
 								<tfoot>
 									<tr>
 										<td>
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" id="customFile">
-												<label class="custom-file-label" for="customFile">Choose file</label>
-											</div>
+<!-- 											<div class="custom-file"> -->
+<!-- 												<input type="file" class="custom-file-input" id="customFile"> -->
+<!-- 												<label class="custom-file-label" for="customFile">Choose file</label> -->
+<!-- 											</div> -->
 										</td>
 									</tr>
 								</tfoot>
@@ -172,6 +179,8 @@
 					</tr>
 				</tbody>
 			</table>
+			</div>
+			</div>
 		</form:form>
 	</div>
 
@@ -190,7 +199,7 @@
 	<script>
 		CKEDITOR.replace("editor", {
 			width : '100%',
-			height : '300px',
+			height : '200px',
 			removePlugins: 'elementspath'
 		});
 	</script>
