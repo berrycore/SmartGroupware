@@ -35,9 +35,12 @@ public class NoticeDaoImpl implements NoticeDao {
 	public Integer deleteNotice(String notice_id) {
 		return session.delete("mapper.myMapper.deleteNotice", notice_id);
 	}
+	
+	public Integer getNoticeCount() {
+		return session.selectOne("mapper.myMapper.getNoticeCount");
+	}
 
 	public Notice getNoticeRecentOne() {
 		return session.selectOne("mapper.myMapper.getNoticeRecentOne");
 	}
-
 }

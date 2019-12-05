@@ -9,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import logic.BoardCatalog;
 import logic.NoticeCatalog;
 import model.Board;
 import model.Notice;
+import model.Pagination;
 import model.Reply;
 import model.SgwAdmin;
 import model.User;
@@ -41,11 +43,12 @@ public class BoardController {
 	private NoticeCatalog noticeCatalog;
 
 	@RequestMapping(value="/board/NoticeListView.html")
-	public ModelAndView showNoticeList() {
+	public ModelAndView showNoticeList( @RequestParam(defaultValue="1") int curPage, HttpServletRequest request ) {
 		System.out.println("showNoticeList : GET ");
-//		ModelAndView mav = new ModelAndView();
 		ModelAndView mav = new ModelAndView("main");
-//		mav.setViewName("home/board/NoticeListView");
+		
+		Integer listCnt = noticeCatalog.getNoticeCount();
+		Pagination pagination = new Pagination();
 		
 		mav.addObject("BODY", "/home/board/NoticeListView.jsp");
 		
@@ -55,6 +58,8 @@ public class BoardController {
 			mav.addObject("noResult", "yes");
 			return mav;
 		}else {
+			mav.addObject("listCnt", listCnt);
+			mav.addObject("pagination", pagination);
 			mav.addObject("noticeList", noticeList);
 			return mav;
 		}

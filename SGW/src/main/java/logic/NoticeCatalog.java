@@ -14,6 +14,8 @@ public interface NoticeCatalog {
 	
 	Notice getNoticeRecentOne();
 	
+	Integer getNoticeCount();
+	
 	void uploadAttachedFile();
 	void downloadAttachedFile();
 }

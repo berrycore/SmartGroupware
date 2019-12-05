@@ -175,6 +175,9 @@
 	<select id="getNoticeRecentOne" resultType="model.Notice">
 		select  * from (SELECT * FROM SM_NOTICE ORDER BY NOTICE_DATE_REGIST DESC) WHERE ROWNUM <![CDATA[ <= ]]> 1
 	</select>
+	<select id="getNoticeCount" resultType="Integer">
+		select count(*) from SM_NOTICE
+	</select>
 	
 	
 	<!-- SM_BOARD -->

@@ -37,6 +37,10 @@ public class NoticeCatalogImpl implements NoticeCatalog {
 	public Notice getNoticeRecentOne() {
 		return noticeDao.getNoticeRecentOne();
 	}
+	
+	public Integer getNoticeCount() {
+		return noticeDao.getNoticeCount();
+	}
 
 	public void uploadAttachedFile() {
 		// TODO Auto-generated method stub
@@ -47,5 +51,7 @@ public class NoticeCatalogImpl implements NoticeCatalog {
 		// TODO Auto-generated method stub
 
 	}
+
+
 
 }

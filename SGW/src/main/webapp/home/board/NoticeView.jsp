@@ -35,10 +35,10 @@
 			       <span class="input-group-text"><spring:message code="sgw.notice.registdate" /></span>
 			       <input type="text" class="form-control bg-light" value="${notice.notice_date_regist}" readonly="readonly">
 			    </div>
-			    <div class="input-group-prepend">
-			       <span class="input-group-text"><spring:message code="sgw.notice.attachedfile" /></span>
-			       <input type="text" class="form-control bg-light" value="${notice.notice_attached_file_name }" readonly="readonly">
-			    </div>
+<!-- 			    <div class="input-group-prepend"> -->
+<%-- 			       <span class="input-group-text"><spring:message code="sgw.notice.attachedfile" /></span> --%>
+<%-- 			       <input type="text" class="form-control bg-light" value="${notice.notice_attached_file_name }" readonly="readonly"> --%>
+<!-- 			    </div> -->
 			    
 			 </div>
 			
@@ -53,10 +53,10 @@
       
       <div class="w3-container">
         <footer class="mb-3">
-          <button type="button" class="btn btn-success" ><spring:message code="sgw.notice.close" /></button>
-          <a href="/board/NoticeDelete.html?notice_id=${notice.notice_id}"> <button type="button" class="btn btn-warning" ><spring:message code="sgw.notice.delete" /></button></a>
-          <a href="/board/NoticeUpdate.html?notice_id=${notice.notice_id}"> <button type="button" class="btn btn-secondary" ><spring:message code="sgw.notice.modify" /></button></a>
-          <a href="/board/NoticeListView.html"> <button type="button" class="btn btn-primary" ><spring:message code="sgw.notice.to.list" /></button> </a>  
+<%--           <button type="button" class="btn btn-success" ><spring:message code="sgw.notice.close" /></button> --%>
+          <a href="/board/NoticeDelete.html?notice_id=${notice.notice_id}"> <button type="button" class="btn btn-danger" ><spring:message code="sgw.notice.delete" /></button></a>
+          <a href="/board/NoticeUpdate.html?notice_id=${notice.notice_id}"> <button type="button" class="btn btn-warning" ><spring:message code="sgw.notice.modify" /></button></a>
+          <a href="/board/NoticeListView.html"> <button type="button" class="btn btn-light" ><spring:message code="sgw.notice.to.list" /></button> </a>  
         </footer>
       </div>
     </div>

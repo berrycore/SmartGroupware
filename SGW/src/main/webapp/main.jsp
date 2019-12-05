@@ -53,15 +53,17 @@ function openWindow( url )
 			  		</div>
 	  		</c:if>
 	  		
-	  		<c:if test="${sessionScope.sgwAccess.access_board eq 'allow' }">
+	  		
 			  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
 			  			<i class="fa fa-th-list mr-3"></i><spring:message code="sgw.main.menu.board"/>
 			  		</button>
 			  		<div id="Accordion_Board" class="w3-hide w3-dark-gray w3-card">
 					    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-bullhorn mr-3"></i><spring:message code="sgw.main.menu.board.notice"/></a>
-					    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-comments mr-3"></i><spring:message code="sgw.main.menu.board.teamboard"/></a>
+					    <c:if test="${sessionScope.sgwAccess.access_board eq 'allow' }">
+					    	<a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-comments mr-3"></i><spring:message code="sgw.main.menu.board.teamboard"/></a>
+					    </c:if>
 			  		</div>
-	  		</c:if>
+	  		
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">
 	  			<i class="fa fa-user mr-3"></i><spring:message code="sgw.main.menu.myinfo"/>

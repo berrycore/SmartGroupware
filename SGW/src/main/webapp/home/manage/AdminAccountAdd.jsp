@@ -82,7 +82,7 @@
 			      <tr>
 			        <td colspan="2">
 			          <button type="submit" class="btn btn-light"><spring:message code="sgw.admin.submit" /></button>
-			          <a href="#"><button type="button" class="btn btn-warning"><spring:message code="sgw.admin.to.main" /></button></a>
+			          <a href="/main_admin.html"><button type="button" class="btn btn-warning"><spring:message code="sgw.admin.to.main" /></button></a>
 			        </td>
 			      </tr>
 		      </tfoot>

@@ -38,77 +38,84 @@
   
   	<br/>
   	   
-    <div class="w3-card-4">
-    	<div class="card-header">
-    		<h5><span class="badge btn btn-warning"><spring:message code="sgw.dash.awaiting.document"/></span></h5>
-    	</div>
-      <div class="card-body">
-    		<p class="card-text">
-   			  <c:choose>
-			    	<c:when test="${document_noResult eq 'yes' }">
-			    		<spring:message code="sgw.dash.teamboard.noresult"/>
-			    	</c:when>
-			    	<c:otherwise>
-			    		<c:forEach items="${documentList }" var="document">
-			    			<p>${document.document_title }</p>
-			    		</c:forEach>
-			    	</c:otherwise>
-			    </c:choose>
-    		</p>
-      </div>
-      <div class="card-footer">
-      		<a href="/approval/ProcessingDocumentView.html" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
-      </div>
-    </div>
+    <c:if test="${sessionScope.sgwAccess.access_elec_document eq 'allow' }" >
+	    <div class="w3-card-4">
+	    	<div class="card-header">
+	    		<h5><span class="badge btn btn-warning"><spring:message code="sgw.dash.awaiting.document"/></span></h5>
+	    	</div>
+	      <div class="card-body">
+	    		<p class="card-text">
+	   			  <c:choose>
+				    	<c:when test="${document_noResult eq 'yes' }">
+				    		<spring:message code="sgw.dash.teamboard.noresult"/>
+				    	</c:when>
+				    	<c:otherwise>
+				    		<c:forEach items="${documentList }" var="document">
+				    			<p>${document.document_title }</p>
+				    		</c:forEach>
+				    	</c:otherwise>
+				    </c:choose>
+	    		</p>
+	      </div>
+	      <div class="card-footer">
+	      		<a href="/approval/ProcessingDocumentView.html" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
+	      </div>
+	    </div>
+    </c:if>
     
     <br/>
     
-    <c:choose>
-    	<c:when test="${board_noResult eq 'yes' }">
-		    		<div class="w3-card-4">
-				    	<div class="card-header">
-				    		<h5><span class="badge badge-primary"><spring:message code="sgw.dash.team"/></span> </h5>
-				    	</div>
-				      <div class="card-body">
-				    		<p class="card-text"> <spring:message code="sgw.dash.teamboard.noresult"/></p>
-				      </div>
-				      <div class="card-footer">
-				      		<a href="/board/TeamBoardListView.html" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
-				      </div>
-				    </div>
-				    <br/>
-    	</c:when>
-    	<c:otherwise>
-    			<c:forEach items="${boardList}" var="board">
-		    				<div class="w3-card-4">
-						    	<div class="card-header">
-						    		<h5><span class="badge badge-primary"><spring:message code="sgw.dash.team"/></span> <span class="badge badge-dark"> ${board.board_writer_name }</span> </h5>
-						    		<h5>${board.board_title }</h5> 
-						    	</div>
-						      <div class="card-body">
-						    		<p class="card-text"> ${board.board_content }</p>
-						      </div>
-						      <div class="card-footer">
-						      		<a href="/board/TeamBoardView.html?board_id=${board.board_id}" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
-						      </div>
-						    </div>
-						    <br/>
-    			</c:forEach>
-    	</c:otherwise>	
-    </c:choose>
+    <c:if test="${sessionScope.sgwAccess.access_board eq 'allow' }">
+	    	<c:choose>
+	    	<c:when test="${board_noResult eq 'yes' }">
+			    		<div class="w3-card-4">
+					    	<div class="card-header">
+					    		<h5><span class="badge badge-primary"><spring:message code="sgw.dash.team"/></span> </h5>
+					    	</div>
+					      <div class="card-body">
+					    		<p class="card-text"> <spring:message code="sgw.dash.teamboard.noresult"/></p>
+					      </div>
+					      <div class="card-footer">
+					      		<a href="/board/TeamBoardListView.html" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
+					      </div>
+					    </div>
+					    <br/>
+	    	</c:when>
+	    	<c:otherwise>
+	    			<c:forEach items="${boardList}" var="board">
+			    				<div class="w3-card-4">
+							    	<div class="card-header">
+							    		<h5><span class="badge badge-primary"><spring:message code="sgw.dash.team"/></span> <span class="badge badge-dark"> ${board.board_writer_name }</span> </h5>
+							    		<h5>${board.board_title }</h5> 
+							    	</div>
+							      <div class="card-body">
+							    		<p class="card-text"> ${board.board_content }</p>
+							      </div>
+							      <div class="card-footer">
+							      		<a href="/board/TeamBoardView.html?board_id=${board.board_id}" class="btn btn-secondary btn-sm btn-block"><spring:message code="sgw.dash.goto"/></a>
+							      </div>
+							    </div>
+							    <br/>
+	    			</c:forEach>
+	    	</c:otherwise>	
+	    </c:choose>
+    </c:if>
     
-    <div class="w3-card-4">
-    	<div class="card-header">
-    		<h5><span class="badge badge-danger"><spring:message code="sgw.dash.email"/></span></h5>
-    	</div>
-      <div class="card-body">
-    		<p class="card-text">서비스 준비중</p>
-      </div>
-      <div class="card-footer">
-      </div>
-    </div>
-    <br/>
-  </div>
+    <c:if test="${sessionScope.sgwAccess.access_email eq 'allow' }">
+		    <div class="w3-card-4">
+		    	<div class="card-header">
+		    		<h5><span class="badge badge-danger"><spring:message code="sgw.dash.email"/></span></h5>
+		    	</div>
+		      <div class="card-body">
+		    		<p class="card-text">서비스 준비중</p>
+		      </div>
+		      <div class="card-footer">
+		      </div>
+	    	</div>
+    	</c:if>
+   <br/>
+ </div>
+	  
 
 </body>
 </html>

@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
 
 <script >
@@ -23,17 +24,17 @@
 
 <title><spring:message code="sgw.document.user.search" /></title>
 </head>
-<body>
+<body class="w3-dark-gray">
 
 	<div class="container">
 		<spring:message code="sgw.document.user.search" />
 		<form action="SecondSearch.html" name="frm" method="post">
 			<div>
 				<input type="text" name="user_name">
-				<button class="btn btn-success btn-small" type="submit"><spring:message code="sgw.document.search" /></button>&nbsp;
+				<button class="btn btn-warning btn-small" type="submit"><spring:message code="sgw.document.search" /></button>&nbsp;
 			</div>
 
-			<table class="table table-bordered table-sm">
+			<table class="w3-table w3-dark w3-bordered">
 				<thead>
 					<tr>
 						<td><spring:message code="sgw.document.user.id" /></td>
@@ -52,7 +53,7 @@
 								<td>${user.team.team_name }</td>
 								<td>${user.position.position_name } <input type="hidden" name="second_position" value="${user.position.position_name }"></td>
 								<td>
-									<button class="btn btn-primary btn-small" type="button" onclick="idOK()"><spring:message code="sgw.document.confirm"/></button>
+									<button class="btn btn-light btn-small" type="button" onclick="idOK()"><spring:message code="sgw.document.confirm"/></button>
 								</td>
 							</tr>
 						</c:forEach>

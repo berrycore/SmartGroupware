@@ -76,7 +76,7 @@
 												<td>${user.position.position_name }</td>
 												<td>${user.user_email }</td>
 												<td>
-													<button class="btn btn-info btn-sm" onclick="return popup_user_modify('${user.user_id }')" > <spring:message code="sgw.manage.user.modify" /></button>
+													<button class="btn btn-light btn-sm" onclick="return popup_user_modify('${user.user_id }')" > <spring:message code="sgw.manage.user.modify" /></button>
 												</td>
 											</tr>		
 										</c:forEach>

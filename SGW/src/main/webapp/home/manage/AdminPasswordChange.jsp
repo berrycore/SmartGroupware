@@ -44,7 +44,7 @@
 								<td><spring:message code="sgw.admin.password"/></td>
 								<td>
 									<input type="password" class="form-control" name="admin_password">
-									<font color="red"><form:errors path="admin_password" /></font> 
+									<font color="white"><form:errors path="admin_password" /></font> 
 								</td>
 							</tr>
 							<tr>
