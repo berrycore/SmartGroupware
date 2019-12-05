@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import logic.LoginCatalog;
+import logic.ManageCatalog;
 import logic.UserAccountCatalog;
+import model.SgwAccess;
 import model.User;
 import util.Encrypter;
 import validator.UserLoginValidator;
@@ -26,6 +28,9 @@ public class LoginController {
 	
 	@Autowired
 	private UserLoginValidator loginValidator;
+	
+	@Autowired
+	private ManageCatalog manageCatalog;
 	
 		
 	@RequestMapping(value="/login/loginUser.html", method=RequestMethod.POST)
@@ -60,6 +65,10 @@ public class LoginController {
 				User you = userAccountCatalog.getUserByUserId(result.getUser_id());
 				request.getSession().setAttribute("loginUser", you);
 				mav.addObject("you", you);
+				
+				SgwAccess sgwAccess = manageCatalog.getSgwAccess( you.getUser_id());
+				request.getSession().setAttribute("sgwAccess", sgwAccess);
+				
 				return mav;	
 			}
 		}		

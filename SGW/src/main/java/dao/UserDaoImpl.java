@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.SgwAccess;
 import model.User;
 import util.Encrypter;
 import util.Utils;
@@ -62,7 +63,22 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public Integer insertUser(User user) {
-		return session.insert("mapper.myMapper.insertUser", user);
+		Integer resultCodeUser = session.insert("mapper.myMapper.insertUser", user);
+		Integer resultCodeAccess = insertSgwAccess(user);
+		if( resultCodeUser == 1 && resultCodeAccess == 1) {
+			return 1;
+		}else {
+			return -1;
+		}
+	}
+	
+	private Integer insertSgwAccess(User user) {
+		SgwAccess sgwAccess = new SgwAccess();
+		sgwAccess.setUser_id( user.getUser_id());
+		sgwAccess.setAccess_email("deny");
+		sgwAccess.setAccess_elec_document("deny");
+		sgwAccess.setAccess_board("deny");
+		return session.insert("mapper.myMapper.insertSgwAccess", sgwAccess);
 	}
 
 	public void updateUserLastLoginTime(String user_id) {

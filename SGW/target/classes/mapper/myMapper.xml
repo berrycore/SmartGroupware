@@ -458,5 +458,18 @@
       access_email = #{access_email}
     where user_id = #{user_id}
   </update>
+  <insert id="insertSgwAccess" parameterType="model.SgwAccess">
+  	insert into SM_ACCESS (
+  		user_id,
+  		access_email,
+  		access_elec_document,
+  		access_board
+  	) values (
+  		#{user_id},
+  		#{access_email},
+  		#{access_elec_document},
+  		#{access_board}
+  	) 
+  </insert>
   
 </mapper>

@@ -31,32 +31,37 @@ function openWindow( url )
 	<button class="w3-bar-item w3-button w3-large w3-hide-large w3-dark-gray" onclick="w3_close()">&times;</button>
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 1</a> -->
 <!-- 		<a href="#" class="w3-bar-item w3-button">Link 2</a> -->
-		
-			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncMail()">
-	  			<i class="fa fa-envelope mr-3"></i><spring:message code="sgw.main.menu.email" />
-	  		</button>
-	  		<div id="Accordion_Mail" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-envelope-open-o mr-3"></i><spring:message code="sgw.main.menu.email.inbox" /></a>
-          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-pencil-square-o mr-3"></i><spring:message code="sgw.main.menu.email.write"/></a>
-	  		</div>
+			<c:if test="${sessionScope.sgwAccess.access_email eq 'allow' }">
+						<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncMail()">
+			  			<i class="fa fa-envelope mr-3"></i><spring:message code="sgw.main.menu.email" />
+			  		</button>
+			  		<div id="Accordion_Mail" class="w3-hide w3-dark-gray w3-card">
+					    <a href="/mail/showNewMailList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-envelope-open-o mr-3"></i><spring:message code="sgw.main.menu.email.inbox" /></a>
+		          <a href="/mail/sendMail.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-pencil-square-o mr-3"></i><spring:message code="sgw.main.menu.email.write"/></a>
+			  		</div>
+  			</c:if>
   		
-  			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncApproval()">
-	  			<i class="fa fa-file-o mr-3"></i><spring:message code="sgw.main.menu.document" />
-	  		</button>
-	  		<div id="Accordion_Approval" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-text-height mr-3"></i><spring:message code="sgw.main.menu.document.draft"/></a>
-			    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-exclamation mr-3"></i><spring:message code="sgw.main.menu.document.awating"/></a>
-			    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-check-square-o mr-3"></i><spring:message code="sgw.main.menu.document.completed" /></a>
-			    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-search mr-3"></i><spring:message code="sgw.main.menu.document.lookup"/></a>
-	  		</div>
+  		 <c:if test="${sessionScope.sgwAccess.access_elec_document eq 'allow' }" >
+		  			<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncApproval()">
+			  			<i class="fa fa-file-o mr-3"></i><spring:message code="sgw.main.menu.document" />
+			  		</button>
+			  		<div id="Accordion_Approval" class="w3-hide w3-dark-gray w3-card">
+					    <a href="/approval/DocumentWriteNew.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-text-height mr-3"></i><spring:message code="sgw.main.menu.document.draft"/></a>
+					    <a href="/approval/ProcessingDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-exclamation mr-3"></i><spring:message code="sgw.main.menu.document.awating"/></a>
+					    <a href="/approval/CompletedDocumentView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-check-square-o mr-3"></i><spring:message code="sgw.main.menu.document.completed" /></a>
+					    <a href="/approval/getElecDocumentList.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-search mr-3"></i><spring:message code="sgw.main.menu.document.lookup"/></a>
+			  		</div>
+	  		</c:if>
 	  		
-	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
-	  			<i class="fa fa-th-list mr-3"></i><spring:message code="sgw.main.menu.board"/>
-	  		</button>
-	  		<div id="Accordion_Board" class="w3-hide w3-dark-gray w3-card">
-			    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-bullhorn mr-3"></i><spring:message code="sgw.main.menu.board.notice"/></a>
-			    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-comments mr-3"></i><spring:message code="sgw.main.menu.board.teamboard"/></a>
-	  		</div>
+	  		<c:if test="${sessionScope.sgwAccess.access_board eq 'allow' }">
+			  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncBoard()">
+			  			<i class="fa fa-th-list mr-3"></i><spring:message code="sgw.main.menu.board"/>
+			  		</button>
+			  		<div id="Accordion_Board" class="w3-hide w3-dark-gray w3-card">
+					    <a href="/board/NoticeListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-bullhorn mr-3"></i><spring:message code="sgw.main.menu.board.notice"/></a>
+					    <a href="/board/TeamBoardListView.html" class="w3-bar-item w3-button w3-margin-left"><i class="fa fa-comments mr-3"></i><spring:message code="sgw.main.menu.board.teamboard"/></a>
+			  		</div>
+	  		</c:if>
 	  		
 	  		<button class="w3-button w3-block w3-left-align w3-dark-gray" onclick="myAccFuncAccount()">
 	  			<i class="fa fa-user mr-3"></i><spring:message code="sgw.main.menu.myinfo"/>
