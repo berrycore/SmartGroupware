@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import dao.ElecDocumentDao;
 import model.DocumentSign;
 import model.ElecDocument;
+import model.Pagination;
 
 @Service
 public class DocumentsCatalogImpl implements DocumentsCatalog {
@@ -15,8 +16,8 @@ public class DocumentsCatalogImpl implements DocumentsCatalog {
 	@Autowired
 	private ElecDocumentDao documentsDao;
 	
-	public List<ElecDocument> getElecDocumentList() {
-		return documentsDao.getElecDocumentList();
+	public List<ElecDocument> getElecDocumentList(Pagination pagination) {
+		return documentsDao.getElecDocumentList(pagination);
 	}
 
 	public ElecDocument selectElecDocument(String document_id) {
@@ -39,7 +40,15 @@ public class DocumentsCatalogImpl implements DocumentsCatalog {
 		return documentsDao.selectProcessingDocumentList(user_id);
 	}
 
-	public List<ElecDocument> selectCompletedDocumentList(String user_id) {
-		return documentsDao.selectCompletedDocumentList(user_id);
+	public List<ElecDocument> selectCompletedDocumentList(Pagination pagination) {
+		return documentsDao.selectCompletedDocumentList(pagination);
+	}
+
+	public Integer getElecDocumentCount() {
+		return documentsDao.getElecDocumentCount();
+	}
+
+	public Integer getCompletedElecDocumentCount() {
+		return documentsDao.getCompletedElecDocumentCount();
 	}
 }

@@ -9,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import logic.DocumentsCatalog;
 import logic.UserAccountCatalog;
 import model.DocumentSign;
 import model.ElecDocument;
+import model.Pagination;
 import model.User;
 import validator.DocumentValidator;
 
@@ -170,16 +172,20 @@ public class ApprovalController {
 	}
 	
 	@RequestMapping(value="/approval/getElecDocumentList.html", method=RequestMethod.GET)
-	public ModelAndView getElecDocumentList() {
+	public ModelAndView getElecDocumentList( @RequestParam(defaultValue="1") int curPage, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("main");
 		mav.addObject("BODY", "/home/approval/DocumentListView.jsp");
 		
-		List<ElecDocument> documentList = documentsCatalog.getElecDocumentList();
+		Integer listCnt = documentsCatalog.getElecDocumentCount();
+		Pagination pagination = new Pagination(listCnt , curPage);
+		
+		List<ElecDocument> documentList = documentsCatalog.getElecDocumentList(pagination);
 		if( documentList.isEmpty()) {
 			mav.addObject("hasResult", "no");
 			return mav;
 		}else {
 			mav.addObject("hasResult", "yes");
+			mav.addObject("pagination", pagination);
 			mav.addObject("documentList", documentList);
 			return mav;
 		}
@@ -212,17 +218,20 @@ public class ApprovalController {
 	}
 	
 	@RequestMapping(value="/approval/CompletedDocumentView.html", method=RequestMethod.GET)
-	public ModelAndView completedDocumentView(HttpServletRequest request) {
+	public ModelAndView completedDocumentView(@RequestParam(defaultValue="1") int curPage, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("main");
 		mav.addObject("BODY", "/home/approval/CompletedDocumentView.jsp");
 		
-		User user = (User)request.getSession().getAttribute("loginUser");
-		List<ElecDocument> documentList = documentsCatalog.selectCompletedDocumentList(user.getUser_id());
+		Integer listCnt = documentsCatalog.getCompletedElecDocumentCount();
+		Pagination pagination = new Pagination(listCnt, curPage);
+				
+		List<ElecDocument> documentList = documentsCatalog.selectCompletedDocumentList(pagination);
 		if( documentList.isEmpty()) {
 			mav.addObject("hasResult", "no");
 			return mav;
 		}else {
 			mav.addObject("hasResult", "yes");
+			mav.addObject("pagination", pagination);
 			mav.addObject("documentList", documentList);
 			return mav;
 		}

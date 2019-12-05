@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.Notice;
+import model.Pagination;
 import util.Utils;
 
 @Repository
@@ -15,8 +16,8 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Autowired
 	private SqlSession session;
 	
-	public List<Notice> getNoticeList() {
-		return session.selectList("mapper.myMapper.getNoticeList");
+	public List<Notice> getNoticeList(Pagination pagination) {
+		return session.selectList("mapper.myMapper.getNoticeList", pagination);
 	}
 
 	public Notice selectNotice(String notice_id) {

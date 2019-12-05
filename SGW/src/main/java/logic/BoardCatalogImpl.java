@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import dao.BoardDao;
 import dao.ReplyDao;
 import model.Board;
+import model.Pagination;
 import model.Reply;
 
 @Service
@@ -19,8 +20,12 @@ public class BoardCatalogImpl implements BoardCatalog {
 	@Autowired
 	private ReplyDao replyDao;
 	
-	public List<Board> getBoardListAndReplyCount() {
-		return boardDao.getBoardListAndReplyCount();
+	public List<Board> getBoardListAndReplyCount(Pagination pagination) {
+		return boardDao.getBoardListAndReplyCount(pagination);
+	}
+	
+	public Integer getBoardCount() {
+		return boardDao.getBoardCount();
 	}
 
 	public Board selectBoard(String board_id) {
@@ -66,4 +71,5 @@ public class BoardCatalogImpl implements BoardCatalog {
 	public List<Board> getBoardListRecent(Integer count) {
 		return boardDao.getBoardListRecent(count);
 	}
+
 }

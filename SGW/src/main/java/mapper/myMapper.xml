@@ -138,8 +138,14 @@
   </update>
 	
 	<!-- SM_NOTICE -->
-	<select id="getNoticeList" resultType="model.Notice">
-		select * from SM_NOTICE ORDER BY notice_date_regist DESC
+	<select id="getNoticeList" resultType="model.Notice" parameterType="model.Pagination">
+		select notice_id, notice_title, notice_writer_name, notice_date_regist
+    from (
+        select notice_id, notice_title, notice_writer_name, notice_date_regist, 
+            row_number() over(order by notice_id desc) as rNum
+        from SM_NOTICE
+    ) mb
+    where rNum between #{startIndex} and #{endIndex}
 	</select>
 	<insert id="writeNotice" parameterType="model.Notice">
 		insert into SM_NOTICE (
@@ -229,24 +235,35 @@
 		ORDER BY B.BOARD_ID DESC
 	</select>
   
-  <select id="getBoardListAndReplyCount" resultType="model.Board">
-    SELECT
-      BOARD_ID,
-      BOARD_TITLE,
-      BOARD_WRITER_NAME,
-      BOARD_DATE_REGIST,
-      (SELECT COUNT(*) FROM SM_REPLY WHERE SM_BOARD.BOARD_ID = SM_REPLY.PARENT_BOARD_ID) AS REPLY_COUNT 
-    FROM
-      SM_BOARD
-    ORDER BY BOARD_ID DESC
-  </select>
-	
+<!--   <select id="getBoardListAndReplyCount" resultType="model.Board"> -->
+<!--     SELECT -->
+<!--       BOARD_ID, -->
+<!--       BOARD_TITLE, -->
+<!--       BOARD_WRITER_NAME, -->
+<!--       BOARD_DATE_REGIST, -->
+<!--       (SELECT COUNT(*) FROM SM_REPLY WHERE SM_BOARD.BOARD_ID = SM_REPLY.PARENT_BOARD_ID) AS REPLY_COUNT  -->
+<!--     FROM -->
+<!--       SM_BOARD -->
+<!--     ORDER BY BOARD_ID DESC -->
+<!--   </select> -->
+  <select id="getBoardListAndReplyCount" resultType="model.Board" parameterType="model.Pagination">
+    SELECT BOARD_ID, BOARD_TITLE, BOARD_WRITER_NAME, BOARD_DATE_REGIST, (SELECT COUNT(*) FROM SM_REPLY WHERE BOARD_ID = PARENT_BOARD_ID) AS REPLY_COUNT 
+      from(
+          SELECT BOARD_ID, BOARD_TITLE, BOARD_WRITER_NAME, BOARD_DATE_REGIST, (SELECT COUNT(*) FROM SM_REPLY WHERE BOARD_ID = PARENT_BOARD_ID) AS REPLY_COUNT,
+              row_number() over(order by BOARD_ID desc) as rNum
+          from SM_BOARD
+      ) mb
+    where rNum between #{startIndex} and #{endIndex}
+	</select>
 	<select id="selectBoard" parameterType="Integer" resultType="model.Board">
 		select * from SM_BOARD where board_id = #{board_id}
 	</select>
 	<select id="getBoardListRecent" parameterType="Integer" resultType="model.Board" >
 		select  * from (SELECT * FROM SM_BOARD ORDER BY BOARD_DATE_REGIST DESC) WHERE ROWNUM <![CDATA[ <= ]]> 3
-	</select> 	
+	</select>
+  <select id="getBoardCount" resultType="Integer">
+    select count(board_id) from SM_BOARD
+  </select> 	
 	
 	
 	<!-- SM_REPLY -->
@@ -390,8 +407,61 @@
 			 #{document_attached_file_name}
 	 	)
   </insert>
-  <select id="getElecDocumentList" resultType="model.ElecDocument">
-    select * from SM_ELEC_DOCUMENT ORDER BY FIRST_APPROVAL_DATE DESC
+  <select id="getElecDocumentList" resultType="model.ElecDocument" parameterType="model.Pagination">
+    select 
+      rNum,
+      document_id,
+      document_title,
+      document_content,
+      first_id,
+      first_name,
+      first_status,
+      first_approval_date,
+      second_id,
+      second_name,
+      second_status,
+      second_approval_date,
+      third_id,
+      third_name,
+      third_status,
+      third_approval_date,
+      fourth_id,
+      fourth_name,
+      fourth_status,
+      fourth_approval_date,
+      final_id,
+      final_name,
+      final_status,
+      final_approval_date,
+      document_attached_file_name
+    from (select
+          document_id,
+          document_title,
+          document_content,
+          first_id,
+          first_name,
+          first_status,
+          first_approval_date,
+          second_id,
+          second_name,
+          second_status,
+          second_approval_date,
+          third_id,
+          third_name,
+          third_status,
+          third_approval_date,
+          fourth_id,
+          fourth_name,
+          fourth_status,
+          fourth_approval_date,
+          final_id,
+          final_name,
+          final_status,
+          final_approval_date,
+          document_attached_file_name,
+          row_number() over ( order by first_approval_date desc ) as rNum 
+      from SM_ELEC_DOCUMENT) mb
+      where rNum between #{startIndex} and #{endIndex}
   </select>
   <select id="selectElecDocument" parameterType="String" resultType="model.ElecDocument">
     select * from SM_ELEC_DOCUMENT where document_id = #{document_id}
@@ -404,10 +474,9 @@
     or final_status = 'onProcessing' and final_id = #{user_id}
     ORDER BY FIRST_APPROVAL_DATE DESC
   </select>
-  <select id="selectCompletedDocumentList" parameterType="String" resultType="model.ElecDocument">
-    select * from SM_ELEC_DOCUMENT 
-    where final_status = 'completed'
-    ORDER BY FIRST_APPROVAL_DATE DESC
+  <select id="selectCompletedDocumentList" parameterType="model.Pagination" resultType="model.ElecDocument" >
+    select rownum, x.* from (select a.* from SM_ELEC_DOCUMENT a where final_status = 'completed' order by a.document_id desc) x 
+    where rownum between #{startIndex} and #{endIndex} ORDER BY FIRST_APPROVAL_DATE DESC
   </select>
   
   <update id="approveSecondStatus">
@@ -442,6 +511,13 @@
     update SM_ELEC_DOCUMENT set final_status = 'rejected' , final_approval_date = #{time_stamp}
     where final_status = 'onProcessing' and final_id = #{user_id} and document_id = #{document_id}
   </update>
+  <select id="getElecDocumentCount" resultType="Integer">
+    select count(document_id) from sm_elec_document
+  </select>
+  <select id="getCompletedElecDocumentCount" resultType="Integer">
+    select count(document_id) from sm_elec_document where final_status = 'completed'
+  </select>
+  
   
   <!-- SM_ACCESS -->
   <select id="getSgwAccessList" resultType="model.SgwAccess">

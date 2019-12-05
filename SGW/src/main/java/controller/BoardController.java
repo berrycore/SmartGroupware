@@ -44,21 +44,22 @@ public class BoardController {
 
 	@RequestMapping(value="/board/NoticeListView.html")
 	public ModelAndView showNoticeList( @RequestParam(defaultValue="1") int curPage, HttpServletRequest request ) {
-		System.out.println("showNoticeList : GET ");
+		System.out.println("showNoticeList : GET : curPage="+curPage);
 		ModelAndView mav = new ModelAndView("main");
-		
-		Integer listCnt = noticeCatalog.getNoticeCount();
-		Pagination pagination = new Pagination();
-		
 		mav.addObject("BODY", "/home/board/NoticeListView.jsp");
 		
-		List<Notice> noticeList = noticeCatalog.getNoticeList();
+		Integer listCnt = noticeCatalog.getNoticeCount();
+		Pagination pagination = new Pagination(listCnt , curPage);
+		
+		
+		List<Notice> noticeList = noticeCatalog.getNoticeList(pagination);
+		System.out.println(" pagination + " + pagination);
+		System.out.println(" noticeList + " + noticeList);
 		
 		if( noticeList.isEmpty()) {
 			mav.addObject("noResult", "yes");
 			return mav;
 		}else {
-			mav.addObject("listCnt", listCnt);
 			mav.addObject("pagination", pagination);
 			mav.addObject("noticeList", noticeList);
 			return mav;
@@ -205,13 +206,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/TeamBoardListView.html")
-	public ModelAndView showTeamBoardList() {
+	public ModelAndView showTeamBoardList( @RequestParam(defaultValue="1") int curPage, HttpServletRequest request) {
 		System.out.println("showTeamBoardList");
 		ModelAndView mav = new ModelAndView("main");
-//		mav.setViewName("home/board");
+
+		Integer listCnt = boardCatalog.getBoardCount();
+		Pagination pagination = new Pagination( listCnt, curPage);
 		
-		List<Board> boardList = boardCatalog.getBoardListAndReplyCount();
+		List<Board> boardList = boardCatalog.getBoardListAndReplyCount(pagination);
 		System.out.println(boardList);
+		mav.addObject("pagination", pagination);
 		mav.addObject("boardList", boardList);
 		mav.addObject("BODY", "/home/board/TeamBoardListView.jsp");
 		return mav;

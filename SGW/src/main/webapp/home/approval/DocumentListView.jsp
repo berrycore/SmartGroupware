@@ -18,6 +18,10 @@
         var option = "width = 550, height = 550, top = 100, left = 200, location = no"
         window.open(url, name, option);
     }
+    
+    function fn_paging(curPage){
+        location.href="/approval/getElecDocumentList.html?curPage="+curPage;
+    }
 </script>
 
 <title><spring:message code="sgw.document.listview" /></title>
@@ -28,7 +32,12 @@
 	
 		<div class="w3-card-4">	
 			<header class="w3-container">
-		  	<h1><spring:message code="sgw.document.listview"/></h1>
+        <nav class="navbar navbar-expand-sm w3-dark-gray navbar-dark">
+          <div class="row">
+            <h1><spring:message code="sgw.document.listview"/></h1>
+          </div>
+        </nav>
+        
 			</header>
 			<div class="w3-container">
 		
@@ -62,19 +71,26 @@
 				            </tbody>
 				            <tfoot>
 				              <tr>
-				                <td colspan="5">
-				                  <!-- pagination -->
-				                  <div class="w3-bar">
-														<div class="w3-bar w3-border w3-round">
-							 								<a href="#" class="w3-button">&#10094; Previous</a>
-							 								<a href="#" class="w3-button">1</a>
-														  <a href="#" class="w3-button">2</a>
-														  <a href="#" class="w3-button">3</a>
-														  <a href="#" class="w3-button">4</a>
-														  <a href="#" class="w3-button">5</a>
-							 								<a href="#" class="w3-button w3-right">Next &#10095;</a>
-														</div>
-													</div>
+				                <td colspan="5">            
+                          <!-- pagination -->
+                            <div class="w3-bar w3-border w3-round">
+                              <c:if test="${pagination.curPage ne 1 }">
+                                <a href="#" onClick="fn_paging('${pagination.prevPage  }')" class="w3-button">&#10094; Previous</a>  
+                              </c:if>
+                              <c:forEach  var="pageNum" begin="${pagination.startPage }" end="${pagination.endPage }">
+                                <c:choose>
+                                  <c:when test="${pageNum eq pagination.curPage }">
+                                    <span style="font-weight: bold;"><a href="#" onClick="fn_paging('${pageNum }')" class="w3-button">${pageNum }</a></span>
+                                  </c:when>
+                                  <c:otherwise>
+                                    <a href="#" onClick="fn_paging('${pageNum }')" class="w3-button">${pageNum }</a>
+                                  </c:otherwise>
+                                </c:choose>
+                              </c:forEach>
+                              <c:if test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt > 0 }">
+                                <a href="#" onClick="fn_paging('${pagination.nextPage }')" class="w3-button w3-right">Next &#10095;</a>  
+                              </c:if>
+                          </div>
 				                </td>
 				              </tr>
 				            </tfoot>

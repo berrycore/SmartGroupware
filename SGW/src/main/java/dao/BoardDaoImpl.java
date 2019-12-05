@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.Board;
+import model.Pagination;
 import util.Utils;
 
 @Repository
@@ -15,8 +16,8 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private SqlSession session;
 
-	public List<Board> getBoardListAndReplyCount() {
-		return session.selectList("mapper.myMapper.getBoardListAndReplyCount");
+	public List<Board> getBoardListAndReplyCount(Pagination pagination) {
+		return session.selectList("mapper.myMapper.getBoardListAndReplyCount", pagination);
 	}
 
 	public Board selectBoard(String board_id) {
@@ -42,6 +43,10 @@ public class BoardDaoImpl implements BoardDao {
 
 	public List<Board> getBoardListRecent(Integer count) {
 		return session.selectList("mapper.myMapper.getBoardListRecent", count);
+	}
+
+	public Integer getBoardCount() {
+		return session.selectOne("mapper.myMapper.getBoardCount");
 	}
 
 }

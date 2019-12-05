@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import model.DocumentSign;
 import model.ElecDocument;
+import model.Pagination;
 import model.User;
 import util.Utils;
 
@@ -17,8 +18,8 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 	@Autowired
 	private SqlSession session;
 
-	public List<ElecDocument> getElecDocumentList() {
-		return session.selectList("mapper.myMapper.getElecDocumentList");
+	public List<ElecDocument> getElecDocumentList(Pagination pagination) {
+		return session.selectList("mapper.myMapper.getElecDocumentList" , pagination);
 	}
 
 	public ElecDocument selectElecDocument(String document_id) {
@@ -100,8 +101,17 @@ public class ElecDocumentDaoImpl implements ElecDocumentDao {
 		return session.selectList("mapper.myMapper.selectProcessingDocumentList", user_id);
 	}
 
-	public List<ElecDocument> selectCompletedDocumentList(String user_id) {
-		return session.selectList("mapper.myMapper.selectCompletedDocumentList", user_id);
+	public List<ElecDocument> selectCompletedDocumentList(Pagination pagination) {
+		System.out.println(pagination);
+		return session.selectList("mapper.myMapper.selectCompletedDocumentList", pagination);
+	}
+
+	public Integer getElecDocumentCount() {
+		return session.selectOne("mapper.myMapper.getElecDocumentCount");
+	}
+
+	public Integer getCompletedElecDocumentCount() {
+		return session.selectOne("mapper.myMapper.getCompletedElecDocumentCount");
 	}
 
 }

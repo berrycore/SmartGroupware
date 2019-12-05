@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.NoticeDao;
 import model.Notice;
+import model.Pagination;
 
 @Service
 public class NoticeCatalogImpl implements NoticeCatalog {
@@ -14,8 +15,8 @@ public class NoticeCatalogImpl implements NoticeCatalog {
 	@Autowired
 	private NoticeDao noticeDao;
 	
-	public List<Notice> getNoticeList() {
-		return noticeDao.getNoticeList();
+	public List<Notice> getNoticeList(Pagination pagination) {
+		return noticeDao.getNoticeList(pagination);
 	}
 
 	public Notice selectNotice(String notice_id) {
