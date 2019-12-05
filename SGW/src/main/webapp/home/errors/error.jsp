@@ -17,6 +17,7 @@
 <div align="center" style="padding-top: 50px">
 	<h1 >Error :(</h1>
 	<p>We are working hard to resolve it.</p>
+  <a href="http://www.berrycore.net/main.html">http://berrycore.net/</a>
 </div>
 
 
