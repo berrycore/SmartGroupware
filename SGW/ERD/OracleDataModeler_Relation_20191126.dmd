@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="OracleDataModeler_Relation_20191126" id="C6D8975B-8B97-62FC-F79E-89911FEECC82" version="3.5">
-<createdBy>ko2-029</createdBy>
-<createdTime>2019-11-12 00:47:05 UTC</createdTime>
-<ownerDesignName>OracleDataModeler_Relation_20191112</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>C6D8975B-8B97-62FC-F79E-89911FEECC82</designId>
-</OSDM_Design>
